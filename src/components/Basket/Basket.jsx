@@ -4,7 +4,7 @@ function Basket() {
     return (
         <div>
             <header>
-                <h1>Mamma mia - najlepsza pizza w mieście</h1>
+                <h1>Zamówienie</h1>
             </header>
         
         </div>

@@ -17,10 +17,15 @@
   display: flex;
 }
 
+.pizzaMaker {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
 .ingredient {
   display: flex;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 15px;
 }
  
 .ingredient p:last-child {
@@ -31,4 +36,5 @@
 .ingredients {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-column: 1/3;
 }
