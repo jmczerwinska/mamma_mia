@@ -29,7 +29,8 @@ function MakePizza(props) {
   }
 
   const changeSize = size => setBase(size);
-  const addPizza = () => {
+  
+  const findSize = () => {
     let size;
     switch (base) {
       case 600:
@@ -39,12 +40,15 @@ function MakePizza(props) {
         size = "Duża"
         break;
       default:
-        size ="Średnia"
+        size = "Średnia"
         break;
     }
-
+    return size;
+  }
+  
+  const addPizza = () => {
     const pizza = {
-      size: size,
+      size: findSize(),
       price: price,
       ingredients: []
     }
