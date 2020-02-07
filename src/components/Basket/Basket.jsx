@@ -2,11 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 function Basket(props) {
 
-    const [ order, setOrder ] = useState([]);
+    const [ basket, setBasket ] = useState([]);
+    
     useEffect(() => {
-        if(props.newPizza) setOrder(order => [...order, props.newPizza]);
+        if(props.newPizza) setBasket(basket => [...basket, props.newPizza]);
 
     }, [props.newPizza])
+
+    const [ fullPrice, setFullPrice ] = useState(0);
+
+    useEffect(() => {
+        setFullPrice(basket.reduce((sum, pizza) => sum + pizza.price, 0))
+    }, [basket])
+
 
     const showIngredients = (pizza) => {
         let nameArr = [];
@@ -15,17 +23,32 @@ function Basket(props) {
         return ingredientsList;
     }
 
+    const removePizza = (i) => {
+        const updateBasket = basket.filter((pizza, index) => index !== i);
+        setBasket(updateBasket);
+    }
+
     return (
-        <div className="order">
-            <h1>Zamówienie</h1>
-                {order.map((pizza, i) => {
-                    return (
-            <div key={i}>
-                <h4>
-                    {i+1}# {pizza.size} pizza
-                </h4>
-                <p>Dodatki: {showIngredients(pizza)}</p>
-            </div>)})}
+        <div className="basket">
+            <h2>Zamówienie</h2>
+            {basket.map((pizza, i) => {
+                return (
+                    <div key={i} className="basket-row">
+                        <div className="basket-head">
+                            <h4>
+                                {i+1}# {pizza.size} pizza - kompozycja własna
+                                &nbsp; | &nbsp;
+                                {(pizza.price/100).toFixed(2)} zł 
+                            </h4>
+                            <button onClick={() => removePizza(i)}>&times;</button> 
+                        </div>
+                        <p className="basket-info">Dodatki: {showIngredients(pizza)}</p>
+                    
+                </div>)
+                })
+            }
+            <h3>Do zapłaty: {(fullPrice/100).toFixed(2)} zł</h3>
+            <button>Zamów i zapłać</button>
         </div>
     );
 }
