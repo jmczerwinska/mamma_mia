@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from '../UI/Button';
 
 function Basket(props) {
 
@@ -28,10 +29,15 @@ function Basket(props) {
         setBasket(updateBasket);
     }
 
+    const finalOrder = () => {
+
+    }
+
     return (
         <div className="basket">
             <h2>Zamówienie</h2>
-            {basket.map((pizza, i) => {
+            {
+            basket.map((pizza, i) => {
                 return (
                     <div key={i} className="basket-row">
                         <div className="basket-head">
@@ -43,12 +49,12 @@ function Basket(props) {
                             <button onClick={() => removePizza(i)}>&times;</button> 
                         </div>
                         <p className="basket-info">Dodatki: {showIngredients(pizza)}</p>
-                    
-                </div>)
+                    </div>
+                )
                 })
             }
             <h3>Do zapłaty: {(fullPrice/100).toFixed(2)} zł</h3>
-            <button>Zamów i zapłać</button>
+            <Button title="Zamów" onSubmit={finalOrder} />
         </div>
     );
 }
