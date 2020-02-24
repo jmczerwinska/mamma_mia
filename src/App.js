@@ -11,14 +11,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Mamma mia - najlepsza pizza w mieście</h1>
-      </header>
+      
       <div className="content">
         <MakePizza pizzaSender={getPizza} />
         <Basket newPizza={pizza} /> 
       </div>
-      
       
     </div>
   );

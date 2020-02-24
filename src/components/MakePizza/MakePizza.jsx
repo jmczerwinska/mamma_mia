@@ -22,6 +22,19 @@ function MakePizza(props) {
   
   const getIngredients = ingredients => setIngredients(ingredients); 
   
+  const addPizza = () => {
+    const pizza = {
+      size: findSize(),
+      price: price,
+      ingredients: []
+    }
+
+    ingredients.forEach((el) => {if (el.checked) pizza.ingredients.push(el);});
+
+    props.pizzaSender(pizza);
+    resetPizza();
+  }
+
   const findSize = () => {
     let size;
     switch (base) {
@@ -37,19 +50,6 @@ function MakePizza(props) {
     }
     return size;
   }
-  
-  const addPizza = () => {
-    const pizza = {
-      size: findSize(),
-      price: price,
-      ingredients: []
-    }
-
-    ingredients.forEach((el) => {if (el.checked) pizza.ingredients.push(el);});
-
-    props.pizzaSender(pizza);
-    resetPizza();
-  }
 
   const resetPizza = () => {
     ingredients.forEach(el => el.price === 0 ? el.checked = true : el.checked = false);
@@ -62,8 +62,9 @@ function MakePizza(props) {
 			<h4>Cena: {(price / 100).toFixed(2)} zł</h4>
 			
       <SelectSize sizeSender={getSize} />
-		
-			<Button onSubmit={()=> addPizza()} title="Dodaj" />
+      <div>
+        <Button onSubmit={()=> addPizza()} title="Dodaj" /> 
+      </div>
 			
     	<SelectIngredients ingredientsSender={getIngredients} />
 

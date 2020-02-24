@@ -23,6 +23,7 @@ function IngredientsList(props) {
 
     return (
         <div className="ingredients">
+            <h4>Wybierz dodatki</h4>
             {ingredients.map((ingredient, i) => {
                 return (
                     <div className="ingredient-row" key={i}>
