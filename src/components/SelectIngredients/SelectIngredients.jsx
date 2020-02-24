@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Ingredients from '../../data.json';
+import Price from '../UI/Price';
+
 
 function IngredientsList(props) {
     
@@ -29,7 +31,7 @@ function IngredientsList(props) {
                     <div className="ingredient-row" key={i}>
                         <input type="checkbox" checked={ingredient.checked} onChange={() => ingredientChange(ingredient)} />
                         <p>{ingredient.name}</p>
-                        {ingredient.price === 0 ? <p>FREE</p> : <p>{(ingredient.price / 100).toFixed(2)} zł</p>}
+                        {ingredient.price === 0 ? <p>FREE</p> : <Price price={ingredient.price} />}
                     </div>
                 )
             })}

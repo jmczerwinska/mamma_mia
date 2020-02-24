@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';
 import Button from '../UI/Button';
+import Price from '../UI/Price';
+
 
 import Ingredients from '../../data.json';
 
@@ -59,7 +61,7 @@ function MakePizza(props) {
 	return (
 		<div className="pizza-maker">
 			<h2>Skomponuj własną pizzę</h2>
-			<h4>Cena: {(price / 100).toFixed(2)} zł</h4>
+			<h4>Cena: <Price price={price} /></h4>
 			
       <SelectSize sizeSender={getSize} />
       <div>

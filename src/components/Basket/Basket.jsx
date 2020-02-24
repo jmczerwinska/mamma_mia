@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Button from '../UI/Button';
 import { withRouter } from 'react-router-dom';
 import { ContextConsumer } from '../../index.js';
+import Price from '../UI/Price';
+
 
 function Basket(props) {
 
@@ -49,7 +51,7 @@ function Basket(props) {
                                     <h4>
                                         {i+1}# {pizza.size} pizza - kompozycja własna
                                         &nbsp; | &nbsp;
-                                        {(pizza.price/100).toFixed(2)} zł 
+                                        <Price price={pizza.price} /> 
                                     </h4>
                                     <button onClick={() => removePizza(i)}>&times;</button> 
                                 </div>
@@ -58,7 +60,7 @@ function Basket(props) {
                         )
                         })
                     }
-                    <h3>Do zapłaty: {(fullPrice/100).toFixed(2)} zł</h3>
+                    <h3>Do zapłaty: <Price price={fullPrice} /></h3>
                     <Button title="Zamów" onSubmit={() => finalOrder(context)} />
                 </div>   
             )}
