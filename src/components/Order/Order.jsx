@@ -1,10 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import Button from '../UI/Button';
+import { ContextConsumer } from '../../index.js';
 
 
-function Order () {
+function Order (props) {
+
+const backToMenu = () => {
+    props.history.push("/");
+}
+
     return (
-        <div>Zamówienie:</div>
+        <ContextConsumer>
+            
+            {context => (
+                <div>
+                    <h1>Zamówienie:</h1>
+                    <h2>{(context.basket /100).toFixed(2)} zł</h2>  
+                    <Button title="Wróć do zamówienia" onSubmit={backToMenu} />   
+                </div>
+                
+            )}
+            
+        </ContextConsumer>
+        
     )
 }
 
-export default Order;
+export default withRouter(Order);

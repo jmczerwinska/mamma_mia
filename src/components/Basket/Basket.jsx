@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../UI/Button';
+import { withRouter } from 'react-router-dom';
+import { ContextConsumer } from '../../index.js';
 
 function Basket(props) {
 
@@ -29,34 +31,41 @@ function Basket(props) {
         setBasket(updateBasket);
     }
 
-    const finalOrder = () => {
-
+    const finalOrder = (ctx) => {
+        ctx.refresh(fullPrice);
+        props.history.push("/order");
     }
 
     return (
-        <div className="basket">
-            <h2>Zamówienie</h2>
-            {
-            basket.map((pizza, i) => {
-                return (
-                    <div key={i} className="basket-row">
-                        <div className="basket-head">
-                            <h4>
-                                {i+1}# {pizza.size} pizza - kompozycja własna
-                                &nbsp; | &nbsp;
-                                {(pizza.price/100).toFixed(2)} zł 
-                            </h4>
-                            <button onClick={() => removePizza(i)}>&times;</button> 
-                        </div>
-                        <p className="basket-info">Dodatki: {showIngredients(pizza)}</p>
-                    </div>
-                )
-                })
-            }
-            <h3>Do zapłaty: {(fullPrice/100).toFixed(2)} zł</h3>
-            <Button title="Zamów" onSubmit={finalOrder} />
-        </div>
+        <ContextConsumer>
+            {context => (
+                <div className="basket">
+                    <h2>Zamówienie</h2>
+                    {
+                    basket.map((pizza, i) => {
+                        return (
+                            <div key={i} className="basket-row">
+                                <div className="basket-head">
+                                    <h4>
+                                        {i+1}# {pizza.size} pizza - kompozycja własna
+                                        &nbsp; | &nbsp;
+                                        {(pizza.price/100).toFixed(2)} zł 
+                                    </h4>
+                                    <button onClick={() => removePizza(i)}>&times;</button> 
+                                </div>
+                                <p className="basket-info">Dodatki: {showIngredients(pizza)}</p>
+                            </div>
+                        )
+                        })
+                    }
+                    <h3>Do zapłaty: {(fullPrice/100).toFixed(2)} zł</h3>
+                    <Button title="Zamów" onSubmit={() => finalOrder(context)} />
+                </div>   
+            )}
+           
+        </ContextConsumer>
+        
     );
 }
 
-export default Basket;
+export default withRouter(Basket);

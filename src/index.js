@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter } from 'react-router-dom';
 import './index.css';
@@ -6,18 +6,26 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Order from './components/Order/Order';
 
-
+const MyContext = createContext();
+export const ContextConsumer = MyContext.Consumer;
+const ContextProvider = MyContext.Provider;
 
 function Routing() {
+    const [ basket, setBasket ] = useState(0);
+    const refresh = dane => setBasket(dane);
+
     return (
         <BrowserRouter>
-            <header className="App-header">
-                <h1>Mamma Mia - najlepsza pizza w mieście</h1>
-            </header>
-            <div>
-                <Route exact path="/" component={App} />
-                <Route exact path="/order" component={Order} />
-            </div>
+            <ContextProvider value={{basket: basket, refresh: refresh}}>
+                <header className="App-header">
+                    <h1>Mamma Mia - najlepsza pizza w mieście</h1>
+                </header>
+                <div>
+                    <Route exact path="/" component={App} />
+                    <Route exact path="/order" component={Order} />
+                </div>   
+            </ContextProvider>
+            
         </BrowserRouter>
     )
 }
