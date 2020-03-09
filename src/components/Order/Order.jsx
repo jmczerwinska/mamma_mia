@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Button from '../UI/Button';
 import { ContextConsumer } from '../../index.js';
 import Price from '../UI/Price';
+import Header from '../Header/Header';
 
 
 
@@ -17,6 +18,7 @@ const backToMenu = () => {
             
             {context => (
                 <div>
+                    <Header />
                     <h1>Zamówienie:</h1>
                     <Price price={context.basket} />
                     <Button title="Wróć do zamówienia" onSubmit={backToMenu} />   

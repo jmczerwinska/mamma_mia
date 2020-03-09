@@ -6,7 +6,7 @@ import Button from '../UI/Button';
 import Price from '../UI/Price';
 
 
-import Ingredients from '../../data.json';
+import Ingredients from '../../data-ingredients.json';
 
 function MakePizza(props) {
 
@@ -67,7 +67,6 @@ function MakePizza(props) {
       <div>
         <Button onSubmit={()=> addPizza()} title="Dodaj" /> 
       </div>
-			
     	<SelectIngredients ingredientsSender={getIngredients} />
 
 		</div>

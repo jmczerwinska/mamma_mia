@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Ingredients from '../../data.json';
+import Ingredients from '/home/asia/Documents/git/mamma_mia/src/data-ingredients.json';
 import Price from '../UI/Price';
 
 

@@ -13,10 +13,6 @@
   color: white;
 }
 
-.content {
-  display: flex;
-  flex-direction: row;
-}
 
 .pizza-maker {
   flex-grow: 1;
