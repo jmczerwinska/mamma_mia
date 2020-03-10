@@ -1,13 +1,21 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import './Start.css';
+import Button from '../UI/Button.jsx';
 
-function Start () {
+function Start (props) {
+    const goToMenu = () => {
+        props.history.push("/menu");
+    }
+
+    const startCompose = () => props.history.push('/compose');
+
     return (
         <div className="container">
-            <button>Menu</button>
-            <button>Skomponuj</button>
+            <Button title="Menu" onSubmit={goToMenu} />
+            <Button title="Skomponuj" onSubmit={startCompose} />
         </div>
     )
 }
 
-export default Start;
+export default withRouter(Start);
