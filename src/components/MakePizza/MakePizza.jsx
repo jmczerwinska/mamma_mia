@@ -6,7 +6,7 @@ import Button from '../UI/Button';
 import Price from '../UI/Price';
 
 
-import Ingredients from '../../data-ingredients.json';
+import Ingredients from '../../data/ingredients';
 
 function MakePizza(props) {
 
