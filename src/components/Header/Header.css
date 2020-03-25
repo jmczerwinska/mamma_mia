@@ -1,6 +1,4 @@
-
 header {
-    height: 400px;
-    background-image: url("./small\ bg.png");
-    background-position: 0px -100px;
+    height: 40vh;
+    background: url("/assets/small-bg.png") no-repeat center/cover;
 }

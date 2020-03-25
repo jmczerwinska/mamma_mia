@@ -10,8 +10,6 @@ function SelectSize(props) {
         props.sizeSender(size);        
     }
 
-
-    console.log(props)
     return (
         <div className="selectSize">
             <h4>Wybierz rozmiar</h4>
