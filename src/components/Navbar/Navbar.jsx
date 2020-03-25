@@ -1,15 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
 
 
     return (
         <nav className='navbar'>
-            <ul className="navbar__menu">
-                <li>Menu</li>
-                <li>Skomponuj</li>
-                <li>Kontakt</li>
-            </ul>
+            <NavLink to="/menu">Menu</NavLink>
+            <NavLink to="/compose">Skomponuj</NavLink>
+            <NavLink to="/contact">Kontakt</NavLink>
         </nav>
     )
 }
