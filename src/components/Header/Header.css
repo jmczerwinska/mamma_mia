@@ -1,4 +1,5 @@
 header {
     height: 40vh;
-    background: url("/assets/small-bg.png") no-repeat center/cover;
+    background: url("/assets/small-bg.png") no-repeat center -110px/cover;
+
 }
