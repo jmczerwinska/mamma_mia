@@ -10,9 +10,9 @@ import Ingredients from '../../data/ingredients';
 
 function MakePizza(props) {
 
-  const [ ingredients, setIngredients ] = useState(Ingredients);
-  const [ price, setPrice ] = useState(0);
-  const [ base, setBase ] = useState(800);
+  const [ingredients, setIngredients] = useState(Ingredients);
+  const [price, setPrice] = useState(0);
+  const [base, setBase] = useState(800);
 
   useEffect(() => {
     setPrice(ingredients.reduce((sum, ingredient) => {
@@ -21,9 +21,9 @@ function MakePizza(props) {
   }, [base, ingredients])
 
   const getSize = base => setBase(base);
-  
-  const getIngredients = ingredients => setIngredients(ingredients); 
-  
+
+  const getIngredients = ingredients => setIngredients(ingredients);
+
   const addPizza = () => {
     const pizza = {
       size: findSize(),
@@ -31,7 +31,7 @@ function MakePizza(props) {
       ingredients: []
     }
 
-    ingredients.forEach((el) => {if (el.checked) pizza.ingredients.push(el);});
+    ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el)});
 
     props.pizzaSender(pizza);
     resetPizza();
@@ -58,19 +58,19 @@ function MakePizza(props) {
     setBase(800);
   }
 
-	return (
-		<div className="pizza-maker">
-			<h2>Skomponuj własną pizzę</h2>
-			<h4>Cena: <Price price={price} /></h4>
-			
-      <SelectSize sizeSender={getSize} />
-      <div>
-        <Button onSubmit={()=> addPizza()} title="Dodaj" /> 
-      </div>
-    	<SelectIngredients ingredientsSender={getIngredients} />
+  return (
+    <div className="pizza-maker">
+      <h2>Skomponuj własną pizzę</h2>
+      <h4>Cena: <Price price={price} /></h4>
 
-		</div>
-    );
+      <SelectSize sizeSender={getSize} />
+
+      <SelectIngredients ingredientsSender={getIngredients} />
+      <div>
+        <Button onSubmit={() => addPizza()} title="Dodaj" />
+      </div>
+    </div>
+  );
 }
 
 export default MakePizza;
