@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Order from './components/Order/Order';
 import Menu from './components/Menu/Menu'
-import Start from './components/Start/Start';
+import LandingPage from './components/LandingPage/LandingPage';
 
 const MyContext = createContext();
 export const ContextConsumer = MyContext.Consumer;
@@ -20,7 +20,7 @@ function Routing() {
         <BrowserRouter>
 
             <ContextProvider value={{basket: basket, refresh: refresh}}>
-                <Route exact path="/" component={Start} />
+                <Route exact path="/" component={LandingPage} />
                 <Route exact path="/menu" component={Menu} />
                 <Route exact path="/compose" component={App} />
                 <Route exact path="/order" component={Order} />

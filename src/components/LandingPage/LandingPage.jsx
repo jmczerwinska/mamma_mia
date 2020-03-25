@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import './Start.css';
+import './LandingPage.css';
 import Button from '../UI/Button.jsx';
 
 function Start (props) {
@@ -11,9 +11,10 @@ function Start (props) {
     const startCompose = () => props.history.push('/compose');
 
     return (
-        <div className="container">
-            <Button title="Menu" onSubmit={goToMenu} />
-            <Button title="Skomponuj" onSubmit={startCompose} />
+        <div className="start-page">
+            <img className="start-page__logo" src="" alt="logo" />
+            <Button className="start-page__button" title="Menu" onSubmit={goToMenu} />
+            <Button className="start-page__button" title="Skomponuj" onSubmit={startCompose} />
         </div>
     )
 }
