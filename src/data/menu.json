@@ -1,72 +1,72 @@
 [
     {
         "name": "Margarita",
-        "category": "rosa",
+        "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella"],
         "price" : {
-            "s": 210,
-            "m": 250,
-            "l": 290
+            "s": 21,
+            "m": 25,
+            "l": 29
         }
     },
     {
         "name": "Capriciosa",
-        "category": "rosa",
+        "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella", "szynka", "pieczarki"],
         "price": {
-            "s": 230,
-            "m": 290,
-            "l": 320
+            "s": 23,
+            "m": 29,
+            "l": 32
         }
     },
     {
         "name": "Pepperoni",
-        "category": "rosa",
+        "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella", "salami peperoni", "papryka peperoni", "czarne oliwki"],
         "price": {
-            "s": 240,
-            "m": 290,
-            "l": 330
+            "s": 24,
+            "m": 29,
+            "l": 33
         }
     },
     {
         "name": "Prosciutto",
-        "category": "rosa",
+        "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella", "prosciutto crudo", "rukola", "parmezan"],
         "price": {
-            "s": 250,
-            "m": 300,
-            "l": 330
+            "s": 25,
+            "m": 30,
+            "l": 33
         }
     },
     {
         "name": "Vegetariana",
-        "category": "rosa",
+        "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozzarella", "pieczarki", "cebula", "papryka", "oliwki", "kapary"],
         "price": {
-            "s": 230,
-            "m": 270,
-            "l": 300
+            "s": 23,
+            "m": 27,
+            "l": 30
         }
     },
     {
         "name": "Saporita",
-        "category": "bianco",
+        "category": "bianca",
         "ingredients": ["mozzarella", "pesto bazyliowe", "grillowany kurczak", "suszone pomidory"],
         "price": {
-            "s": 250,
-            "m": 290,
-            "l": 340
+            "s": 25,
+            "m": 29,
+            "l": 34
         }
     },
     {
         "name": "Spinaci",
-        "category": "bianco",
+        "category": "bianca",
         "ingredients": ["mozarella", "oliwa czosnkowa", "szpinak", "świeże pomidory"],
         "price": {
-            "s": 230,
-            "m": 260,
-            "l": 300
+            "s": 23,
+            "m": 26,
+            "l": 30
         }
     }
 ]
