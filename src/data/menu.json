@@ -4,9 +4,9 @@
         "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella"],
         "price" : {
-            "s": 21,
-            "m": 25,
-            "l": 29
+            "s": 2100,
+            "m": 2500,
+            "l": 2900
         }
     },
     {
@@ -14,9 +14,9 @@
         "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella", "szynka", "pieczarki"],
         "price": {
-            "s": 23,
-            "m": 29,
-            "l": 32
+            "s": 2300,
+            "m": 2900,
+            "l": 3200
         }
     },
     {
@@ -24,9 +24,9 @@
         "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella", "salami peperoni", "papryka peperoni", "czarne oliwki"],
         "price": {
-            "s": 24,
-            "m": 29,
-            "l": 33
+            "s": 2400,
+            "m": 2900,
+            "l": 3300
         }
     },
     {
@@ -34,9 +34,9 @@
         "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozarella", "prosciutto crudo", "rukola", "parmezan"],
         "price": {
-            "s": 25,
-            "m": 30,
-            "l": 33
+            "s": 2500,
+            "m": 3000,
+            "l": 3300
         }
     },
     {
@@ -44,9 +44,9 @@
         "category": "rossa",
         "ingredients": ["sos pomidorowy", "mozzarella", "pieczarki", "cebula", "papryka", "oliwki", "kapary"],
         "price": {
-            "s": 23,
-            "m": 27,
-            "l": 30
+            "s": 2300,
+            "m": 2700,
+            "l": 3000
         }
     },
     {
@@ -54,9 +54,9 @@
         "category": "bianca",
         "ingredients": ["mozzarella", "pesto bazyliowe", "grillowany kurczak", "suszone pomidory"],
         "price": {
-            "s": 25,
-            "m": 29,
-            "l": 34
+            "s": 2500,
+            "m": 2900,
+            "l": 3400
         }
     },
     {
@@ -64,9 +64,9 @@
         "category": "bianca",
         "ingredients": ["mozarella", "oliwa czosnkowa", "szpinak", "świeże pomidory"],
         "price": {
-            "s": 23,
-            "m": 26,
-            "l": 30
+            "s": 2300,
+            "m": 2600,
+            "l": 3000
         }
     }
 ]
