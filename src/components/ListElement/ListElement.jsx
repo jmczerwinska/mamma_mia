@@ -3,7 +3,7 @@ import Price from '../UI/Price';
 import { ContextConsumer } from '../..';
 
 function ListElement({pizza, i}) {
-    const [selected, setSelected] = useState(['średnia']);
+    const [selected, setSelected] = useState('średnia');
 
     const addPizza = context => {
         const newPizza = {
@@ -27,7 +27,7 @@ function ListElement({pizza, i}) {
     }
 
     return (
-        <li key={i}>
+        <li>
             <h4>{pizza.name}</h4>
             <p>{pizza.ingredients.join(', ')}</p>
             <select value={selected} onChange={e => setSelected(e.target.value)}>

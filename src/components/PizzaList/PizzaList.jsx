@@ -5,7 +5,7 @@ function PizzaList({ list }) {
 
     return (
         <ol>
-            {list.map((pizza, i) => <ListElement pizza={pizza} i={i} />)}
+            {list.map((pizza, i) => <ListElement pizza={pizza} key={i} />)}
         </ol>
     )
 }

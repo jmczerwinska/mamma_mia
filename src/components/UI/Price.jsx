@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Price(props) {
-return <p className="price">{(props.price / 100).toFixed(2)} zł</p>
+return <span className="price">{(props.price / 100).toFixed(2)} zł</span>
 }
 
 export default Price;
