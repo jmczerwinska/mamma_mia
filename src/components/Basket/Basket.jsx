@@ -34,7 +34,7 @@ function Basket(props) {
     }
 
     const finalOrder = (ctx) => {
-        ctx.refresh(fullPrice);
+        ctx.refresh(basket);
         props.history.push("/order");
     }
 

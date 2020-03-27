@@ -64,11 +64,11 @@ function MakePizza(props) {
       <h4>Cena: <Price price={price} /></h4>
 
       <SelectSize sizeSender={getSize} />
-
-      <SelectIngredients ingredientsSender={getIngredients} />
-      <div>
+<div>
         <Button onSubmit={() => addPizza()} title="Dodaj" />
       </div>
+      <SelectIngredients ingredientsSender={getIngredients} />
+      
     </div>
   );
 }
