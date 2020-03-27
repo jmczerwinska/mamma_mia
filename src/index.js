@@ -1,13 +1,11 @@
 import React, { createContext, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter } from 'react-router-dom';
-import './index.css';
-import App from './App';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import Order from './components/Order/Order';
-import Menu from './components/Menu/Menu';
+import './index.css';
+
+import App from './App';
 import LandingPage from './components/LandingPage/LandingPage';
-import MakePizza from './components/MakePizza/MakePizza';
 
 const MyContext = createContext();
 export const ContextConsumer = MyContext.Consumer;
@@ -15,24 +13,16 @@ const ContextProvider = MyContext.Provider;
 
 function Routing() {
     const [basket, setBasket] = useState([]);
-    const refresh = data => setBasket([...basket, data]);
-    const [pizza, setPizza] = useState(null);
-
-    const getPizza = pizza => setPizza(pizza);
-
+    const refresh = data => setBasket(data);
+  
     return (
         <BrowserRouter>
-
             <ContextProvider value={{ basket: basket, refresh: refresh }}>
-                <Route exact path="/" component={LandingPage} />
-                <App pizza={pizza}>
-                    <Route exact path="/menu" component={Menu} />
-                    <Route exact path="/compose" render={(props) => <MakePizza {...props} pizzaSender={getPizza}/>} />
-                    <Route exact path="/order" component={Order} />
-                </App>
-
+                <Switch>
+                    <Route exact path="/" component={LandingPage} />
+                    <Route path='/' component={App} />
+                </Switch>
             </ContextProvider>
-
         </BrowserRouter>
     )
 }
