@@ -7,6 +7,7 @@ import Price from '../UI/Price';
 
 
 import Ingredients from '../../data/ingredients';
+import { ContextConsumer } from '../..';
 
 function MakePizza(props) {
 
@@ -24,16 +25,17 @@ function MakePizza(props) {
 
   const getIngredients = ingredients => setIngredients(ingredients);
 
-  const addPizza = () => {
+  const addPizza = (context) => {
     const pizza = {
       size: findSize(),
       price: price,
       ingredients: []
     }
 
-    ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el)});
+    ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el) });
+    context.basket.push(pizza);
+    console.log(context.basket);
 
-    props.pizzaSender(pizza);
     resetPizza();
   }
 
@@ -64,11 +66,16 @@ function MakePizza(props) {
       <h4>Cena: <Price price={price} /></h4>
 
       <SelectSize sizeSender={getSize} />
-<div>
-        <Button onSubmit={() => addPizza()} title="Dodaj" />
+      <div>
+        <ContextConsumer>
+          {
+            context => <Button onSubmit={() => addPizza(context)} title="Dodaj" />
+          }
+        </ContextConsumer>
       </div>
+
       <SelectIngredients ingredientsSender={getIngredients} />
-      
+
     </div>
   );
 }
