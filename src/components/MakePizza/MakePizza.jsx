@@ -27,6 +27,7 @@ function MakePizza(props) {
 
   const addPizza = (context) => {
     const pizza = {
+      name: 'Kompozycja własna',
       size: findSize(),
       price: price,
       ingredients: []
@@ -43,13 +44,13 @@ function MakePizza(props) {
     let size;
     switch (base) {
       case 600:
-        size = "Mała"
+        size = "mała"
         break;
       case 1000:
-        size = "Duża"
+        size = "duża"
         break;
       default:
-        size = "Średnia"
+        size = "średnia"
         break;
     }
     return size;

@@ -42,13 +42,16 @@ function Order(props) {
                                 <div key={i} className="basket-row">
                                     <div className="basket-head">
                                         <h4>
-                                            {i + 1}# {pizza.size} pizza - kompozycja własna
+                                            {i + 1}# {pizza.name} - {pizza.size} pizza
                                         &nbsp; | &nbsp;
                                         <Price price={pizza.price} />
                                         </h4>
                                         <button onClick={() => removePizza(context, i)}>&times;</button>
                                     </div>
-                                    <p className="basket-info">Dodatki: {showIngredients(pizza)}</p>
+                                    { pizza.ingredients!== undefined ?
+                                        <p className="basket-info">Dodatki: {showIngredients(pizza)}</p> : null
+                                    }
+                                    
                                 </div>
                             )
                         })

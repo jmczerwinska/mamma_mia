@@ -1,28 +1,13 @@
 import React from 'react';
+import ListElement from '../ListElement/ListElement';
 
-function PizzaList ({ list, onSubmit }) {
-   
+function PizzaList({ list }) {
+
     return (
         <ol>
-        { list.map((pizza, i) => (
-                <li key={i}>
-                    <h4>{pizza.name}</h4>
-                    <p>{pizza.ingredients.join(', ')}</p>
-                    <select>
-                        <option value='s'>
-                            Mała {pizza.price.s} zł
-                        </option>
-                        <option value='m'>Średnia {pizza.price.m} zł</option>
-                        <option value='l'>Duża {pizza.price.l} zł</option>
-                    </select>
-                    <button onClick={onSubmit}>Dodaj</button>
-                </li>
-
-            ))
-
-        }
+            {list.map((pizza, i) => <ListElement pizza={pizza} i={i} />)}
         </ol>
     )
 }
 
-export default PizzaList
+export default PizzaList;
