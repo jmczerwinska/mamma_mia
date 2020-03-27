@@ -4,20 +4,14 @@ import MakePizza from './components/MakePizza/MakePizza';
 import Basket from './components/Basket/Basket';
 import Header from './components/Header/Header';
 
-function App() {
-  const [ pizza, setPizza ] = useState(null);
-
-  const getPizza = pizza => setPizza(pizza);
+function App({children, pizza}) {
 
   return (
     <div className="App">
-      
-      <div className="content">
-        <Header />
-        <MakePizza pizzaSender={getPizza} />
-        <Basket newPizza={pizza} /> 
-      </div>
-      
+      <Header />
+      <Basket newPizza={pizza} />
+      {children}
+
     </div>
   );
 }
