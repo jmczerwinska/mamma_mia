@@ -1,5 +1,5 @@
 import React from 'react';
-import './Menu.css';
+import './Menu.scss';
 import menuCart from '../../data/menu';
 import PizzaList from '../PizzaList/PizzaList'
 import { Link } from 'react-router-dom';

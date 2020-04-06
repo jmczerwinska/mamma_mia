@@ -4,7 +4,7 @@ import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import Logo from './logo-mini.png';
-import './Header.css';
+import './Header.scss';
 
 function Header() {
 
