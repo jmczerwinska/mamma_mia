@@ -1,12 +1,20 @@
 import React from 'react';
 
+// import Logo from './Logo.png';
 import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
+import Logo from './logo-mini.png';
 import './Header.css';
 
-function Header(){
+function Header() {
 
     return (
         <header className="header">
+            <Link to="/">
+                <img src={Logo} alt="home link" />
+            </Link>
+
+
             <Navbar />
         </header>
     )
