@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Button from '../UI/Button';
 import { ContextConsumer } from '../../index.js';
 import Price from '../UI/Price';
 
@@ -57,9 +56,9 @@ function Order(props) {
                         })
                     }
                     <h3>Do zapłaty: <Price price={fullPrice(context)} /></h3>
-                    <Button title="Zamów" onSubmit={() => nextStep()} />
-                    {console.log(context.basket)}
-                    <Button title="Wróć do zamówienia" onSubmit={backToMenu} />
+                    <button onClick={backToMenu}>Wróć do menu</button>
+                    <button onClick={nextStep}>Zamów</button>
+                    
                 </div>
 
             )}
