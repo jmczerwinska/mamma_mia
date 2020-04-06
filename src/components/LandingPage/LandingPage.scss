@@ -1,58 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import "../../sass/variable.scss";
+
 .start-page {
     height: 100vh;
-    background: url('/assets/full-bg.jpg') no-repeat center/cover;
+    background: url("/assets/full-bg.jpg") no-repeat center/cover;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
-.title__logo {
-    margin: 10px;
-    width: 60%;
-    max-width: 500px;
+.title {
     position: relative;
-}
+    margin: 2% 0 20% 2%;
 
-.title__subtitle {
-    position: absolute;
-    margin: -15px 0 10px 30%;
-    width: 62%;
-    font-size: 15px;
-    font-weight: 300;
-    font-style: italic;
-    font-family: 'Source Sans Pro', sans-serif;
-    text-align: left;
-    padding: 3px 0 3px 8%;
-    background-color:  rgba(242, 242, 242, 0.82);
-    border-radius: 25px 0 0 25px;
+    .title__logo {
+        margin: 10px;
+        width: 58%;
+        max-width: 450px;
+    }
+
+    .title__subtitle {
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+        width: 62%;
+        font-size: 15px;
+        font-weight: 300;
+        font-style: italic;
+        font-family: $mainFont;
+        text-align: left;
+        padding: 3px 0 3px 8%;
+        background-color: $transpWhite;
+        border-radius: 25px 0 0 25px;
+    }
 }
 
 .btn-group {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 90vw;
+    justify-content: space-around;
+    width: 80%;
     max-width: 400px;
-    height: 200px;
-    margin: 10px auto;
+    height: 300px;
+    margin: 50px 10%;
 
-}
-.btn-group__button {
-    font-size: 20px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 20px 25px;
-    border: solid 5px #008037;
-    border-radius: 25px;
-    background-color: rgba(242, 242, 242, 0.82);
+    .btn-group__button {
+        font-size: 20px;
+        font-family: $mainFont;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 20px 25px;
+        border: solid 5px $green;
+        border-radius: 25px;
+        background-color: $transpWhite;
+
+        &:hover,
+        &:focus {
+            background-color: $white;
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
 }
 
-.btn-group__button:hover, .btn-group__button:focus {
-    background-color: rgba(242, 242, 242, 1);
-}
-
-.btn-group__button:active{
-    transform: scale(0.9);
-}
