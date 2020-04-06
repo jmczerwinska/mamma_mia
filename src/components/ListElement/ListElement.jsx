@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Price from '../UI/Price';
-import { ContextConsumer } from '../..';
+import AddPizzaButton from '../UI/AddPizzaButton';
 
-function ListElement({pizza, i}) {
+function ListElement({ pizza, i }) {
     const [selected, setSelected] = useState('średnia');
 
     const addPizza = context => {
@@ -36,12 +36,7 @@ function ListElement({pizza, i}) {
                 <option value='duża'>Duża</option>
             </select>
             <p>Cena: <Price price={findPrice()} /></p>
-            <ContextConsumer>
-                {context => (
-                   <button onClick={() => addPizza(context)}>Dodaj</button> 
-                )}
-            </ContextConsumer>
-            
+            <AddPizzaButton onSubmit={addPizza} />
         </li>
     )
 }

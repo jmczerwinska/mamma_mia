@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';
-import Button from '../UI/Button';
+import AddPizzaButton from '../UI/AddPizzaButton';
 import Price from '../UI/Price';
 
 
 import Ingredients from '../../data/ingredients';
-import { ContextConsumer } from '../..';
 
 function MakePizza(props) {
 
@@ -68,11 +67,7 @@ function MakePizza(props) {
 
       <SelectSize sizeSender={getSize} />
       <div>
-        <ContextConsumer>
-          {
-            context => <Button onSubmit={() => addPizza(context)} title="Dodaj" />
-          }
-        </ContextConsumer>
+      <AddPizzaButton onSubmit={addPizza} />
       </div>
 
       <SelectIngredients ingredientsSender={getIngredients} />
