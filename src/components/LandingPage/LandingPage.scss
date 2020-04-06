@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+.start-page {
+    height: 100vh;
+    background: url('/assets/full-bg.jpg') no-repeat center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title__logo {
+    margin: 10px;
+    width: 60%;
+    max-width: 500px;
+    position: relative;
+}
+
+.title__subtitle {
+    position: absolute;
+    margin: -15px 0 10px 30%;
+    width: 62%;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: left;
+    padding: 3px 0 3px 8%;
+    background-color:  rgba(242, 242, 242, 0.82);
+    border-radius: 25px 0 0 25px;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90vw;
+    max-width: 400px;
+    height: 200px;
+    margin: 10px auto;
+
+}
+.btn-group__button {
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 20px 25px;
+    border: solid 5px #008037;
+    border-radius: 25px;
+    background-color: rgba(242, 242, 242, 0.82);
+}
+
+.btn-group__button:hover, .btn-group__button:focus {
+    background-color: rgba(242, 242, 242, 1);
+}
+
+.btn-group__button:active{
+    transform: scale(0.9);
+}

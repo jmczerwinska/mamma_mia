@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import './index.css';
+import './index.scss';
 
 import App from './App';
 import LandingPage from './components/LandingPage/LandingPage';
