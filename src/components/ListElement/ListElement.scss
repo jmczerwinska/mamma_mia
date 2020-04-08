@@ -1,0 +1,28 @@
+@import "../../sass/variable.scss";
+
+.custom-select {
+    position: relative;
+    .custom-select__box {
+        width: 105px;
+        border-radius: 7px;
+        border: solid 1px $green;
+        display: inline-block;
+        .custom-select__select-size {
+            border: none;
+            border-radius: 25px;
+            margin-left: 3.25px;
+            padding: 7px 40px 7px 7px;
+            background: $white;
+            -webkit-appearance: none;
+            outline: none;
+            font-size: 15px;
+        }
+    }
+    .custom-select__arrow {
+        color: $green;
+        position: relative;
+        right: 25px;
+        vertical-align: text-bottom;
+        pointer-events: none;
+    }
+}
