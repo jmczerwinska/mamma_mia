@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Ingredients from '../../data/ingredients.json';
-import Price from '../UI/Price';
+import Price from '../Price/Price';
 
 
 function IngredientsList(props) {

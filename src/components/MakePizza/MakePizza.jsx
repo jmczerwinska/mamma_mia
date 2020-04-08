@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';
-import AddPizzaButton from '../UI/AddPizzaButton';
-import Price from '../UI/Price';
+import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
+import Price from '../Price/Price';
 
 
 import Ingredients from '../../data/ingredients';
