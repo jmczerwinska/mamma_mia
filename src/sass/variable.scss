@@ -1,3 +1,9 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+$mainFont: 'Source Sans Pro', sans-serif;
+$accentFont: 'Great Vibes', cursive;
+
 // colors
 $white: rgba(242, 242, 242, 1);
 $transpWhite: rgba(242, 242, 242, 0.82);
@@ -6,8 +12,3 @@ $green: rgba(0, 128, 55, 1);
 $black: rgba(22, 22, 22, 1);
 $lightgreen: rgba(169, 243, 73, 1);
 
-//fonts
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
-
-$mainFont: 'Source Sans Pro', sans-serif;
-$accentFont: 'Great Vibes', cursive;

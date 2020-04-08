@@ -9,18 +9,20 @@
 
 .title {
     position: relative;
-    margin: 2% 0 20% 2%;
+    // margin-bottom: 85px;
+    height: 60vh;
+    
 
     .title__logo {
         margin: 10px;
-        width: 58%;
-        max-width: 450px;
+        width: 50%;
+        max-width: 250px;
     }
 
     .title__subtitle {
         position: absolute;
-        bottom: -10px;
         right: 0;
+        top: 140px;
         width: 62%;
         font-size: 15px;
         font-weight: 300;
@@ -36,22 +38,23 @@
 .btn-group {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    width: 80%;
-    max-width: 400px;
-    height: 300px;
-    margin: 50px 10%;
+    justify-content: space-evenly;
+    max-width: 300px;
+    height: 30vh;
+    flex-grow: 1;
+    margin: 0 10%;
+    align-items: stretch;
 
     .btn-group__button {
         font-size: 20px;
         font-family: $mainFont;
         font-weight: 600;
         text-transform: uppercase;
-        padding: 20px 25px;
+        padding: 3% 0;
         border: solid 5px $green;
         border-radius: 25px;
         background-color: $transpWhite;
-
+         
         &:hover,
         &:focus {
             background-color: $white;
