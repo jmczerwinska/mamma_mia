@@ -27,15 +27,15 @@ function ListElement({ pizza, i }) {
     }
 
     return (
-        <li>
-            <h4>{pizza.name}</h4>
-            <p>{pizza.ingredients.join(', ')}</p>
-            <select value={selected} onChange={e => setSelected(e.target.value)}>
+        <li className="menu-el">
+            <h4 className="menu-el__name">{pizza.name}</h4>
+            <p className="menu-el__ingredients">{pizza.ingredients.join(', ')}</p>
+            <select className="menu-el__size" value={selected} onChange={e => setSelected(e.target.value)}>
                 <option value='mała'> Mała </option>
                 <option value='średnia'>Średnia</option>
                 <option value='duża'>Duża</option>
             </select>
-            <p>Cena: <Price price={findPrice()} /></p>
+            <p className="menu-el__price">Cena: <Price price={findPrice()} /></p>
             <AddPizzaButton onSubmit={addPizza} />
         </li>
     )
