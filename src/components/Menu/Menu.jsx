@@ -16,12 +16,9 @@ function Menu() {
     return (
         <div className="container">
             <h2>Menu</h2>
-            <h3>Pizza Rossa</h3>
-            <PizzaList list={rossa} />
-            <h3>Pizza Bianca</h3>
-            <PizzaList list={bianca} />
-            <p>Nie zanalazłeś pizzy na jaka masz ochotę? <Link to="/compose">Skomponuj własną!</Link></p>
-            
+            <PizzaList list={rossa} title="Pizza Rossa" />
+            <PizzaList list={bianca} title="Pizza Bianca"/>
+            <p>Nie zanalazłeś pizzy na jaka masz ochotę? <Link to="/compose">Skomponuj własną!</Link></p>  
         </div>
 
     )
