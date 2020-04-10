@@ -1,2 +1,45 @@
-@import '../../sass/variable.scss';
+@import "../../sass/variable.scss";
 
+.category {
+    .title {
+        height: auto;
+        margin-top: 2rem;
+        .title__name {
+            font-size: 35px;
+            font-family: $logoFont;
+            color: $red;
+            text-align: center;
+            letter-spacing: 0.2rem;
+            margin-top: 0;
+    
+        }
+        .title__ornament {
+            width: 80%;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+.menu {
+    margin: 0;
+    padding: 0;
+    counter-reset: li;
+    list-style-type: decimal;
+    .menu-el {
+        position: relative;
+        background-color: transparent;
+        z-index: 1;
+    }
+    .menu-el::before {
+        counter-increment: li;
+        content: counters(li, ".");
+        color: $transRed;
+        font-size: 110px;
+        font-family: $logoFont;
+        position: absolute;
+        z-index: 2;
+        left: -20px;
+        top: -35px;
+    }
+}
