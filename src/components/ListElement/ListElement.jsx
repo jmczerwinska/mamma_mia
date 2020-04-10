@@ -32,11 +32,13 @@ function ListElement({ pizza, i }) {
 
     return (
         <li className="menu-el">
-            <h4 className="menu-el__name">{pizza.name}</h4>
-            <p className="menu-el__ingredients">{pizza.ingredients.join(', ')}</p>
-            
+            <section className="info">
+                <h4 className="info__name">{pizza.name}</h4>
+                <p className="info__ingredients">{pizza.ingredients.join(', ')}</p>
+            </section>
+            <div className="size">
                 <div className="custom-select" >
-                    <select 
+                    <select
                         className="custom-select__select-size"
                         value={selected}
                         onChange={e => setSelected(e.target.value)}>
@@ -45,12 +47,14 @@ function ListElement({ pizza, i }) {
                         <option value='duża'>Duża</option>
                     </select>
                 </div>
-              
+
+              <Price price={findPrice()} />
+            </div>
+
             
-
-
-            <p className="menu-el__price">Cena: <Price price={findPrice()} /></p>
-            <AddPizzaButton onSubmit={addPizza} />
+              <AddPizzaButton onSubmit={addPizza} />  
+        
+            
         </li>
     )
 }
