@@ -6,9 +6,12 @@ import './index.scss';
 
 import App from './App';
 import LandingPage from './components/LandingPage/LandingPage';
-import Order from './components/Order/Order';
 import Menu from './components/Menu/Menu';
 import MakePizza from './components/MakePizza/MakePizza';
+import Order from './components/Order/Order';
+import Basket from './components/Basket/Basket';
+import Delivery from './components/Delivery/Delivery';
+import Summary from './components/Summary/Summary';
 
 const MyContext = createContext();
 export const ContextConsumer = MyContext.Consumer;
@@ -28,7 +31,13 @@ function Routing() {
                         <App>
                             <Route path="/menu" component={Menu} />
                             <Route path="/compose" component={MakePizza} />
-                            <Route path="/order" component={Order} />
+                            <Route path="/order">
+                                <Order>
+                                    <Route path="/order/basket" component={Basket} />
+                                    <Route path="/order/delivery" component={Delivery} />
+                                    <Route path="/order/summary" component={Summary} />
+                                </Order>
+                            </Route>
                         </App>
                     </Route>
                 </Switch>
