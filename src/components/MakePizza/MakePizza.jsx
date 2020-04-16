@@ -33,7 +33,8 @@ function MakePizza(props) {
     }
 
     ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el) });
-    context.basket.push(pizza);
+    context.refresh([...context.basket, pizza]);
+    // context.basket.push(pizza);
     console.log(context.basket);
 
     resetPizza();

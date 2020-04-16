@@ -15,8 +15,10 @@ function ListElement({ pizza, i }) {
             size: selected,
             price: findPrice()
         };
-        context.basket.push(newPizza);
-        console.log(context.basket);
+        context.refresh([...context.basket, newPizza]);
+        // context.basket.push(newPizza);
+        // context.countRefresh(context.basket);
+
         setSelected('średnia');
     }
     const findPrice = () => {
