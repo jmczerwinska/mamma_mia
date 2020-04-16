@@ -1,13 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { ContextConsumer } from '../../index.js';
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 
 function Order({ children }) {
 
     return (
 
         <div>
-            <p>Koszyk > dostawa > posdumowanie</p>
+            <Breadcrumbs/>
             <ContextConsumer>
                 {context => context.basket.length <= 0
                     ? <p>twój koszyk jest pusty</p>
