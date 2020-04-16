@@ -26,15 +26,15 @@ function IngredientsList(props) {
     return (
         <div className="ingredients">
             <h4>Wybierz dodatki</h4>
-            {ingredients.map((ingredient, i) => {
-                return (
+            {ingredients.map(
+                (ingredient, i) => (
                     <div className="ingredient-row" key={i}>
                         <input type="checkbox" checked={ingredient.checked} onChange={() => ingredientChange(ingredient)} />
                         <p>{ingredient.name}</p>
                         {ingredient.price === 0 ? <p>FREE</p> : <Price price={ingredient.price} />}
                     </div>
                 )
-            })}
+            )}
         </div>
     )
 }
