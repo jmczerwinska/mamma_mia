@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Button from '../UI/Button';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { ContextConsumer } from '../../index.js';
-import Price from '../UI/Price';
+import Price from '../Price/Price';
 
 
 function Basket(props) {
 
-    const [ basket, setBasket ] = useState([]);
-    
-    useEffect(() => {
-        if(props.newPizza) setBasket(basket => [...basket, props.newPizza]);
-
-    }, [props.newPizza])
-
-    const [ fullPrice, setFullPrice ] = useState(0);
-
-    useEffect(() => {
-        setFullPrice(basket.reduce((sum, pizza) => sum + pizza.price, 0))
-    }, [basket])
-
+    const fullPrice = (context) => context.basket.reduce((sum, pizza) => sum + pizza.price, 0);
 
     const showIngredients = (pizza) => {
         let nameArr = [];
@@ -28,46 +15,51 @@ function Basket(props) {
         return ingredientsList;
     }
 
-    const removePizza = (i) => {
+    const removePizza = (context, i) => {
+        const { basket, refresh } = context;
         const updateBasket = basket.filter((pizza, index) => index !== i);
-        setBasket(updateBasket);
+        refresh(updateBasket);
     }
 
-    const finalOrder = (ctx) => {
-        ctx.refresh(basket);
-        props.history.push("/order");
-    }
+    const backToMenu = () => props.history.push("/menu");
+
+    const nextStep = () => props.history.push("/order/delivery");
 
     return (
         <ContextConsumer>
+
             {context => (
-                <div className="basket">
-                    <h2>Zamówienie</h2>
+                <div>
                     {
-                    basket.map((pizza, i) => {
-                        return (
-                            <div key={i} className="basket-row">
-                                <div className="basket-head">
-                                    <h4>
-                                        {i+1}# {pizza.size} pizza - kompozycja własna
+                        context.basket.map((pizza, i) => {
+                            return (
+                                <div key={i} className="basket-row">
+                                    <div className="basket-head">
+                                        <h4>
+                                            {i + 1}# {pizza.name} - {pizza.size} pizza
                                         &nbsp; | &nbsp;
-                                        <Price price={pizza.price} /> 
-                                    </h4>
-                                    <button onClick={() => removePizza(i)}>&times;</button> 
+                                        <Price price={pizza.price} />
+                                        </h4>
+                                        <button onClick={() => removePizza(context, i)}>&times;</button>
+                                    </div>
+                                    {pizza.ingredients !== undefined ?
+                                        <p className="basket-info">Dodatki: {showIngredients(pizza)}</p> : null
+                                    }
+
                                 </div>
-                                <p className="basket-info">Dodatki: {showIngredients(pizza)}</p>
-                            </div>
-                        )
+                            )
                         })
                     }
-                    <h3>Do zapłaty: <Price price={fullPrice} /></h3>
-                    <Button title="Zamów" onSubmit={() => finalOrder(context)} />
-                </div>   
+                    <h3>Do zapłaty: <Price price={fullPrice(context)} /></h3>
+                    <button onClick={backToMenu}>Wróć do menu</button>
+                    <button onClick={nextStep}>Dalej</button>
+
+                </div>
+
             )}
-           
+
         </ContextConsumer>
-        
-    );
+    )
 }
 
 export default withRouter(Basket);
