@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 
-function Delivery() {
+function Delivery({history}) {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -11,14 +12,15 @@ function Delivery() {
     const [comment, setComment] = useState('');
 
     const collectDeliveryData = () => {
-        return {
-            firstName,
-            lastName,
-            street,
-            buildingNumber,
-            localNumber,
-            comment
-        }
+        // const data = {
+        //     firstName,
+        //     lastName,
+        //     street,
+        //     buildingNumber,
+        //     localNumber,
+        //     comment
+        // }
+        history.push("/order/summary");
     }
 
     return (
@@ -41,4 +43,4 @@ function Delivery() {
 
 }
 
-export default Delivery;
+export default withRouter(Delivery);
