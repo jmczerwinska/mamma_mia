@@ -1,10 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { ContextConsumer } from '../../index.js';
 import Price from '../Price/Price';
 
 
-function Basket(props) {
+function Basket({  history }) {
 
     const fullPrice = (context) => context.basket.reduce((sum, pizza) => sum + pizza.price, 0);
 
@@ -20,10 +20,6 @@ function Basket(props) {
         const updateBasket = basket.filter((pizza, index) => index !== i);
         refresh(updateBasket);
     }
-
-    const backToMenu = () => props.history.push("/menu");
-
-    const nextStep = () => props.history.push("/order/delivery");
 
     return (
         <ContextConsumer>
@@ -51,8 +47,9 @@ function Basket(props) {
                         })
                     }
                     <h3>Do zapłaty: <Price price={fullPrice(context)} /></h3>
-                    <button onClick={backToMenu}>Wróć do menu</button>
-                    <button onClick={nextStep}>Dalej</button>
+  
+                    <button onClick={() => history.push("/menu")}>Wróć do menu</button>
+                    <button onClick={() => history.push("delivery")}>Dalej</button>
 
                 </div>
 
