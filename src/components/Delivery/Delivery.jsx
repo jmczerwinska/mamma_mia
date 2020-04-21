@@ -12,14 +12,15 @@ function Delivery({history}) {
     const [comment, setComment] = useState('');
 
     const collectDeliveryData = () => {
-        // const data = {
-        //     firstName,
-        //     lastName,
-        //     street,
-        //     buildingNumber,
-        //     localNumber,
-        //     comment
-        // }
+        const data = {
+            firstName,
+            lastName,
+            street,
+            buildingNumber,
+            localNumber,
+            comment
+        };
+        console.log(data);
         history.push("/order/summary");
     }
 
