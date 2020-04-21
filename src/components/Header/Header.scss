@@ -1,5 +1,9 @@
 header {
     height: 50vh;
     background: url("/assets/small-bg.png") no-repeat center 65%/cover;
+    display: flex;
+    .navbar {
+        flex-grow: 1;
+    }
 
 }
