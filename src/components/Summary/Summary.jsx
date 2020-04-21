@@ -1,7 +1,13 @@
 import React from 'react';
+import Timer from '../Timer/Timer';
 
 function Summary() {
-    return (<p>this is summary</p>)
+    return (
+        <div>
+            <p>Dziękujemy za złożenie zamówienia!</p>
+            <Timer deliveryTime={124} />
+        </div>
+    )
 
 }
 
