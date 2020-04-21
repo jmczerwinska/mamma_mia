@@ -1,0 +1,33 @@
+@import '../../sass/variable.scss';
+
+.basket-btn {
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    margin: 0;
+    background-color: transparent;
+     position: relative;
+    &:focus {
+        border: solid 1px $lightgreen;
+        border-radius: 5px;
+        outline: none;
+    }
+    .basket-btn__icon {
+        font-size: 40px;
+        color: $green;
+       
+    }
+    .basket-btn__counter {
+        background-color: $red;
+        font-family: $mainFont;
+        color: $white;
+        height: 15px;
+        width: 15px;
+        padding: 1px;
+        border-radius: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+    }
+}

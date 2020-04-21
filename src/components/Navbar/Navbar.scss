@@ -1,7 +1,15 @@
 @import '../../sass/variable.scss';
 
 .navbar {
-    height: 75px;
+    height: 70px;
     background-color: $transpWhite;
     display: flex;
+    justify-content: space-around;
+    .navbar__logo {
+        flex-grow: 1;
+    }
+    .navbar__menu {
+        display: none;
+        // flex-grow: 2;
+    }
 }
