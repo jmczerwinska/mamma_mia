@@ -1,0 +1,57 @@
+@import "../../sass/variable.scss";
+
+@mixin line {
+    width: 100%;
+    height: 5px;
+    border-radius: 25px;
+    background-color: $green;
+    position: absolute;
+    left: 0;
+}
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    margin: 0;
+    background-color: transparent;
+    &:focus {
+        border: solid 1px $lightgreen;
+        border-radius: 5px;
+        outline: none;
+    }
+    .hamburger__box {
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+        position: relative;
+    }
+}
+
+.hamburger__line {
+    @include line;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    &::after,
+    &::before {
+        @include line;
+        content: "";
+    }
+
+    &::before {
+        top: 15px;
+    }
+    &::after {
+        top: -15px;
+    }
+}
+
+.hamburger--active {
+    .hamburger__line {
+        transform: translateX(100px);
+        background-color: transparent;
+    }
+}
