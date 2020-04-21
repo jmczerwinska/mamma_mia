@@ -34,8 +34,8 @@ function Delivery({history}) {
                 <input type="text" placeholder="Nr budynku*" onChange={e => setBuildingNumber(e.target.value)}required />
                 <input text="text" placeholder="Nr lokalu" onChange={e => setLocalNumber(e.target.value)} />
             </fieldset>
-            <label>Komentarz do zamówienia
-                <textarea onChange={e => setComment(e.target.value)}>Tu wpisz swoje uwagi do zamówienia</textarea>
+            <label>Komentarz
+                <textarea onChange={e => setComment(e.target.value)} placeholder="Tu wpisz uwagi dotyczące zamówienia..."/>
             </label>
             <button>Zamów</button>
         </form>
