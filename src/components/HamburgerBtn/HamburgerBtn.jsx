@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 import './HamburgerBtn.scss';
 
-function HamburgerBtn({ toggleMenu }) {
-    const [additionalClass, setAdditionalClass] = useState('');
-
-    const onClick = () => {
-        toggleMenu();
-        setAdditionalClass(additionalClass==='' ? ' hamburger--active' : '');
-    }
+function HamburgerBtn({ toggleMenu, activeClass }) {
 
     return (
-        <button className={`hamburger${additionalClass}`} onClick={onClick}>
+        <button className={`hamburger${activeClass}`} onClick={toggleMenu}>
             <span className="hamburger__box">
                 <span className="hamburger__line"></span>
             </span>
