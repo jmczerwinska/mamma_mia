@@ -3,18 +3,14 @@
 .basket-btn {
     display: inline-block;
     cursor: pointer;
-    padding: 15px;
+    padding: 10px;
     border: none;
     margin: 0;
     background-color: transparent;
-     position: relative;
-    &:focus {
-        border: solid 1px $lightgreen;
-        border-radius: 5px;
-        outline: none;
-    }
+    position: relative;
+    
     .basket-btn__icon {
-        font-size: 40px;
+        font-size: 45px;
         color: $green;
        
     }
