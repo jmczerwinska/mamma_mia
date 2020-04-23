@@ -55,10 +55,10 @@
         background-color: transparent;
 
         &::before {
-            transform: translateY(-15px) rotate(135deg);
+            transform: translateY(-15px) rotate(-45deg);
         }
         &::after {
-            transform: translateY(15px) rotate(-135deg);
+            transform: translateY(15px) rotate(45deg);
         }
     }
 }
