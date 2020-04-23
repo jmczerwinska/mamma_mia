@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './HamburgerBtn.scss';
 
 function HamburgerBtn({ toggleMenu }) {
+    const [additionalClass, setAdditionalClass] = useState('');
+
+    const onClick = () => {
+        toggleMenu();
+        setAdditionalClass(additionalClass==='' ? ' hamburger--active' : '');
+    }
+
     return (
-        <button className="hamburger" onClick={toggleMenu}>
+        <button className={`hamburger${additionalClass}`} onClick={onClick}>
             <span className="hamburger__box">
-                <span className="hamburger__line first"></span>
                 <span className="hamburger__line"></span>
-                <span className="hamburger__line last"></span>
             </span>
         </button>
     )

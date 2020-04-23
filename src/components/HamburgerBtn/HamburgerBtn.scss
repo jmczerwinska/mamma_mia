@@ -18,9 +18,8 @@
     background-color: transparent;
     z-index: 11;
     &:focus {
-        border: solid 1px $lightgreen;
         border-radius: 5px;
-        outline: none;
+        outline-color: $lightgreen;
     }
     .hamburger__box {
         height: 45px;
@@ -32,14 +31,15 @@
 
 .hamburger__line {
     @include line;
-
     top: 50%;
     transform: translateY(-50%);
+    transition: background-color 0.2s easy-in-out 0.2s;
 
     &::after,
     &::before {
         @include line;
         content: "";
+        transition: transform 0.2s ease-in-out;
     }
 
     &::before {
@@ -52,7 +52,13 @@
 
 .hamburger--active {
     .hamburger__line {
-        transform: translateX(100px);
         background-color: transparent;
+
+        &::before {
+            transform: translateY(-15px) rotate(135deg);
+        }
+        &::after {
+            transform: translateY(15px) rotate(-135deg);
+        }
     }
 }
