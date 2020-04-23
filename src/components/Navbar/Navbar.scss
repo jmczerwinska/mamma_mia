@@ -5,6 +5,10 @@
     background-color: $transpWhite;
     display: flex;
     justify-content: space-around;
+    padding-left: 10px;
+    .navigation__link{
+        outline-color: $lightgreen;
+    }
     .navbar__logo {
         flex-grow: 1;
     }
