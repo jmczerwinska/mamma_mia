@@ -23,10 +23,36 @@
     .navigation {
         height: 100vh;
         width: 100%;
-        background-color: $transpWhite;
+        background-color: $white;
         position: absolute;
         z-index: 10;
         left: 0;
+        
+        .navigation__list {
+            height: 40vh;
+            padding: 0;
+            margin-top: 70px;
+            padding-top: 20px;
+            padding-left: 50px;
+            border-top: solid 3px $green;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .navigation__link {
+                color: $green;
+                line-height: 70px;
+                letter-spacing: 0.2rem;
+                font-size: 2rem;
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 10px;
+                
+            }
+            .navigation__link--active{
+                    border-left: solid 5px $lightgreen;
+                }
+        }
     }
 }
 
