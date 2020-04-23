@@ -33,7 +33,7 @@ function Navbar() {
     })
 
     return (
-        <nav className={`navbar${scroll ? ' scroll': ''}`}>
+        <nav className={`navbar${scroll ? ' navbar--scroll': ''}`}>
             <div className="navbar__logo">
                 <NavLink className="navigation__link" to="/" >
                     <img src={Logo} alt="home link" />
