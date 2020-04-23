@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './ListElement.scss';
 
-import Price from '../Price/Price';
 import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 
 
@@ -16,8 +15,6 @@ function ListElement({ pizza, i }) {
             price: findPrice()
         };
         context.refresh([...context.basket, newPizza]);
-        // context.basket.push(newPizza);
-        // context.countRefresh(context.basket);
 
         setSelected('średnia');
     }
@@ -38,25 +35,30 @@ function ListElement({ pizza, i }) {
                 <h4 className="info__name">{pizza.name}</h4>
                 <p className="info__ingredients">{pizza.ingredients.join(', ')}</p>
             </section>
-            <div className="size">
+
+            <div className="select-pizza">
                 <div className="custom-select" >
                     <select
                         className="custom-select__select-size"
                         value={selected}
                         onChange={e => setSelected(e.target.value)}>
-                        <option value='mała'> Mała </option>
-                        <option value='średnia'>Średnia</option>
-                        <option value='duża'>Duża</option>
+                        <option value='mała'>
+                            Mała | &#8960; 21cm | {(pizza.price.s / 100).toFixed(2)} zł
+                    </option>
+                        <option value='średnia'>
+                            Średnia | &#8960; 30cm | {(pizza.price.m / 100).toFixed(2)} zł
+                    </option>
+                        <option value='duża'>
+                            Duża | &#8960; 42cm | {(pizza.price.l / 100).toFixed(2)} zł
+                    </option>
                     </select>
                 </div>
 
-              <Price price={findPrice()} />
+                <AddPizzaButton onSubmit={addPizza} />
             </div>
 
-            
-              <AddPizzaButton onSubmit={addPizza} />  
-        
-            
+
+
         </li>
     )
 }
