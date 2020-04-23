@@ -8,8 +8,11 @@
     .navbar__logo {
         flex-grow: 1;
     }
-    .navbar__menu {
-        display: none;
-        // flex-grow: 2;
+    .navigation {
+        height: 100vh;
+        width: 100%;
+        background-color: $white;
+        position: absolute;
+        z-index: 10;
     }
 }
