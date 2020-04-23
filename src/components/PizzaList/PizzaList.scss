@@ -34,7 +34,7 @@
     .menu-el::before {
         counter-increment: li;
         content: counters(li, ".");
-        color: $transRed;
+        color: $transpRed;
         font-size: 110px;
         font-family: $logoFont;
         position: absolute;
