@@ -34,6 +34,7 @@ $fa-font-path: "/assets/webfonts";
         letter-spacing: 0.1rem;
         margin: 0.5rem 0;
     }
+
     .info__ingredients {
         font-style: italic;
         font-size: 15px;
@@ -43,7 +44,6 @@ $fa-font-path: "/assets/webfonts";
 
 .custom-select {
     width: 90%;
-
     display: inline-block;
     position: relative;
 
@@ -60,6 +60,7 @@ $fa-font-path: "/assets/webfonts";
         margin-right: 14px;
         pointer-events: none;
     }
+
     &:active {
         &::after {
             content: fa-content($fa-var-chevron-up);
@@ -85,5 +86,67 @@ $fa-font-path: "/assets/webfonts";
     &:hover,
     &:focus {
         border-color: $lightgreen;
+    }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 481px) {
+    .menu-el {
+        .select-pizza {
+            flex-direction: row;
+            align-items: center;
+        }
+        .add-btn {
+            width: 35%;
+        }
+        .custom-select {
+            width: 57%;
+        }
+    }
+}
+
+@media screen and (min-width: 780px) {
+    .menu-el {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .info {
+            width: 100%;
+            margin-right: 1rem;
+        }
+        .select-pizza {
+            flex-direction: column;
+            align-content: space-between;
+
+            .custom-select {
+                width: 100%;
+            }
+            .add-btn {
+                width: 100%;
+                margin: 8px 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .menu-el {
+        width: 80%;
+        align-items: flex-start;
+        .info {
+            width: 90%;
+            margin-right: 2rem;
+        }
+        .select-pizza {
+            flex-direction: row;
+            align-items: center;
+            .add-btn {
+                width: 35%;
+            }
+            .custom-select {
+                width: 57%;
+            }
+        }
     }
 }
