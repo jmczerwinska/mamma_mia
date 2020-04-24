@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
 import { ContextConsumer } from '../../index.js';
 import Price from '../Price/Price';
 

@@ -1,6 +1,8 @@
 import React from 'react';
+
 import ListElement from '../ListElement/ListElement';
 import ornament from './ornament.png';
+
 import './PizzaList.scss';
 
 

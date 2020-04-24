@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import './HamburgerBtn.scss';
 
 function HamburgerBtn({ toggleMenu, activeClass }) {
