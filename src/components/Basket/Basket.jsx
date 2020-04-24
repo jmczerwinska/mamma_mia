@@ -5,7 +5,7 @@ import { ContextConsumer } from '../../index.js';
 import Price from '../Price/Price';
 
 
-function Basket({  history }) {
+function Basket({ history }) {
 
     const fullPrice = (context) => context.basket.reduce((sum, pizza) => sum + pizza.price, 0);
 
@@ -24,11 +24,13 @@ function Basket({  history }) {
 
     return (
         <ContextConsumer>
-
-            {context => (
-                <div>
-                    {
-                        context.basket.map((pizza, i) => {
+            {context => context.basket.length <= 0
+                ? (<div>
+                    <p>twój koszyk jest pusty</p>
+                    <button>Zamów pizzę!</button>
+                    </div>)
+                : (<div>
+                    {context.basket.map((pizza, i) => {
                             return (
                                 <div key={i} className="basket-row">
                                     <div className="basket-head">
@@ -42,19 +44,17 @@ function Basket({  history }) {
                                     {pizza.ingredients !== undefined ?
                                         <p className="basket-info">Dodatki: {showIngredients(pizza)}</p> : null
                                     }
-
                                 </div>
                             )
                         })
                     }
                     <h3>Do zapłaty: <Price price={fullPrice(context)} /></h3>
-  
+
                     <button onClick={() => history.push("/menu")}>Wróć do menu</button>
-                    <button onClick={() => history.push("delivery")}>Dalej</button>
+                    <button onClick={() => history.push("/order/delivery")}>Dalej</button>
 
-                </div>
-
-            )}
+                </div>)
+            }
 
         </ContextConsumer>
     )
