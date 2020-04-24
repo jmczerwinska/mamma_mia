@@ -1,6 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+
+import { ContextConsumer } from '../..';
 
 function Delivery({history}) {
 
@@ -11,7 +12,7 @@ function Delivery({history}) {
     const [localNumber, setLocalNumber] = useState('');
     const [comment, setComment] = useState('');
 
-    const collectDeliveryData = () => {
+    const collectDeliveryData = (context) => {
         const data = {
             firstName,
             lastName,
@@ -21,11 +22,16 @@ function Delivery({history}) {
             comment
         };
         console.log(data);
+        context.refresh([]);
+
         history.push("/order/summary");
     }
 
     return (
-        <form onSubmit={collectDeliveryData}>
+        <ContextConsumer>
+            {
+                context => (
+                     <form onSubmit={() => collectDeliveryData(context)}>
             <fieldset>
                 <input name="first-name" type="text" placeholder="Imię*" onChange={e => setFirstName(e.target.value)} required />
                 <input name="last-name" type="text" placeholder="Nazwisko*" onChange={e => setLastName(e.target.value)} required />
@@ -40,6 +46,11 @@ function Delivery({history}) {
             </label>
             <button>Zamów</button>
         </form>
+                )
+            }
+           
+        </ContextConsumer>
+        
     )
 
 }
