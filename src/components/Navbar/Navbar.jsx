@@ -25,14 +25,20 @@ function Navbar() {
     const [scroll, setScroll] = useState(0)
 
     useEffect(() => {
-        const height = (window.innerHeight / 2) - 70;
-        document.addEventListener("scroll", () => {
-            const scrollCheck = window.scrollY > height
+        const scrollHandler = () => {
+            const height = (window.innerHeight / 2) - 70; const scrollCheck = window.scrollY > height
             if (scrollCheck !== scroll) {
                 setScroll(scrollCheck)
             }
-        })
-    }, [scroll])
+        }
+
+        document.addEventListener('scroll', scrollHandler);
+
+        return () => {
+            document.removeEventListener('scroll', scrollHandler)
+        };
+
+    }, [scroll, setScroll])
 
     return (
         <nav className={`navbar${scroll ? ' navbar--scroll' : ''}`}>
@@ -43,7 +49,11 @@ function Navbar() {
             </div>
 
             <BasketBtn />
-            <HamburgerBtn toggleMenu={toggleNavigation} activeClass={additionalClass} />
+
+            <HamburgerBtn 
+                toggleMenu={toggleNavigation} 
+                activeClass={additionalClass} />
+
             <Slide down
                 when={showNavigation}
                 duration={500}
@@ -79,8 +89,6 @@ function Navbar() {
                                 Kontakt
                             </NavLink>
                         </li>
-
-
                     </ul>
 
                 </div>
