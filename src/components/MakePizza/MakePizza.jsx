@@ -5,10 +5,10 @@ import SelectSize from '../SelectSize/SelectSize';
 import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 import Price from '../Price/Price';
 
-
 import Ingredients from '../../data/ingredients';
 
 function MakePizza(props) {
+  useEffect(() => window.scrollTo(0, 0), []);
 
   const [ingredients, setIngredients] = useState(Ingredients);
   const [price, setPrice] = useState(0);
