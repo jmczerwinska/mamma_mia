@@ -6,7 +6,7 @@ import './index.scss';
 
 import App from './App';
 import LandingPage from './components/LandingPage/LandingPage';
-import Menu from './components/Menu/Menu';
+import PizzaMenu from './components/PizzaMenu/PizzaMenu';
 import MakePizza from './components/MakePizza/MakePizza';
 import Order from './components/Order/Order';
 import Basket from './components/Basket/Basket';
@@ -29,7 +29,7 @@ function Routing() {
                     <Route exact path="/" component={LandingPage} />
                     <Route path='/'>
                         <App>
-                            <Route path="/menu" component={Menu} />
+                            <Route path="/menu" component={PizzaMenu} />
                             <Route path="/compose" component={MakePizza} />
                             <Route path="/order">
                                 <Order>

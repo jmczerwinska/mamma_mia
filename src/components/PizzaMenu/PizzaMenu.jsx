@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom';
 import menuCart from '../../data/menu';
 import PizzaList from '../PizzaList/PizzaList';
 
-import './Menu.scss';
+import './PizzaMenu.scss';
 
-function Menu({ history }) {
+function PizzaMenu({ history }) {
     useEffect(() => window.scrollTo(0,0), []);
 
     const bianca = [];
@@ -29,4 +29,4 @@ function Menu({ history }) {
     )
 }
 
-export default withRouter(Menu);
+export default withRouter(PizzaMenu);
