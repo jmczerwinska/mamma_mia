@@ -1,26 +1,7 @@
-@import "../../sass/variable.scss";
+@import '../../sass/variable.scss';
+@import '../../sass/mixins.scss';
 
 .add-btn {
-    font-size: 13px;
-    font-family: $mainFont;
-    letter-spacing: 1.5px;
-    border: none;
-    color: $white;
-    font-weight: 400;
-    text-transform: uppercase;
-    padding: 7px 12px;
-    border-radius: 25px;
-    background-color: $green;
-    outline: none;
+    @include standard-btn;
     max-width: 90%;
-
-    &:hover,
-    &:focus {
-        border: solid 3px $lightgreen;
-        padding: 4px 9px;
-    }
-
-    &:active {
-        transform: scale(0.9);
-    }
 }
