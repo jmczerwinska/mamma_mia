@@ -55,7 +55,7 @@
         border: solid 5px $green;
         border-radius: 25px;
         background-color: $transpWhite;
-        transition: background-color ease-in-out 0.8s;
+        transition: background-color 0.8s ease-in-out, transform 0.1s ease-in;
          
         &:hover,
         &:focus {
