@@ -19,7 +19,7 @@
     .navigation__link--active {
         border-bottom: solid 5px $lightgreen;
     }
-    & .navigation--mobile {
+    &.navigation--mobile {
         flex-direction: column;
         align-items: flex-start;
         border-top: solid 3px $green;
