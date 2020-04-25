@@ -23,7 +23,7 @@
     }
     .hamburger__box {
         height: 45px;
-        width:45px;
+        width: 45px;
         display: inline-block;
         position: relative;
     }
@@ -39,7 +39,7 @@
     &::before {
         @include line;
         content: "";
-        transition: transform 0.2s ease-in-out;
+        transition: top 0.1s 0.25s ease-in, transform 0.22ms ease-in-out;
     }
 
     &::before {
@@ -53,12 +53,16 @@
 .hamburger--active {
     .hamburger__line {
         background-color: transparent;
-
+        transform: rotate(225deg);
+        transition: transform 0.22s 0.12s ease-in-out;
         &::before {
-            transform: translateY(-15px) rotate(-45deg);
+            top: 0;
+            transition: top 0.1s ease-out;
         }
         &::after {
-            transform: translateY(15px) rotate(45deg);
+            top: 0;
+            transform: rotate(-90deg);
+            transition: bottom 0.1s ease-out, transform 0.22s 0.12s ease-in-out;
         }
     }
 }
