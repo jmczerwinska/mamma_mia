@@ -2,10 +2,12 @@ import React from 'react';
 
 import './HamburgerBtn.scss';
 
-function HamburgerBtn({ toggleMenu, activeClass }) {
+function HamburgerBtn({ toggleMenu, active }) {
 
     return (
-        <button className={`hamburger${activeClass}`} onClick={toggleMenu}>
+        <button 
+            className={`hamburger${active ? ' hamburger--active' : ''}`}
+            onClick={toggleMenu}>
             <span className="hamburger__box">
                 <span className="hamburger__line"></span>
             </span>
