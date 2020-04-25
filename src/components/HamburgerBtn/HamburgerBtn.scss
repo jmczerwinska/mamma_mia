@@ -39,7 +39,7 @@
     &::before {
         @include line;
         content: "";
-        transition: top 0.1s 0.25s ease-in, transform 0.22ms ease-in-out;
+        transition: top 0.1s 0.25s ease-in, transform 0.22s ease-in-out;
     }
 
     &::before {
