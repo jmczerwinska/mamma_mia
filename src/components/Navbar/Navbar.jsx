@@ -68,11 +68,17 @@ function Navbar() {
             <BasketBtn />
 
             {isMobile
-                    ? (<>
+                ? (
+                    <Navigation
+                        onLinkClick=''
+                        mobile={isMobile}
+                        links={links} />
+                )
+                : (
+                    <>
                         <HamburgerBtn
                             toggleMenu={toggleNavigation}
                             active={showNavigation} />
-
                         <Slide down
                             when={showNavigation}
                             duration={500}
@@ -84,11 +90,8 @@ function Navbar() {
                                     links={links} />
                             </div>
                         </Slide>
-                    </>)
-                    : (<Navigation
-                        onLinkClick={toggleNavigation}
-                        mobile={isMobile}
-                        links={links} />)
+                    </>
+                )
             }
 
 
