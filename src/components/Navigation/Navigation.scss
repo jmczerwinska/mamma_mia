@@ -14,7 +14,11 @@
         font-size: 1.5rem;
         text-transform: uppercase;
         text-decoration: none;
-        padding: 3px 10px;
+        margin: 3px 10px;
+        &--active,
+        &:hover {
+            border-bottom: solid 5px $lightgreen;
+        }
     }
     .navigation__link--active {
         border-bottom: solid 5px $lightgreen;
@@ -29,12 +33,15 @@
         .navigation__link {
             font-size: 2rem;
             letter-spacing: 0.2rem;
-            padding: 10px;
-        }
-        .navigation__link--active {
-            border-bottom: none;
-            border-left: solid 5px $lightgreen;
-            height: 40vh;
+            margin: 10px;
+            &--active {
+                border-bottom: none;
+                border-left: solid 5px $lightgreen;
+            }
         }
     }
+}
+
+@mixin activeLink($border) {
+    $border: solid 5px $lightgreen;
 }
