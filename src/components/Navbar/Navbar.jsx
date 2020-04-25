@@ -4,29 +4,46 @@ import { Slide } from 'react-reveal';
 
 import HamburgerBtn from '../HamburgerBtn/HamburgerBtn';
 import BasketBtn from '../BasketBtn/BasketBtn';
+import Navigation from '../Navigation/Navigation';
 import Logo from './logo-mini.png';
 
 import './Navbar.scss';
 
 function Navbar() {
+    const links = [
+        { name: 'Menu', path: '/menu' },
+        { name: 'Skomponuj', path: '/compose' },
+        { name: 'Komentarze', path: '/comments' },
+        { name: 'Kontakt', path: '/contact' }
+    ]
+
+    const [isMobile, setIsMobile] = useState(false);
     const [showNavigation, setShowNavigation] = useState(false);
-    const [additionalClass, setAdditionalClass] = useState('');
+    const [scroll, setScroll] = useState(0);
+
+    const onResize = () => {
+        setIsMobile(window.innerWidth < 800);
+        setShowNavigation(false);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
 
     const toggleNavigation = () => {
         !showNavigation ? setShowNavigation(true) : setShowNavigation(false);
-        setAdditionalClass(additionalClass === '' ? ' hamburger--active' : '');
     }
 
     useEffect(() => {
         showNavigation
             ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset'
-    }, [showNavigation]);
-
-    const [scroll, setScroll] = useState(0)
+    }, [showNavigation, isMobile]);
 
     useEffect(() => {
         const scrollHandler = () => {
-            const height = (window.innerHeight / 2) - 70; const scrollCheck = window.scrollY > height
+            const height = (window.innerHeight / 2) - 70;
+            const scrollCheck = window.scrollY > height
             if (scrollCheck !== scroll) {
                 setScroll(scrollCheck)
             }
@@ -50,49 +67,31 @@ function Navbar() {
 
             <BasketBtn />
 
-            <HamburgerBtn 
-                toggleMenu={toggleNavigation} 
-                activeClass={additionalClass} />
+            {isMobile
+                    ? (<>
+                        <HamburgerBtn
+                            toggleMenu={toggleNavigation}
+                            active={showNavigation} />
 
-            <Slide down
-                when={showNavigation}
-                duration={500}
-                collapse>
-                <div className="navigation">
-                    <ul className="navigation__list">
-                        <li>
-                            <NavLink
-                                className="navigation__link"
-                                activeClassName="navigation__link--active"
-                                to="/menu"
-                                aria-current="page"
-                                onClick={toggleNavigation}>
-                                Menu
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                className="navigation__link" activeClassName="navigation__link--active"
-                                to="/compose"
-                                aria-current="page"
-                                onClick={toggleNavigation}>
-                                Skomponuj
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                className="navigation__link"
-                                activeClassName="navigation__link--active"
-                                to="/contact"
-                                aria-current="page"
-                                onClick={toggleNavigation}>
-                                Kontakt
-                            </NavLink>
-                        </li>
-                    </ul>
+                        <Slide down
+                            when={showNavigation}
+                            duration={500}
+                            collapse>
+                            <div className="navigation-wrapper">
+                                <Navigation
+                                    onLinkClick={toggleNavigation}
+                                    mobile={isMobile}
+                                    links={links} />
+                            </div>
+                        </Slide>
+                    </>)
+                    : (<Navigation
+                        onLinkClick={toggleNavigation}
+                        mobile={isMobile}
+                        links={links} />)
+            }
 
-                </div>
-            </Slide>
+
         </nav>
     )
 }
