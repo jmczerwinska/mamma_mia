@@ -17,7 +17,7 @@ function Navbar() {
         { name: 'Kontakt', path: '/contact' }
     ]
 
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
     const [showNavigation, setShowNavigation] = useState(false);
     const [scroll, setScroll] = useState(0);
 
@@ -67,7 +67,7 @@ function Navbar() {
 
             <BasketBtn />
 
-            {isMobile
+            {!isMobile
                 ? (
                     <Navigation
                         onLinkClick=''
