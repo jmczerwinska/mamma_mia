@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Slide } from 'react-reveal';
+import { useScrollPosition, useWindowWidth } from '../../customHooks';
 
 import HamburgerBtn from '../HamburgerBtn/HamburgerBtn';
 import BasketBtn from '../BasketBtn/BasketBtn';
@@ -13,23 +14,20 @@ function Navbar() {
     const links = [
         { name: 'Menu', path: '/menu' },
         { name: 'Skomponuj', path: '/compose' },
-        { name: 'Komentarze', path: '/comments' },
+        { name: 'Opinie', path: '/comments' },
         { name: 'Kontakt', path: '/contact' }
     ]
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
-    const [showNavigation, setShowNavigation] = useState(false);
-    const [scroll, setScroll] = useState(0);
+    const headerHeight = (window.innerHeight / 2) - 70;
+    const scroll = useScrollPosition() > headerHeight;
+    
+    const isMobile = useWindowWidth() < 800;
 
-    const onResize = () => {
-        setIsMobile(window.innerWidth < 800);
-        setShowNavigation(false);
-    }
+    const [showNavigation, setShowNavigation] = useState(false);
 
     useEffect(() => {
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-    }, []);
+        setShowNavigation(false);
+    }, [isMobile]);
 
     const toggleNavigation = () => {
         !showNavigation ? setShowNavigation(true) : setShowNavigation(false);
@@ -38,24 +36,7 @@ function Navbar() {
     useEffect(() => {
         showNavigation
             ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset'
-    }, [showNavigation, isMobile]);
-
-    useEffect(() => {
-        const scrollHandler = () => {
-            const height = (window.innerHeight / 2) - 70;
-            const scrollCheck = window.scrollY > height
-            if (scrollCheck !== scroll) {
-                setScroll(scrollCheck)
-            }
-        }
-
-        document.addEventListener('scroll', scrollHandler);
-
-        return () => {
-            document.removeEventListener('scroll', scrollHandler)
-        };
-
-    }, [scroll, setScroll])
+    }, [showNavigation]);
 
     return (
         <nav className={`navbar${scroll ? ' navbar--scroll' : ''}`}>
@@ -93,8 +74,6 @@ function Navbar() {
                     </>
                 )
             }
-
-
         </nav>
     )
 }
