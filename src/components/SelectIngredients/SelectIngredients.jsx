@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import Ingredients from '../../data/ingredients.json';
-import Price from '../Price/Price';
+import './SelectIngredients.scss'
 
 
 function IngredientsList(props) {
-    
+
     const [ingredients, setIngredients] = useState([]);
 
     useEffect(() => {
@@ -25,17 +25,23 @@ function IngredientsList(props) {
     }
 
     return (
-        <div className="ingredients">
+        <div>
             <h4>Wybierz dodatki</h4>
-            {ingredients.map(
-                (ingredient, i) => (
-                    <div className="ingredient-row" key={i}>
-                        <input type="checkbox" checked={ingredient.checked} onChange={() => ingredientChange(ingredient)} />
-                        <p>{ingredient.name}</p>
-                        {ingredient.price === 0 ? <p>FREE</p> : <Price price={ingredient.price} />}
-                    </div>
-                )
-            )}
+            <div className="ingredients-list">
+                {ingredients.map(
+                    (ingredient, i) => (
+                        <div className="ingredient" key={i}>
+                            <input type="checkbox" checked={ingredient.checked} onChange={() => ingredientChange(ingredient)} />
+                            <p className="ingredient__name">
+                                {ingredient.name}
+                            </p>
+                            <p className="ingredient__price">
+                                {ingredient.price === 0 ? 'FREE' : (ingredient.price / 100).toFixed(2) + ' zł'}
+                            </p>
+                        </div>
+                    )
+                )}
+            </div>
         </div>
     )
 }

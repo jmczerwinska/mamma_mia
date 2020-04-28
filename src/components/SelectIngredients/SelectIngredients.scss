@@ -1,0 +1,40 @@
+@import "../../sass/variable.scss";
+
+.ingredients-list {
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 0 auto 20px auto;
+    max-width: 1600px;
+    .ingredient {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        p:last-child {
+            margin-left: auto;
+        }
+        .ingredient__name {
+            padding: 0 6px;
+        }
+    }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 480px) {
+    .ingredients-list {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (min-width: 780px) {
+    .ingredients-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .ingredients-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
