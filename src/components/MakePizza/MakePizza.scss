@@ -1,0 +1,42 @@
+@import '../../sass/variable.scss';
+@import '../../sass/mixins.scss';
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    .title {
+        font-size: 2rem;
+            font-family: $logoFont;
+            color: $red;
+            letter-spacing: 0.2rem;
+    }
+    .summary {
+        display: flex;
+        align-items: center;
+        max-width: 400px;
+        margin: 0 auto;
+        .price {
+            flex-grow: 1;
+        }
+        .add-btn {
+            flex-grow: 4;  
+        }
+    }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 780px) {
+    .container{
+        width: 95%;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .container {
+        width: 80%;       
+    }
+}
+
+
+

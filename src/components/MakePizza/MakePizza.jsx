@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';
 import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
-import Price from '../Price/Price';
 
 import Ingredients from '../../data/ingredients';
+import ornament from '../PizzaList/ornament.png';
+import './MakePizza.scss';
 
 function MakePizza(props) {
   useEffect(() => window.scrollTo(0, 0), []);
@@ -34,7 +35,6 @@ function MakePizza(props) {
 
     ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el) });
     context.refresh([...context.basket, pizza]);
-    // context.basket.push(pizza);
     console.log(context.basket);
 
     resetPizza();
@@ -62,17 +62,21 @@ function MakePizza(props) {
   }
 
   return (
-    <div className="pizza-maker">
-      <h2>Skomponuj własną pizzę</h2>
-      <h4>Cena: <Price price={price} /></h4>
-
-      <SelectSize sizeSender={getSize} />
-      <div>
-      <AddPizzaButton onSubmit={addPizza} />
+    <div className="container container--compose">
+      <div className="title">
+        <img
+          className="title__ornament"
+          src={ornament}
+          alt="ornament" />
+        <h3 className="title__name">Własna kompozycja</h3>
       </div>
 
+      <SelectSize sizeSender={getSize} />
       <SelectIngredients ingredientsSender={getIngredients} />
-
+      <div className="summary">
+        <h4 className="price">Cena: {(price / 100).toFixed(2)} zł</h4>
+        <AddPizzaButton onSubmit={addPizza} />
+      </div>   
     </div>
   );
 }
