@@ -1,26 +1,25 @@
 @import "../../sass/variable.scss";
 
-.category {
-    .title {
-        height: auto;
-        margin-top: 2rem;
-        .title__name {
-            font-size: 35px;
-            font-family: $logoFont;
-            color: $red;
-            text-align: center;
-            letter-spacing: 0.2rem;
-            margin-top: 0;
-    
-        }
-        .title__ornament {
-            width: 80%;
-            max-width: 500px;
-            display: block;
-            margin: 0 auto;
-        }
+.title {
+    height: auto;
+    margin-top: 2rem;
+    .title__name {
+        font-size: 2.2rem;
+        font-family: $logoFont;
+        font-weight: 400;
+        color: $red;
+        text-align: center;
+        letter-spacing: 0.2rem;
+        margin-top: 0;
+    }
+    .title__ornament {
+        width: 80%;
+        max-width: 500px;
+        display: block;
+        margin: 0 auto;
     }
 }
+
 .menu {
     margin: 0;
     padding: 0;
