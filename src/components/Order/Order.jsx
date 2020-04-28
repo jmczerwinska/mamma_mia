@@ -8,7 +8,7 @@ function Order({ children }) {
 
     return (
 
-        <div>
+        <div className="container container--order">
             <Breadcrumbs />
             {children}
         </div>

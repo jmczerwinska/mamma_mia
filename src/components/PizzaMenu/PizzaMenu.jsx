@@ -14,7 +14,7 @@ function PizzaMenu({ history }) {
     menuCart.map(el => el.category === 'rossa' ? rossa.push(el) : bianca.push(el));
 
     return (
-        <div className="container">
+        <div className="container container--menu">
             <PizzaList list={rossa} title="Pizza Rossa" />
             <PizzaList list={bianca} title="Pizza Bianca" />
             <div className="redirection">
