@@ -1,7 +1,9 @@
-@import '../../sass/variable.scss';
-@import '../../sass/mixins.scss';
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
 
 .add-btn {
     @include standard-btn;
     max-width: 90%;
+    height: 50px;
+    // margin: 10px auto;
 }
