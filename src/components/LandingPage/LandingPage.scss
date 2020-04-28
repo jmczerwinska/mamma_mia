@@ -7,19 +7,17 @@
     flex-direction: column;
 }
 
-.title {
+.hero {
     position: relative;
-    // margin-bottom: 85px;
     height: 60vh;
-    
 
-    .title__logo {
+    .hero__logo {
         margin: 10px;
         width: 50%;
         max-width: 250px;
     }
 
-    .title__subtitle {
+    .hero__subtitle {
         position: absolute;
         right: 0;
         top: 140px;
