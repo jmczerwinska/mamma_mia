@@ -1,4 +1,4 @@
-@import '../../sass/variable.scss';
+@import "../../sass/variable.scss";
 
 .sizes {
     display: flex;
@@ -15,21 +15,21 @@
 }
 
 .size {
-  width: 60px;
-  height: 60px;
-  margin:  auto 15px;
-  padding: 2px;
-  border-radius: 50%;
-  cursor: pointer;
-  &--600 {
-    height: 45px;
-    width: 45px;
-  }
-  &--1000 {
-    height: 75px;
-    width: 75px;
-  }
-   &--selected {
-    background-color: $red;
-  }
+    width: 60px;
+    height: 60px;
+    margin: auto 15px;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    &--600 {
+        height: 45px;
+        width: 45px;
+    }
+    &--1000 {
+        height: 75px;
+        width: 75px;
+    }
+    &--selected {
+        background-color: $red;
+    }
 }

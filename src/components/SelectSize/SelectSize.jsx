@@ -4,9 +4,9 @@ import './SelectSize.scss';
 
 function SelectSize(props) {
     const sizes = [
-        {name: "Mała", size: 600},
-        {name: "Średnia", size: 800},
-        {name: "Duża", size: 1000}
+        { name: "Mała", size: 600, diameter: 21},
+        {name: "Średnia", size: 800, diameter: 30},
+        {name: "Duża", size: 1000, diameter: 42}
     ]
     const [base, setBase] = useState(800);
 
@@ -28,7 +28,9 @@ function SelectSize(props) {
                             onClick={() => changeSize(el.size)}
                             src={`${process.env.PUBLIC_URL}assets/size.png`}
                             alt={`${el.name} pizza`} />
-                        <p className="size__name">{el.name}</p>
+                        <p className="size__name">
+                            {el.name} &#8960; {el.diameter}
+                        </p>
                     </section>
                 ))}
             </div>
