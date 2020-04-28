@@ -19,7 +19,7 @@ function Navbar() {
     ]
 
     const headerHeight = (window.innerHeight / 2) - 70;
-    const scroll = useScrollPosition() > headerHeight;
+    const isScrolled = useScrollPosition() > headerHeight;
     
     const isMobile = useWindowWidth() < 800;
 
@@ -30,7 +30,7 @@ function Navbar() {
     }, [isMobile]);
 
     const toggleNavigation = () => {
-        !showNavigation ? setShowNavigation(true) : setShowNavigation(false);
+        setShowNavigation(prevValue => !prevValue)
     }
 
     useEffect(() => {
@@ -39,7 +39,7 @@ function Navbar() {
     }, [showNavigation]);
 
     return (
-        <nav className={`navbar${scroll ? ' navbar--scroll' : ''}`}>
+        <nav className={`navbar${isScrolled ? ' navbar--scroll' : ''}`}>
             <div className="navbar__logo">
                 <NavLink className="navigation__link" to="/" >
                     <img src={Logo} alt="home link" />
