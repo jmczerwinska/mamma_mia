@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Logo from './logo-2.png';
+import Logo from './logo.png';
 import './LandingPage.scss';
 
 
