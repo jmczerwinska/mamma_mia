@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { ContextConsumer } from '../../index.js';
-import Price from '../Price/Price';
 
 
 function Basket({ history }) {
@@ -28,31 +27,30 @@ function Basket({ history }) {
                 ? (<div>
                     <p>twój koszyk jest pusty</p>
                     <button>Zamów pizzę!</button>
-                    </div>)
+                </div>)
                 : (<div>
                     {context.basket.map((pizza, i) => {
-                            return (
-                                <div key={i} className="basket-row">
-                                    <div className="basket-head">
-                                        <h4>
-                                            {i + 1}# {pizza.name} - {pizza.size} pizza
+                        return (
+                            <div key={i} className="basket-row">
+                                <div className="basket-head">
+                                    <h4>
+                                        {i + 1}# {pizza.name} - {pizza.size} pizza
                                         &nbsp; | &nbsp;
-                                        <Price price={pizza.price} />
-                                        </h4>
-                                        <button onClick={() => removePizza(context, i)}>&times;</button>
-                                    </div>
-                                    {pizza.ingredients !== undefined ?
-                                        <p className="basket-info">Dodatki: {showIngredients(pizza)}</p> : null
-                                    }
+                                    <p>{(pizza.price / 100).toFixed(2)}</p>
+                                    </h4>
+                                    <button onClick={() => removePizza(context, i)}>&times;</button>
                                 </div>
-                            )
-                        })
+                                {pizza.ingredients !== undefined ?
+                                    <p className="basket-info">Dodatki: {showIngredients(pizza)}</p> : null
+                                }
+                            </div>
+                        )
+                    })
                     }
-                    <h3>Do zapłaty: <Price price={fullPrice(context)} /></h3>
+                    <h3>Do zapłaty: {(fullPrice(context) / 100).toFixed(2)}</h3>
 
                     <button onClick={() => history.push("/menu")}>Wróć do menu</button>
                     <button onClick={() => history.push("/order/delivery")}>Dalej</button>
-
                 </div>)
             }
 
