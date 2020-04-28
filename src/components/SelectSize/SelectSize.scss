@@ -1,0 +1,35 @@
+@import '../../sass/variable.scss';
+
+.sizes {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-content: stretch;
+    max-width: 400px;
+}
+
+.size__name {
+    text-align: center;
+}
+
+.size {
+  width: 60px;
+  height: 60px;
+  margin:  auto 15px;
+  padding: 2px;
+  border-radius: 50%;
+  cursor: pointer;
+  &--600 {
+    height: 45px;
+    width: 45px;
+  }
+  &--1000 {
+    height: 75px;
+    width: 75px;
+  }
+   &--selected {
+    background-color: $red;
+  }
+}
