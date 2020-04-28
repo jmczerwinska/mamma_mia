@@ -8,59 +8,6 @@
 }
 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.pizza-maker {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-.size {
-  width: 60px;
-  height: 60px;
-  margin: 20px;
-  padding: 2px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.small {
-  height: 45px;
-  width: 45px;
-}
-
-.large {
-  height: 75px;
-  width: 75px;
-}
-
-.selected {
-  background-color: red;
-}
-
-.ingredient-row {
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-}
-
-.ingredient-row p:last-child,
-.basket-head p:last-child {
-  margin-left: auto;
-}
-
-
-
 .basket {
   width: 500px;
   padding-left: 25px;
