@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 function Order({ children }) {
     useEffect(() => window.scrollTo(0, 0), []);
@@ -9,10 +8,10 @@ function Order({ children }) {
     return (
 
         <div className="container container--order">
-            <Breadcrumbs />
+            <ProgressBar />
             {children}
         </div>
     )
 }
 
-export default withRouter(Order);
+export default Order;
