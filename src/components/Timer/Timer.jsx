@@ -15,9 +15,11 @@ function Timer({ deliveryTime }) {
 
     useEffect(() => {
         if (!timeLeft) return;
-        setTimeout(() => {
+        let countdown;
+        countdown = setTimeout(() => {
             setTimeLeft(timeLeft - 1);
         }, 1000);
+        return () => clearTimeout(countdown);
     }, [timeLeft]);
 
     const displayTimeLeft = () => {
