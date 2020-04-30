@@ -23,12 +23,8 @@ function Basket({ history }) {
 
     return (
         <ContextConsumer>
-            {context => context.basket.length <= 0
-                ? (<div>
-                    <p>twój koszyk jest pusty</p>
-                    <button>Zamów pizzę!</button>
-                </div>)
-                : (<div>
+            {context => (
+                <div>
                     {context.basket.map((pizza, i) => {
                         return (
                             <div key={i} className="basket-row">
@@ -49,11 +45,14 @@ function Basket({ history }) {
                     }
                     <h3>Do zapłaty: {(fullPrice(context) / 100).toFixed(2)}</h3>
 
-                    <button onClick={() => history.push("/menu")}>Wróć do menu</button>
-                    <button onClick={() => history.push("/order/delivery")}>Dalej</button>
+                    <button onClick={() => history.push("/menu")}>
+                        Wróć do menu
+                    </button>
+                    <button onClick={() => history.push("/order/delivery")}>
+                        Dalej
+                    </button>
                 </div>)
             }
-
         </ContextConsumer>
     )
 }

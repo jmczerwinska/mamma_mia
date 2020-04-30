@@ -1,0 +1,17 @@
+@import '../../sass/variable.scss';
+@import '../../sass/mixins.scss';
+
+.redirection__button {
+    @include standard-btn($red, rgb(255, 152, 152));
+}
+
+.empty-basket {
+    height: 250px;
+    background: url('./grafika.png') no-repeat center center;
+    background-color: $white;
+    .empty-basket__info {
+        font-style: italic;
+        font-size: 1.5rem;
+        margin: 3rem 0;
+    }
+}
