@@ -4,7 +4,6 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    // align-content: center;
     margin: 0 0 0 -10px;
     padding: 10px;
     list-style: none;
@@ -13,7 +12,7 @@
 
 .progress__step {
     display: inline-block;
-    width: 150px;
+    width: 33%;
     margin: 0 2px;
     position: relative;
     padding: 10px 10px 10px 20px;
