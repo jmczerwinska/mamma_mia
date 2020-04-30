@@ -7,10 +7,14 @@ import { ContextConsumer } from '../..';
 
 import './BasketBtn.scss';
 
-function BasketBtn({ history }) {
+function BasketBtn({ history, toggleMenu }) {
+    const onClick = () => {
+            history.push('/order/basket');
+            toggleMenu();
+    }
 
     return (
-        <button className="basket-btn" onClick={()=> history.push('/order/basket')}>
+        <button className="basket-btn" onClick={onClick}>
             <FontAwesomeIcon icon={faShoppingBasket} className="basket-btn__icon"/>
             <ContextConsumer>
                 {context => context.basket.length > 0

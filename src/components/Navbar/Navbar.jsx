@@ -46,7 +46,7 @@ function Navbar() {
                 </NavLink>
             </div>
 
-            <BasketBtn />
+            <BasketBtn toggleMenu={() => setShowNavigation(false)} />
 
             {!isMobile
                 ? (
