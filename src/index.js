@@ -10,7 +10,7 @@ import PizzaMenu from './components/PizzaMenu/PizzaMenu';
 import MakePizza from './components/MakePizza/MakePizza';
 import Order from './components/Order/Order';
 import Basket from './components/Basket/Basket';
-import Delivery from './components/Delivery/Delivery';
+import DeliveryForm from './components/Delivery/DeliveryForm';
 import Summary from './components/Summary/Summary';
 
 const MyContext = createContext();
@@ -34,7 +34,7 @@ function Routing() {
                             <Route path="/order">
                                 <Order>
                                     <Route path="/order/basket" component={Basket} />
-                                    <Route path="/order/delivery" component={Delivery} />
+                                    <Route path="/order/delivery" component={DeliveryForm} />
                                     <Route path="/order/summary" component={Summary} />
                                 </Order>
                             </Route>
