@@ -33,24 +33,50 @@ function DeliveryForm({ history }) {
             {context => (
                 <form onSubmit={() => collectDeliveryData(context)}>
                     <fieldset>
-                        <input name="first-name" type="text" placeholder="Imię*" onChange={e => setFirstName(e.target.value)} required />
-                        <input name="last-name" type="text" placeholder="Nazwisko*" onChange={e => setLastName(e.target.value)} required />
+                        <input
+                            name="first-name"
+                            type="text"
+                            placeholder="Imię*"
+                            onChange={e => setFirstName(e.target.value)} required />
+                        <input
+                            name="last-name"
+                            type="text"
+                            placeholder="Nazwisko*"
+                            onChange={e => setLastName(e.target.value)}
+                            required />
                     </fieldset>
                     <fieldset>
-                        <input type="text" placeholder="Ulica*" onChange={e => setStreet(e.target.value)} required />
-                        <input type="text" placeholder="Nr budynku*" onChange={e => setBuildingNumber(e.target.value)} required />
-                        <input text="text" placeholder="Nr lokalu" onChange={e => setLocalNumber(e.target.value)} />
+                        <input
+                            type="text"
+                            placeholder="Ulica*"
+                            onChange={e => setStreet(e.target.value)}
+                            required />
+                        <input
+                            type="text"
+                            placeholder="Nr budynku*"
+                            onChange={e => setBuildingNumber(e.target.value)}
+                            required />
+                        <input
+                            text="text"
+                            placeholder="Nr lokalu"
+                            onChange={e => setLocalNumber(e.target.value)} />
                     </fieldset>
                     <label>Komentarz
-                <textarea onChange={e => setComment(e.target.value)} placeholder="Tu wpisz uwagi dotyczące zamówienia..." />
+                        <textarea 
+                            onChange={e => setComment(e.target.value)} 
+                            placeholder="Uwagi dotyczące zamówienia..." />
                     </label>
-                    <button>Zamów</button>
+                    <button type="submit">Zamów</button>
+                    <button
+                        type="button"
+                        className=""
+                        onClick={()=> history.push('/menu')}>
+                            Wróć do menu
+                    </button>
                 </form>
             )}
         </ContextConsumer>
-
     )
-
 }
 
 export default withRouter(DeliveryForm);

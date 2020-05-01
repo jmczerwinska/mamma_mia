@@ -26,7 +26,7 @@ function Timer({ deliveryTime }) {
         const seconds = timeLeft % 60;
         const display = (interval) => interval < 10 ? `0${interval}` : interval;
 
-        return `${display(minutes)}: ${display(seconds)}`;
+        return `${display(minutes)}min : ${display(seconds)}s`;
     }
 
     const displayEndTime = () => {
@@ -38,9 +38,13 @@ function Timer({ deliveryTime }) {
     }
 
     return (
-        <div>
-            <p>Przewidywany czas dostawy zamówienia {displayEndTime()}</p>
-            <p>Pozostało: {displayTimeLeft()} </p>
+        <div className="timer">
+            <p className="timer__end-time">
+                Przewidywany czas dostawy zamówienia {displayEndTime()}
+            </p>
+            <p className="timer__countdown">
+                Pozostało: {displayTimeLeft()}
+                </p>
         </div>
     )
 }

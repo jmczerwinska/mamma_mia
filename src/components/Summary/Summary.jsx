@@ -5,8 +5,8 @@ import './Summary.scss';
 
 function Summary() {
     return (
-        <div>
-            <p>Dziękujemy za złożenie zamówienia!</p>
+        <div className="summary">
+            <p className="summary__info">Dziękujemy za złożenie zamówienia!</p>
             <Timer deliveryTime={124} />
         </div>
     )
