@@ -31,7 +31,11 @@ function IngredientsList(props) {
                 {ingredients.map(
                     (ingredient, i) => (
                         <div className="ingredient" key={i}>
-                            <input type="checkbox" checked={ingredient.checked} onChange={() => ingredientChange(ingredient)} />
+                            <input 
+                                className="ingredient__checkbox"
+                                type="checkbox" 
+                                checked={ingredient.checked} 
+                                onChange={() => ingredientChange(ingredient)} />
                             <p className="ingredient__name">
                                 {ingredient.name}
                             </p>

@@ -8,12 +8,17 @@
     .ingredient {
         display: flex;
         align-items: center;
+        align-content: center;
         padding: 0 30px;
         p:last-child {
             margin-left: auto;
         }
         .ingredient__name {
             padding: 0 6px;
+        }
+        .ingredient__checkbox {
+            width: 20px;
+            height: 20px;
         }
     }
 }
@@ -33,7 +38,7 @@
     }
 }
 
-@media screen and (min-width: 1020px) {
+@media screen and (min-width: 1200px) {
     .ingredients-list {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
