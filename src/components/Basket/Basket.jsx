@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { ContextConsumer } from '../../index.js';
+import './Basket.scss';
 
 
 function Basket({ history }) {
