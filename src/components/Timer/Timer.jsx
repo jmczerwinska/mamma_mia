@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { faStopwatch } from '@fortawesome/free-solid-svg-icons';
+
 import './Timer.scss';
 
 function Timer({ deliveryTime }) {
@@ -34,17 +39,29 @@ function Timer({ deliveryTime }) {
         const hours = end.getHours();
         const minutes = end.getMinutes();
 
-        return `${hours}:${minutes}`;
+        return `${hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
     }
 
     return (
         <div className="timer">
-            <p className="timer__end-time">
-                Przewidywany czas dostawy zamówienia {displayEndTime()}
-            </p>
-            <p className="timer__countdown">
-                Pozostało: {displayTimeLeft()}
+            <div>
+                <h6 className="timer__title">
+                    Przewidywany czas dostawy zamówienia:
+                </h6>
+                <p className="timer__show-time">
+                    <FontAwesomeIcon icon={faClock} className="timer__icon" />
+                    &nbsp;{displayEndTime()}
                 </p>
+            </div>
+
+            <div>
+                <h6 className="timer__title">Pozostało:</h6>
+                <p className="timer__show-time">
+                    <FontAwesomeIcon icon={faStopwatch} className="timer__icon" />
+                &nbsp;{displayTimeLeft()}
+                </p>
+            </div>
+
         </div>
     )
 }

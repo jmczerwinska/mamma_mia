@@ -1,2 +1,25 @@
-@import '../../sass/variable.scss';
-@import '../../sass/mixins.scss';
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
+
+.timer {
+    text-align: center;
+}
+.timer__title {
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+}
+.timer__show-time {
+    margin-top: 0;
+    font-size: 2.2rem;
+    .timer__icon {
+        color: $green;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .timer {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
