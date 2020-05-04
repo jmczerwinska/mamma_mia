@@ -13,6 +13,7 @@
     background-color: $color;
     outline: none;
     transition: transform 0.1s ease-in;
+    cursor: pointer;
 
     &:hover,
     &:focus {
