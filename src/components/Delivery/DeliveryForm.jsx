@@ -70,8 +70,8 @@ function DeliveryForm({ history }) {
                     <button
                         type="button"
                         className=""
-                        onClick={()=> history.push('/menu')}>
-                            Wróć do menu
+                        onClick={()=> history.push('/order/basket')}>
+                            Wstecz
                     </button>
                 </form>
             )}
