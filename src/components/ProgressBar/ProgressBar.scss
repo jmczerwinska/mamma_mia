@@ -19,6 +19,7 @@
     background-color: $green;
     color: $white;
     font-size: 14px;
+    font-weight: 600;
     text-transform: uppercase;
     &::after,
     &::before {
@@ -47,8 +48,8 @@
 }
 
 .progress__step--active {
-    background-color: $red;
+    background-color: $lightgreen;
     &::after {
-        border-left: 10px solid $red;
+        border-left: 10px solid $lightgreen;
     }
 }
