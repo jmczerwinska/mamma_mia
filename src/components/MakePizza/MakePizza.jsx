@@ -73,7 +73,7 @@ function MakePizza(props) {
 
       <SelectSize sizeSender={getSize} />
       <SelectIngredients ingredientsSender={getIngredients} />
-      <div className="summary">
+      <div className="add-to-basket">
         <h4 className="price">Cena: {(price / 100).toFixed(2)} zł</h4>
         <AddPizzaButton onSubmit={addPizza} />
       </div>   
