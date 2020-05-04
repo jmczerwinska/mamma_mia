@@ -1,4 +1,8 @@
-import React from 'react'; import { withRouter } from 'react-router-dom';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+
+import './EmptyBasket.scss';
+
 
 function EmptyBasket({ history }) {
 
