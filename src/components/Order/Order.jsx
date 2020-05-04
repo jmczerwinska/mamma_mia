@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import ProgressBar from '../ProgressBar/ProgressBar';
+import { ContextConsumer } from '../..';
 
-import './Order.scss';
-
-function Order({ children }) {
+function Order({ children, history }) {
     useEffect(() => window.scrollTo(0, 0), []);
 
     return (
+
         <div className="container container--order">
-            <ProgressBar />
+            <ContextConsumer>
+                {context => context.basket.length > 0 &&
+                    <ProgressBar />}
+            </ContextConsumer>
             {children}
         </div>
     )
 }
 
-export default Order;
+export default withRouter(Order);
