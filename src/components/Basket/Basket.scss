@@ -1,2 +1,70 @@
-@import '../../sass/variable.scss';
-@import '../../sass/mixins.scss';
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
+
+.basket {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.full-price {
+    text-align: right;
+}
+
+.basket__row {
+    width: 100%;
+    border-bottom: 1px solid $black;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    .basket__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &--ingredients {
+            font-weight: 400;
+            font-size: 12px;
+            margin-top: 0;
+        }
+        .basket__name {
+            width: 40%;
+        }
+        .basket__price, .basket__size, .basket__name {
+            margin: 0.5rem 0;
+        }
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    height: 50px;
+    max-width: 600px;
+    .basket__button {
+        width: 48%;
+    }
+}
+
+.basket__button {
+    @include standard-btn;
+    &--delete, &--back{
+        @include standard-btn($red, rgb(255, 152, 152));
+    }
+    &--delete {
+        font-size: 20px;
+        padding: 0 8px;
+        
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .basket__row{
+         .basket__info {
+        justify-content: space-around;
+    }
+    }
+   
+}

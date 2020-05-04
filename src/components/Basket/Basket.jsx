@@ -25,39 +25,50 @@ function Basket({ history }) {
     return (
         <ContextConsumer>
             {context => (
-                <div className="basket">
-                    {context.basket.map((pizza, i) => (
-                        <div key={i} className="basket__row">
-                            <h4 className="basket__info">
-                                {i + 1}# {pizza.name} - {pizza.size} pizza
-                                        &nbsp; | &nbsp;
-                                    {(pizza.price / 100).toFixed(2)} zł
-                            </h4>
-                            {pizza.ingredients !== undefined
-                                ? <p className="basket__info empty-basket__info--ingredients">
-                                    Dodatki: {showIngredients(pizza)}
-                                </p>
-                                : null}
-                            <button
-                                className="basket__button basket__button--delete"
-                                onClick={() => removePizza(context, i)}>
-                                &times;
-                            </button>
-                        </div>
-                    ))}
-                    <h3 className="price">Do zapłaty: {(fullPrice(context) / 100).toFixed(2)}</h3>
+                <div >
+                    <ul className="basket">
+                        {context.basket.map((pizza, i) => (
+                            <li key={i} className="basket__row">
+                                <section className="basket__info">
+                                    <h4 className="basket__name">
+                                        {i + 1}# {pizza.name} 
+                                    </h4>
+                                    <p className="basket__size">{pizza.size}</p>
+                                    <p className="basket__price">{(pizza.price / 100).toFixed(2)} zł</p>
+                                    <button
+                                        className="basket__button basket__button--delete"
+                                        onClick={() => removePizza(context, i)}>
+                                        &times;
+                                    </button>
+                                </section>
 
-                    <button 
-                        className="basket__button basket__button--back"
-                        onClick={() => history.push("/menu")}>
-                        Wróć do menu
-                    </button>
 
-                    <button 
-                        className="basket__button basket__button--next"
-                        onClick={() => history.push("/order/delivery")}>
-                        Dalej
-                    </button>
+
+                                {pizza.ingredients !== undefined
+                                    && <p
+                                        className="basket__info basket__info--ingredients">
+                                        {showIngredients(pizza)}
+                                    </p>}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <h4 className="full-price">Do zapłaty: {(fullPrice(context) / 100).toFixed(2)} zł</h4>
+
+                    <div className="button-group">
+                        <button
+                            className="basket__button basket__button--back"
+                            onClick={() => history.push("/menu")}>
+                            Wróć do menu
+                        </button>
+                        <button
+                            className="basket__button basket__button--next"
+                            onClick={() => history.push("/order/delivery")}>
+                            Dalej
+                        </button>
+                    </div>
+
+
                 </div>
             )}
         </ContextConsumer>
