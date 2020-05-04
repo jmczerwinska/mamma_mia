@@ -5,7 +5,7 @@ import { ContextConsumer } from '../..';
 import EmptyBasket from '../EmptyBasket/EmptyBasket';
 import FullBasket from '../FullBasket/FullBasket';
 
-function Basket({ children, history }) {
+function Basket({ history }) {
 
     return (
 
