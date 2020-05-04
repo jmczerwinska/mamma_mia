@@ -41,12 +41,9 @@ function Basket({ history }) {
                                         &times;
                                     </button>
                                 </section>
-
-
-
                                 {pizza.ingredients !== undefined
                                     && <p
-                                        className="basket__info basket__info--ingredients">
+                                        className="basket__ingredients">
                                         {showIngredients(pizza)}
                                     </p>}
                             </li>
