@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mamma_mia/static/css/main.30ef83d5.chunk.css",
+    "main.js": "/mamma_mia/static/js/main.54eae802.chunk.js",
+    "main.js.map": "/mamma_mia/static/js/main.54eae802.chunk.js.map",
+    "runtime-main.js": "/mamma_mia/static/js/runtime-main.f362cada.js",
+    "runtime-main.js.map": "/mamma_mia/static/js/runtime-main.f362cada.js.map",
+    "static/js/2.33a8a3a7.chunk.js": "/mamma_mia/static/js/2.33a8a3a7.chunk.js",
+    "static/js/2.33a8a3a7.chunk.js.map": "/mamma_mia/static/js/2.33a8a3a7.chunk.js.map",
+    "index.html": "/mamma_mia/index.html",
+    "precache-manifest.bcfa8434fc8576e456a43fe045fcaf1e.js": "/mamma_mia/precache-manifest.bcfa8434fc8576e456a43fe045fcaf1e.js",
+    "service-worker.js": "/mamma_mia/service-worker.js",
+    "static/css/main.30ef83d5.chunk.css.map": "/mamma_mia/static/css/main.30ef83d5.chunk.css.map",
+    "static/js/2.33a8a3a7.chunk.js.LICENSE.txt": "/mamma_mia/static/js/2.33a8a3a7.chunk.js.LICENSE.txt",
+    "static/media/EmptyBasket.scss": "/mamma_mia/static/media/grafika.a0c50c9b.png",
+    "static/media/logo.png": "/mamma_mia/static/media/logo.925698de.png",
+    "static/media/ornament.png": "/mamma_mia/static/media/ornament.a699bf98.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f362cada.js",
+    "static/js/2.33a8a3a7.chunk.js",
+    "static/css/main.30ef83d5.chunk.css",
+    "static/js/main.54eae802.chunk.js"
+  ]
+}
