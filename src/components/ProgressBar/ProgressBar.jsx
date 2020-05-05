@@ -11,13 +11,13 @@ function ProgressBar() {
 
     return (
         <ul className="progress">
-            <li className={"progress__step" + addClass('/order/basket')}>
+            <li className={"progress__step" + addClass('/mamma_mia/order/basket')}>
                 Koszyk
             </li>
-            <li className={"progress__step" + addClass('/order/delivery')}>
+            <li className={"progress__step" + addClass('/mamma_mia/order/delivery')}>
                 Dostawa
             </li>
-            <li className={"progress__step" + addClass('/order/summary')}>
+            <li className={"progress__step" + addClass('/mamma_mia/order/summary')}>
                 Podsumowanie
             </li>
         </ul>
