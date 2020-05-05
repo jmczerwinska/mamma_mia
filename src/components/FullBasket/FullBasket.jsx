@@ -36,7 +36,7 @@ function Basket({ history }) {
                                     <p className="basket__size">{pizza.size}</p>
                                     <p className="basket__price">{(pizza.price / 100).toFixed(2)} zł</p>
                                     <button
-                                        className="basket__button basket__button--delete"
+                                        className="button button--delete"
                                         onClick={() => removePizza(context, i)}>
                                         &times;
                                     </button>
