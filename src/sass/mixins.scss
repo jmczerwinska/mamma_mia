@@ -25,3 +25,21 @@
         transform: scale(0.9);
     }
 }
+
+@mixin input-shape {
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    border: solid 1px $green;
+    background: $white;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    text-indent: 8px;
+
+    &:hover,
+    &:focus {
+        border-color: $lightgreen;
+    }
+    
+}
