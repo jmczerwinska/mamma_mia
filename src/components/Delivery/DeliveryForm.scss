@@ -1,2 +1,61 @@
-@import '../../sass/variable.scss';
-@import '../../sass/mixins.scss';
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
+
+.delivery-form {
+    margin: 1rem 0;
+    &__group {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__input {
+        @include input-shape;
+        width: 99%;
+        &--text {
+            height: auto;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0.5rem 0;
+    }
+
+    &__label {
+        font-size: 12px;
+        margin: 0 0.7rem;
+    }
+}
+@media screen and (min-width: 450px) {
+    .delivery-form {
+        &__group {
+            &--number {
+                width: 48%;
+            }
+        }
+    }
+
+    .wrapper--numbers {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .delivery-form {
+        &__group {
+            &--single {
+                width: 49%;
+            }
+        }
+    }
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        &--numbers {
+            width: 49%;
+        }
+    }
+}
