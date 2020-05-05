@@ -26,16 +26,16 @@ function Routing() {
         <BrowserRouter>
             <ContextProvider value={{ basket: basket, refresh: refresh }}>
                 <Switch>
-                    <Route path="/mamma_mia" component={LandingPage} />
+                    <Route exact path="/mamma_mia" component={LandingPage} />
                     <Route path='/mamma_mia'>
                         <App>
-                            <Route path="/menu" component={PizzaMenu} />
-                            <Route path="/compose" component={MakePizza} />
-                            <Route path="/order">
+                            <Route path="/mamma_mia/menu" component={PizzaMenu} />
+                            <Route path="/mamma_mia/compose" component={MakePizza} />
+                            <Route path="/mamma_mia/order">
                                 <Order>
-                                    <Route path="/order/basket" component={Basket} />
-                                    <Route path="/order/delivery" component={DeliveryForm} />
-                                    <Route path="/order/summary" component={Summary} />
+                                    <Route path="/mamma_mia/order/basket" component={Basket} />
+                                    <Route path="/mamma_mia/order/delivery" component={DeliveryForm} />
+                                    <Route path="/mamma_mia/order/summary" component={Summary} />
                                 </Order>
                             </Route>
                         </App>
