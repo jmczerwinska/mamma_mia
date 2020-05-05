@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Size from './size.png';
+
 import './SelectSize.scss';
 
 function SelectSize(props) {
@@ -26,7 +28,7 @@ function SelectSize(props) {
                         <img
                             className={`size size--${el.size}` + addClass(el.size)}
                             onClick={() => changeSize(el.size)}
-                            src={`${process.env.PUBLIC_URL}assets/size.png`}
+                            src={Size}
                             alt={`${el.name} pizza`} />
                         <p className="size__name">
                             {el.name} &#8960; {el.diameter}
