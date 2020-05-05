@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d2159ae124b357ed9b7d3f6ca0bdc971",
+    "revision": "4e98b02ff4753a856324e99decd22a31",
     "url": "/mamma_mia/index.html"
   },
   {
-    "revision": "a15950c9a784c7422187",
+    "revision": "ad1f493fcaccb6edbd1f",
     "url": "/mamma_mia/static/css/main.d12b8144.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mamma_mia/static/js/2.fcb0b3d9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a15950c9a784c7422187",
-    "url": "/mamma_mia/static/js/main.ba5a3d49.chunk.js"
+    "revision": "ad1f493fcaccb6edbd1f",
+    "url": "/mamma_mia/static/js/main.d66a9c9d.chunk.js"
   },
   {
     "revision": "d728b2a1bc9d6fdaf2ad",
