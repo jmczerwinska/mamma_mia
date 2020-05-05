@@ -49,23 +49,20 @@ $fa-font-path: "/assets/webfonts";
     display: inline-block;
     position: relative;
 
-    &::after {
-        content: fa-content($fa-var-chevron-down);
-        font-family: "Font Awesome 5 Free";
-        font-weight: 400;
+    .select__icon {
         color: $green;
         position: absolute;
         display: inline-block;
         right: 0;
-        top: calc(50%-7px);
+        top: 50%;
+        transform: translateY(-50%); 
         line-height: 50px;
         margin-right: 14px;
         pointer-events: none;
     }
 
     &:active {
-        &::after {
-            content: fa-content($fa-var-chevron-up);
+        .select__icon {
             color: $lightgreen;
         }
     }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './ListElement.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 
@@ -37,21 +39,22 @@ function ListElement({ pizza, i }) {
             </section>
 
             <div className="select-pizza">
-                <div className="custom-select" >
+                <div className="custom-select">
                     <select
                         className="custom-select__select-size"
                         value={selected}
                         onChange={e => setSelected(e.target.value)}>
                         <option value='mała'>
                             Mała | &#8960; 21cm | {(pizza.price.s / 100).toFixed(2)} zł
-                    </option>
+                        </option>
                         <option value='średnia'>
                             Średnia | &#8960; 30cm | {(pizza.price.m / 100).toFixed(2)} zł
-                    </option>
+                        </option>
                         <option value='duża'>
                             Duża | &#8960; 42cm | {(pizza.price.l / 100).toFixed(2)} zł
-                    </option>
+                        </option>
                     </select>
+                    <FontAwesomeIcon icon={faChevronDown} className="select__icon" />
                 </div>
 
                 <AddPizzaButton onSubmit={addPizza} />
