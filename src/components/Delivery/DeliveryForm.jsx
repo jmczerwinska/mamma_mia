@@ -25,7 +25,7 @@ function DeliveryForm({ history }) {
         console.log(data);
         context.refresh([]);
 
-        history.push("/order/summary");
+        history.push("/mamma_mia/order/summary");
     }
 
     return (
@@ -121,7 +121,7 @@ function DeliveryForm({ history }) {
                         <button
                             type="button"
                             className="button button--back"
-                            onClick={() => history.push('/order/basket')}>
+                            onClick={() => history.push('/mamma_mia/order/basket')}>
                             Wstecz
                         </button>
                         <button

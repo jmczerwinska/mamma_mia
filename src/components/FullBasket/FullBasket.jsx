@@ -55,12 +55,12 @@ function Basket({ history }) {
                     <div className="button-group">
                         <button
                             className="button button--back"
-                            onClick={() => history.push("/menu")}>
+                            onClick={() => history.push("/mamma_mia/menu")}>
                             Wróć do menu
                         </button>
                         <button
                             className="button button--next"
-                            onClick={() => history.push("/order/delivery")}>
+                            onClick={() => history.push("/mamma_mia/order/delivery")}>
                             Dalej
                         </button>
                     </div>

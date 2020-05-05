@@ -19,7 +19,7 @@ function PizzaMenu({ history }) {
             <PizzaList list={bianca} title="Pizza Bianca" />
             <div className="redirection">
                 <p className="redirection__description" >Nie zanalazłeś pizzy na jaką masz ochotę?</p>
-                <button className="redirection__button"onClick={() => history.push('/compose')}>
+                <button className="redirection__button"onClick={() => history.push('/mamma_mia/compose')}>
                     Skomponuj własną!
                 </button>
             </div>

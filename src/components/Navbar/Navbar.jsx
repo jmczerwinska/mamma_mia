@@ -12,10 +12,10 @@ import './Navbar.scss';
 
 function Navbar() {
     const links = [
-        { name: 'Menu', path: '/menu' },
-        { name: 'Skomponuj', path: '/compose' },
-        { name: 'Opinie', path: '/comments' },
-        { name: 'Kontakt', path: '/contact' }
+        { name: 'Menu', path: '/mamma_mia/menu' },
+        { name: 'Skomponuj', path: '/mamma_mia/compose' },
+        { name: 'Opinie', path: '/mamma_mia/comments' },
+        { name: 'Kontakt', path: '/mamma_mia/contact' }
     ]
 
     const headerHeight = (window.innerHeight / 2) - 70;
@@ -41,7 +41,7 @@ function Navbar() {
     return (
         <nav className={`navbar${isScrolled ? ' navbar--scroll' : ''}`}>
             <div className="navbar__logo">
-                <NavLink className="navigation__link" to="/" >
+                <NavLink className="navigation__link" to="/mamma_mia" >
                     <img src={Logo} alt="home link" />
                 </NavLink>
             </div>

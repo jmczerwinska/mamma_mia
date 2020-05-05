@@ -12,7 +12,7 @@ function EmptyBasket({ history }) {
             <p className="empty-basket__info">Twój koszyk jest pusty.</p>
             <button
                 className="redirection__button"
-                onClick={() => history.push('/menu')}>
+                onClick={() => history.push('/mamma_mia/menu')}>
                     Zamów pizzę!
             </button>
         </div>

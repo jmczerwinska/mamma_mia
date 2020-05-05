@@ -9,7 +9,7 @@ import './BasketBtn.scss';
 
 function BasketBtn({ history, toggleMenu }) {
     const onClick = () => {
-            history.push('/order/basket');
+            history.push('/mamma_mia/order/basket');
             toggleMenu();
     }
 

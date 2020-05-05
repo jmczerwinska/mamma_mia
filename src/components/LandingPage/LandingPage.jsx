@@ -14,8 +14,8 @@ function Start({ history }) {
                 <h3 className="hero__subtitle">Włoska pizza w Twoim domu</h3>
             </div>
             <div className="btn-group">
-                <button className="btn-group__button" onClick={() => history.push('/menu')}>Menu</button>
-                <button className="btn-group__button" onClick={() => history.push('/compose')}>Kompozycja własna</button>
+                <button className="btn-group__button" onClick={() => history.push('/mamma_mia/menu')}>Menu</button>
+                <button className="btn-group__button" onClick={() => history.push('/mamma_mia/compose')}>Kompozycja własna</button>
             </div>
 
         </div>
