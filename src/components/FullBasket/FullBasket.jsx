@@ -25,7 +25,7 @@ function Basket({ history }) {
     return (
         <ContextConsumer>
             {context => (
-                <div >
+                <>
                     <ul className="basket">
                         {context.basket.map((pizza, i) => (
                             <li key={i} className="basket__row">
@@ -54,19 +54,19 @@ function Basket({ history }) {
 
                     <div className="button-group">
                         <button
-                            className="basket__button basket__button--back"
+                            className="button button--back"
                             onClick={() => history.push("/menu")}>
                             Wróć do menu
                         </button>
                         <button
-                            className="basket__button basket__button--next"
+                            className="button button--next"
                             onClick={() => history.push("/order/delivery")}>
                             Dalej
                         </button>
                     </div>
 
 
-                </div>
+                </>
             )}
         </ContextConsumer>
     )
