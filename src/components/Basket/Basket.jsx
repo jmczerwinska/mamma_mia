@@ -8,8 +8,6 @@ import FullBasket from '../FullBasket/FullBasket';
 function Basket({ history }) {
 
     return (
-
-        <div className="container container--order">
             <ContextConsumer>
                 {
                     context => context.basket.length <= 0
@@ -17,8 +15,6 @@ function Basket({ history }) {
                         : <FullBasket />
                 }
             </ContextConsumer>
-
-        </div>
     )
 }
 
