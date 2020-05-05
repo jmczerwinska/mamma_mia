@@ -26,8 +26,8 @@ function Routing() {
         <BrowserRouter>
             <ContextProvider value={{ basket: basket, refresh: refresh }}>
                 <Switch>
-                    <Route exact path="/" component={LandingPage} />
-                    <Route path='/'>
+                    <Route path="/mamma_mia" component={LandingPage} />
+                    <Route path='/mamma_mia'>
                         <App>
                             <Route path="/menu" component={PizzaMenu} />
                             <Route path="/compose" component={MakePizza} />
