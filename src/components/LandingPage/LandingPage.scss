@@ -3,8 +3,6 @@
 .start-page {
     height: 100vh;
     background: url("./full-bg.jpg") no-repeat center/cover;
-    display: flex;
-    flex-direction: column;
 }
 
 .hero {
@@ -14,13 +12,11 @@
     .hero__logo {
         margin: 10px;
         width: 50%;
-        max-width: 250px;
     }
 
     .hero__subtitle {
-        position: absolute;
-        right: 0;
-        top: 140px;
+        margin: 10px 0;
+        float: right;
         width: 62%;
         font-size: 15px;
         font-weight: 300;
@@ -36,15 +32,14 @@
 .btn-group {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    max-width: 500px;
-    height: 30vh;
-    flex-grow: 1;
+    justify-content: center;
+    height: 40vh;
     margin: 0 10%;
     align-items: stretch;
 
     .btn-group__button {
         cursor: pointer;
+        margin: 2% 0;
         font-size: 20px;
         font-family: $mainFont;
         font-weight: 600;
@@ -55,7 +50,7 @@
         border-radius: 25px;
         background-color: $transpWhite;
         transition: background-color 0.8s ease-in-out, transform 0.1s ease-in;
-         
+
         &:hover,
         &:focus {
             background-color: $white;
@@ -67,3 +62,39 @@
     }
 }
 
+/* MEDIA QUERIES*/
+
+@media screen and (min-width: 600px) {
+    .hero {
+        .hero__logo {
+            width: 55%;
+        }
+    }
+}
+
+// mobile landscape
+@media screen and (max-device-width: 700px) and (orientation: landscape) {
+    .hero {
+        .hero__logo {
+            width: 35%;
+        }
+    }
+    .btn-group {
+        max-width: 300px;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .hero {
+        .hero__logo {
+            width: 37%;
+        }
+    }
+    .btn-group {
+        max-width: 40%;
+        .btn-group__button {
+            font-size: 24px;
+        }
+    }
+    
+}
