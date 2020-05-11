@@ -8,7 +8,7 @@
     width: 100%;
     position: fixed;
     z-index: 20;
-    transition-property: border background-color;
+    transition-property: border, background-color;
     transition-duration: 0.5s;
     transition-timing-function: linear;
 
