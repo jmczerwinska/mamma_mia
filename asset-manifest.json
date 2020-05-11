@@ -1,28 +1,26 @@
 {
   "files": {
-    "main.css": "/mamma_mia/static/css/main.d12b8144.chunk.css",
-    "main.js": "/mamma_mia/static/js/main.d66a9c9d.chunk.js",
-    "main.js.map": "/mamma_mia/static/js/main.d66a9c9d.chunk.js.map",
+    "main.css": "/mamma_mia/static/css/main.6e65f758.chunk.css",
+    "main.js": "/mamma_mia/static/js/main.bb60594e.chunk.js",
+    "main.js.map": "/mamma_mia/static/js/main.bb60594e.chunk.js.map",
     "runtime-main.js": "/mamma_mia/static/js/runtime-main.f362cada.js",
     "runtime-main.js.map": "/mamma_mia/static/js/runtime-main.f362cada.js.map",
     "static/js/2.fcb0b3d9.chunk.js": "/mamma_mia/static/js/2.fcb0b3d9.chunk.js",
     "static/js/2.fcb0b3d9.chunk.js.map": "/mamma_mia/static/js/2.fcb0b3d9.chunk.js.map",
     "index.html": "/mamma_mia/index.html",
-    "precache-manifest.cc16bdb877851f4bb03f3942e650e3df.js": "/mamma_mia/precache-manifest.cc16bdb877851f4bb03f3942e650e3df.js",
+    "precache-manifest.860fc3167b22d8b6d05b5bb1a6513f51.js": "/mamma_mia/precache-manifest.860fc3167b22d8b6d05b5bb1a6513f51.js",
     "service-worker.js": "/mamma_mia/service-worker.js",
-    "static/css/main.d12b8144.chunk.css.map": "/mamma_mia/static/css/main.d12b8144.chunk.css.map",
+    "static/css/main.6e65f758.chunk.css.map": "/mamma_mia/static/css/main.6e65f758.chunk.css.map",
     "static/js/2.fcb0b3d9.chunk.js.LICENSE.txt": "/mamma_mia/static/js/2.fcb0b3d9.chunk.js.LICENSE.txt",
     "static/media/LandingPage.scss": "/mamma_mia/static/media/full-bg.2574e2aa.jpg",
-    "static/media/EmptyBasket.scss": "/mamma_mia/static/media/grafika.a0c50c9b.png",
-    "static/media/logo.png": "/mamma_mia/static/media/logo.925698de.png",
+    "static/media/logo.png": "/mamma_mia/static/media/logo.7c10b636.png",
     "static/media/ornament.png": "/mamma_mia/static/media/ornament.a699bf98.png",
-    "static/media/size.png": "/mamma_mia/static/media/size.f428800a.png",
     "static/media/Header.scss": "/mamma_mia/static/media/small-bg.5f83a9ff.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.f362cada.js",
     "static/js/2.fcb0b3d9.chunk.js",
-    "static/css/main.d12b8144.chunk.css",
-    "static/js/main.d66a9c9d.chunk.js"
+    "static/css/main.6e65f758.chunk.css",
+    "static/js/main.bb60594e.chunk.js"
   ]
 }
