@@ -68,6 +68,7 @@
 .custom-select__select-size {
     @include input-shape;
     padding: 7px 40px 7px 7px;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }

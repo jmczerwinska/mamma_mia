@@ -4,12 +4,8 @@
     height: auto;
     margin-top: 2rem;
     .title__name {
-        font-size: 2.2rem;
-        font-family: $logoFont;
         font-weight: 400;
-        color: $red;
         text-align: center;
-        letter-spacing: 0.2rem;
         margin-top: 0;
     }
     .title__ornament {
@@ -37,7 +33,7 @@
         font-size: 110px;
         font-family: $logoFont;
         position: absolute;
-        z-index: 2;
+        z-index: -1;
         left: -20px;
         top: -35px;
     }
