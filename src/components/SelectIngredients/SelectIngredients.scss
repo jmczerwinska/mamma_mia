@@ -25,21 +25,27 @@
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 500px) {
     .ingredients-list {
         grid-template-columns: 1fr 1fr;
-        padding: 0 20px;
+        // padding: 0 20px;
     }
 }
 
 @media screen and (min-width: 780px) {
     .ingredients-list {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media screen and (min-width: 1200px) {
     .ingredients-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .ingredients-list {
+        grid-template-columns: repeat(5, 1fr);
     }
 }

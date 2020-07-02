@@ -8,6 +8,7 @@
 
 .empty-basket {
     height: 45vh;
+    min-height: 205px;
     background: url('./grafika.png') no-repeat center center;
     background-color: $white;
     .empty-basket__info {

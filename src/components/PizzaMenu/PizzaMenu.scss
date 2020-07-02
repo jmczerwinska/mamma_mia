@@ -9,7 +9,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 1rem auto 3rem auto;
+        margin: 1rem auto 2rem auto;
         .redirection__description {
             font-style: italic;
             text-align: center;
@@ -17,6 +17,5 @@
         .redirection__button {
             @include standard-btn($red, rgb(255, 152, 152));
         }
-
     }
 }
