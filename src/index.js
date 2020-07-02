@@ -12,6 +12,7 @@ import Order from './components/Order/Order';
 import Basket from './components/Basket/Basket';
 import DeliveryForm from './components/Delivery/DeliveryForm';
 import Summary from './components/Summary/Summary';
+import Contact from './components/Contact/Contact'
 
 const MyContext = createContext();
 export const ContextConsumer = MyContext.Consumer;
@@ -38,6 +39,7 @@ function Routing() {
                                     <Route path="/mamma_mia/order/summary" component={Summary} />
                                 </Order>
                             </Route>
+                            <Route path="/mamma_mia/contact" component={Contact} />
                         </App>
                     </Route>
                 </Switch>
