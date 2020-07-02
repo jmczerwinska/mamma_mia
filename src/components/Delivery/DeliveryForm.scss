@@ -2,11 +2,18 @@
 @import "../../sass/mixins.scss";
 
 .delivery-form {
-    margin: 1rem 0;
+    margin-bottom: 1rem;
     &__group {
         border: none;
         padding: 0;
         margin: 0;
+        &--number {
+                width: 48%;
+        }
+        .wrapper--numbers {
+        display: flex;
+        justify-content: space-between;
+        }
     }
 
     &__input {
@@ -20,26 +27,12 @@
     &__title {
         font-weight: 600;
         text-transform: uppercase;
-        padding: 0.5rem 0;
+        padding: 1rem 0 0.5rem 0;
     }
 
     &__label {
         font-size: 12px;
         margin: 0 0.7rem;
-    }
-}
-@media screen and (min-width: 450px) {
-    .delivery-form {
-        &__group {
-            &--number {
-                width: 48%;
-            }
-        }
-    }
-
-    .wrapper--numbers {
-        display: flex;
-        justify-content: space-between;
     }
 }
 
