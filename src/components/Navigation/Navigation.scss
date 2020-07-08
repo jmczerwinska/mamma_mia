@@ -16,11 +16,8 @@
         margin: 3px 10px;
         &--active,
         &:hover {
-            border-bottom: solid 5px $lightgreen;
+            border-bottom: solid 3px $lightgreen;
         }
-    }
-    .navigation__link--active {
-        border-bottom: solid 5px $lightgreen;
     }
     &.navigation--mobile {
         flex-direction: column;
