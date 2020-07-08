@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Slide } from 'react-reveal';
 import { useScrollPosition, useWindowWidth } from '../../customHooks';
 
 import HamburgerBtn from '../HamburgerBtn/HamburgerBtn';
@@ -57,23 +56,20 @@ function Navbar() {
                             links={links} />
                     )
                     : (
-                        <HamburgerBtn
-                            toggleMenu={toggleNavigation}
-                            active={showNavigation} />
+                        <>
+                            <HamburgerBtn
+                                toggleMenu={toggleNavigation}
+                                active={showNavigation} />
+                            <div className={`navigation-wrapper${showNavigation ? ' navigation-wrapper--active' : ''}`}>
+                                <Navigation
+                                    onLinkClick={toggleNavigation}
+                                    mobile={isMobile}
+                                    links={links} />
+                            </div>
+                        </>
                     )
                 }
             </div>
-            <Slide down
-                when={showNavigation}
-                duration={500}
-                collapse>
-                <div className="navigation-wrapper">
-                    <Navigation
-                        onLinkClick={toggleNavigation}
-                        mobile={isMobile}
-                        links={links} />
-                </div>
-            </Slide>
 
         </nav>
     )
