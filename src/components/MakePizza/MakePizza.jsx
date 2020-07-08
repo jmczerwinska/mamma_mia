@@ -24,7 +24,6 @@ function MakePizza() {
   }, [])
 
   useEffect(() => {
-    console.log(ingredients);
     setPrice(ingredients.reduce((sum, ingredient) => {
       return ingredient.checked ? sum + ingredient.price : sum;
     }, base));
@@ -44,7 +43,6 @@ function MakePizza() {
 
     ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el) });
     context.refresh([...context.basket, pizza]);
-    console.log(context.basket);
 
     resetPizza();
   }
