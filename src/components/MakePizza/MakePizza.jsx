@@ -8,18 +8,27 @@ import Ingredients from '../../data/ingredients';
 import ornament from '../PizzaList/ornament.png';
 import './MakePizza.scss';
 
-function MakePizza(props) {
+function MakePizza() {
   useEffect(() => window.scrollTo(0, 0), []);
 
-  const [ingredients, setIngredients] = useState(Ingredients);
+  const [ingredients, setIngredients] = useState([]);
   const [price, setPrice] = useState(0);
   const [base, setBase] = useState(800);
+  
+  useEffect(() => {
+    Ingredients.map((ingredient) => {
+      ingredient.checked = ingredient.price === 0 ? true : false;
+      return ingredient;
+    });
+    setIngredients(Ingredients);
+  }, [])
 
   useEffect(() => {
+    console.log(ingredients);
     setPrice(ingredients.reduce((sum, ingredient) => {
       return ingredient.checked ? sum + ingredient.price : sum;
-    }, base))
-  }, [base, ingredients])
+    }, base));
+  }, [base, ingredients, price])
 
   const getSize = base => setBase(base);
 
@@ -72,7 +81,7 @@ function MakePizza(props) {
       </div>
 
       <SelectSize sizeSender={getSize} />
-      <SelectIngredients ingredientsSender={getIngredients} />
+      <SelectIngredients ingredients={ingredients} ingredientsSender={getIngredients} />
       <div className="add-to-basket">
         <h4 className="price">Cena: {(price / 100).toFixed(2)} zł</h4>
         <AddPizzaButton onSubmit={addPizza} />

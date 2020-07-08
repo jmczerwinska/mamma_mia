@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from 'react';
-
-import Ingredients from '../../data/ingredients.json';
+import React from 'react';
 import './SelectIngredients.scss'
 
 
-function IngredientsList(props) {
-
-    const [ingredients, setIngredients] = useState([]);
-
-    useEffect(() => {
-        Ingredients.map((ingredient) => {
-            ingredient.checked = ingredient.price === 0 ? true : false;
-            return ingredient;
-        });
-        setIngredients(Ingredients);
-    }, [])
+function IngredientsList({ ingredients, ingredientsSender}) {
 
     const ingredientChange = (ingredient) => {
-        setIngredients(ingredients.map(el => {
+        const newIngredients = ingredients.map(el => {
             if (el.name === ingredient.name) el.checked = !el.checked;
             return el;
-        }));
-        props.ingredientsSender(ingredients);
+        });
+        ingredientsSender(newIngredients);
     }
 
     return (
