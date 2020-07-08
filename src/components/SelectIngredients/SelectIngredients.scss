@@ -19,6 +19,18 @@
         .ingredient__checkbox {
             width: 20px;
             height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 1px $green;
+            border-radius: 4px;
+            transition: background-color 0.2s linear;
+            .icon-checked {
+                color: $white;
+            }
+            &.active {
+                background-color: $green;
+            }
         }
     }
 }
@@ -44,7 +56,7 @@
     }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1700px) {
     .ingredients-list {
         grid-template-columns: repeat(5, 1fr);
     }
