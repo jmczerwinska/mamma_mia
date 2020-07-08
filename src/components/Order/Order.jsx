@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import { ContextConsumer } from '../..';
 
-function Order({ children, history }) {
+function Order({ children }) {
     useEffect(() => window.scrollTo(0, 0), []);
 
     return (

@@ -7,7 +7,7 @@ import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 
 
 
-function ListElement({ pizza, i }) {
+function ListElement({ pizza }) {
     const [selected, setSelected] = useState('średnia');
 
     const addPizza = context => {

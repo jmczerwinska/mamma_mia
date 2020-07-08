@@ -4,7 +4,7 @@ import Size from './size.png';
 
 import './SelectSize.scss';
 
-function SelectSize(props) {
+function SelectSize({ sizeSender }) {
     const sizes = [
         { name: "Mała", size: 600, diameter: 21},
         {name: "Średnia", size: 800, diameter: 30},
@@ -16,7 +16,7 @@ function SelectSize(props) {
 
     const changeSize = size => {
         setBase(size);
-        props.sizeSender(size);
+        sizeSender(size);
     }
 
     return (
