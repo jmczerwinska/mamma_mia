@@ -3,28 +3,34 @@
 .navbar {
     height: 70px;
     background-color: $transpWhite;
-    display: flex;
-    justify-content: space-around;
     width: 100%;
     position: fixed;
     z-index: 20;
     transition-property: border, background-color;
     transition-duration: 0.5s;
     transition-timing-function: linear;
+    .navbar__wrapper {
+        display: flex;
+        justify-content: space-around;
+        max-width: 1820px;
+        margin: 0 auto;
+    }
 
     .navigation__link {
         outline-color: $lightgreen;
     }
     .navbar__logo {
         margin-left: 10px;
+        height: 70px;
         flex-grow: 1;
         z-index: 11;
     }
     .navigation-wrapper {
-        height: 100vh;
+        height: calc(100vh + 70px);
         width: 100%;
         background-color: $white;
         position: absolute;
+        top: -70px;
         z-index: 10;
         left: 0;
     }

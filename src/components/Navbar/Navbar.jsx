@@ -20,7 +20,7 @@ function Navbar() {
 
     const headerHeight = (window.innerHeight / 2) - 70;
     const isScrolled = useScrollPosition() > headerHeight;
-    
+
     const isMobile = useWindowWidth() < 800;
 
     const [showNavigation, setShowNavigation] = useState(false);
@@ -40,40 +40,41 @@ function Navbar() {
 
     return (
         <nav className={`navbar${isScrolled ? ' navbar--scroll' : ''}`}>
-            <div className="navbar__logo">
-                <NavLink className="navigation__link" to="/mamma_mia" >
-                    <img src={Logo} alt="home link" />
-                </NavLink>
-            </div>
+            <div className="navbar__wrapper">
+                <div className="navbar__logo">
+                    <NavLink className="navigation__link" to="/mamma_mia" >
+                        <img src={Logo} alt="home link" />
+                    </NavLink>
+                </div>
 
-            <BasketBtn toggleMenu={() => setShowNavigation(false)} />
+                <BasketBtn toggleMenu={() => setShowNavigation(false)} />
 
-            {!isMobile
-                ? (
-                    <Navigation
-                        onLinkClick=''
-                        mobile={isMobile}
-                        links={links} />
-                )
-                : (
-                    <>
+                {!isMobile
+                    ? (
+                        <Navigation
+                            onLinkClick=''
+                            mobile={isMobile}
+                            links={links} />
+                    )
+                    : (
                         <HamburgerBtn
                             toggleMenu={toggleNavigation}
                             active={showNavigation} />
-                        <Slide down
-                            when={showNavigation}
-                            duration={500}
-                            collapse>
-                            <div className="navigation-wrapper">
-                                <Navigation
-                                    onLinkClick={toggleNavigation}
-                                    mobile={isMobile}
-                                    links={links} />
-                            </div>
-                        </Slide>
-                    </>
-                )
-            }
+                    )
+                }
+            </div>
+            <Slide down
+                when={showNavigation}
+                duration={500}
+                collapse>
+                <div className="navigation-wrapper">
+                    <Navigation
+                        onLinkClick={toggleNavigation}
+                        mobile={isMobile}
+                        links={links} />
+                </div>
+            </Slide>
+
         </nav>
     )
 }
