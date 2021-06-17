@@ -6,6 +6,7 @@ const Menu = require('../models/Menu');
 exports.getMenu = async (req, res, next) => {
     try {
         const menu = await Menu.find();
+
         res.status(200).json({ 
             success: true,
             data: menu
@@ -62,13 +63,50 @@ exports.addPizza = async (req, res, next) => {
 //@desc     Update pizza
 //@route    PUT /api/v1/menu/:id
 //@access   Private
-exports.updatePizza = (req, res, next) => {
-    res.status(201).json({ success: true, msg: `Update pizza ${req.params.id}` });
+exports.updatePizza = async (req, res, next) => {
+    try {
+        const pizza = await Menu.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true,
+        });
+
+        if (!pizza) {
+            res.status(400).json({
+                success: false
+            })
+        };
+
+        res.status(200).json({
+            success: true, 
+            data: pizza 
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false
+        });
+    }
 };
 
 //@desc     Delete pizza
 //@route    DELETE /api/v1/menu/:id
 //@access   Private
-exports.deletePizza = (req, res, next) => {
-    res.status(201).json({ success: true, msg: `Delete pizza ${req.params.id}` })
+exports.deletePizza = async (req, res, next) => {
+    try {
+        const pizza = await Menu.findByIdAndDelete(req.params.id,);
+
+        if (!pizza) {
+            res.status(400).json({
+                success: false
+            })
+        };
+
+        res.status(200).json({
+            success: true, 
+            data: {}
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false
+        });
+    }
 };
