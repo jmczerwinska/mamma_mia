@@ -11,9 +11,19 @@ connectDB();
 
 const app = express();
 
-app.use('/api/v1/menu', menu)
+app.use('/api/v1/menu', menu);
 
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`));
+const server = app.listen(
+    PORT, 
+    console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+);
+
+//Handle unhandled promise rejection
+process.on('unhandledRejection', (err, promise) => {
+    console.log(`Error: ${err.messege}`);
+    //Close server & exit procces
+    server.close(() => process.exit(1));
+});
