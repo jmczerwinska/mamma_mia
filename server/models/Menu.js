@@ -4,6 +4,7 @@ const MenuSchema = mongoose.Schema({
     name: {
         type: String,
         requaried: [true, 'Please add name'],
+        unique: true,
         trim: true,
         maxlength: [50, 'Name can not be longer than 50 characters']
     },

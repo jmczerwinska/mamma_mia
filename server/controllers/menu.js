@@ -1,3 +1,6 @@
+const Menu = require('../models/Menu');
+
+
 //@desc     Get whole menu
 //@route    GET /api/v1/menu
 //@access   Public
@@ -15,8 +18,20 @@ exports.getPizza = (req, res, next) => {
 //@desc     Add new pizza
 //@route    POST /api/v1/menu
 //@access   Private
-exports.addPizza = (req, res, next) => {
-    res.status(200).json({ success: true, msg: 'Add new pizza' });
+exports.addPizza = async (req, res, next) => {
+    try {
+        const pizza = await Menu.create(req.body);
+        
+        res.status(201).json({ 
+            success: true, 
+            data: pizza 
+        });  
+    } catch (error) {
+        res.status(400).json({
+            success: false
+        })
+    }
+    
 };
 
 //@desc     Update pizza
