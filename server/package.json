@@ -4,13 +4,14 @@
   "description": "Mamma Mia website API",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
   },
   "author": "Joanna Czerwińska <czerwinska.jm@gmial.com>",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "exxpress": "^1.0.0"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
