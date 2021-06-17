@@ -1,18 +1,44 @@
 const Menu = require('../models/Menu');
 
-
 //@desc     Get whole menu
 //@route    GET /api/v1/menu
 //@access   Public
-exports.getMenu = (req, res, next) => {
-    res.status(200).json({ success: true, msg: 'Show menu' });
+exports.getMenu = async (req, res, next) => {
+    try {
+        const menu = await Menu.find();
+        res.status(200).json({ 
+            success: true,
+            data: menu
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false
+        });
+    } 
 };
 
 //@desc     Get one pizza
 //@route    GET /api/v1/menu/:id
 //@access   Public
-exports.getPizza = (req, res, next) => {
-    res.status(200).json({ success: true, msg: `Show pizza ${req.params.id}` })
+exports.getPizza = async (req, res, next) => {
+    try {
+        const pizza = await Menu.findById(req.params.id);
+        
+        if(!pizza) {
+            return res.status(404).json({
+                success: false
+            })
+        };
+        
+        res.status(200).json({ 
+            success: true,
+            data: pizza
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false
+        });
+    }    
 };
 
 //@desc     Add new pizza
@@ -29,9 +55,8 @@ exports.addPizza = async (req, res, next) => {
     } catch (error) {
         res.status(400).json({
             success: false
-        })
-    }
-    
+        });
+    }  
 };
 
 //@desc     Update pizza
