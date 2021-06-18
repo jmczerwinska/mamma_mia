@@ -1,4 +1,5 @@
 const Menu = require('../models/Menu');
+const ErrorResponse = require('../utils/errorResponse');
 
 //@desc     Get whole menu
 //@route    GET /api/v1/menu
@@ -9,12 +10,11 @@ exports.getMenu = async (req, res, next) => {
 
         res.status(200).json({ 
             success: true,
+            count: menu.length,
             data: menu
         });
     } catch (error) {
-        res.status(400).json({
-            success: false
-        });
+        next(error);
     } 
 };
 
@@ -26,9 +26,9 @@ exports.getPizza = async (req, res, next) => {
         const pizza = await Menu.findById(req.params.id);
         
         if(!pizza) {
-            return res.status(404).json({
-                success: false
-            })
+            return next(
+                new ErrorResponse(`Pizza not find with id of ${req.params.id}`, 404)
+            );
         };
         
         res.status(200).json({ 
@@ -36,9 +36,7 @@ exports.getPizza = async (req, res, next) => {
             data: pizza
         });
     } catch (error) {
-        res.status(400).json({
-            success: false
-        });
+        next(error);
     }    
 };
 
@@ -54,13 +52,11 @@ exports.addPizza = async (req, res, next) => {
             data: pizza 
         });  
     } catch (error) {
-        res.status(400).json({
-            success: false
-        });
-    }  
+        next(error);
+    }
 };
 
-//@desc     Update pizza
+//@desc     Update single pizza
 //@route    PUT /api/v1/menu/:id
 //@access   Private
 exports.updatePizza = async (req, res, next) => {
@@ -71,9 +67,9 @@ exports.updatePizza = async (req, res, next) => {
         });
 
         if (!pizza) {
-            res.status(400).json({
-                success: false
-            })
+            return next(
+                new ErrorResponse(`Pizza not find with id of ${req.params.id}`, 404)
+            );
         };
 
         res.status(200).json({
@@ -81,13 +77,11 @@ exports.updatePizza = async (req, res, next) => {
             data: pizza 
         });
     } catch (error) {
-        res.status(400).json({
-            success: false
-        });
+        next(error);
     }
 };
 
-//@desc     Delete pizza
+//@desc     Delete single pizza
 //@route    DELETE /api/v1/menu/:id
 //@access   Private
 exports.deletePizza = async (req, res, next) => {
@@ -95,9 +89,9 @@ exports.deletePizza = async (req, res, next) => {
         const pizza = await Menu.findByIdAndDelete(req.params.id,);
 
         if (!pizza) {
-            res.status(400).json({
-                success: false
-            })
+            return next(
+                new ErrorResponse(`Pizza not find with id of ${req.params.id}`, 404)
+            );
         };
 
         res.status(200).json({
@@ -105,8 +99,6 @@ exports.deletePizza = async (req, res, next) => {
             data: {}
         });
     } catch (error) {
-        res.status(400).json({
-            success: false
-        });
+        next(error);
     }
 };

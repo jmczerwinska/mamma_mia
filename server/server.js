@@ -1,7 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
-const connectDB =require('./config/db')
+
+//Midllewares
+const errorHandler = require('./middleware/error');
+
+const connectDB =require('./config/db');
 
 //Route files
 const menu = require("./routes/menu");
@@ -16,6 +20,8 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/v1/menu', menu);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
