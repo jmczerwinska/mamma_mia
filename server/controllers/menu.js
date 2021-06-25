@@ -1,11 +1,11 @@
 const Menu = require('../models/Menu');
 const ErrorResponse = require('../utils/errorResponse');
+const asyncHandler = require('../middleware/async');
 
 //@desc     Get whole menu
 //@route    GET /api/v1/menu
 //@access   Public
-exports.getMenu = async (req, res, next) => {
-    try {
+exports.getMenu = asyncHandler(async (req, res, next) => {
         const menu = await Menu.find();
 
         res.status(200).json({ 
@@ -13,16 +13,12 @@ exports.getMenu = async (req, res, next) => {
             count: menu.length,
             data: menu
         });
-    } catch (error) {
-        next(error);
-    } 
-};
+});
 
 //@desc     Get one pizza
 //@route    GET /api/v1/menu/:id
 //@access   Public
-exports.getPizza = async (req, res, next) => {
-    try {
+exports.getPizza = asyncHandler(async (req, res, next) => {
         const pizza = await Menu.findById(req.params.id);
         
         if(!pizza) {
@@ -34,33 +30,25 @@ exports.getPizza = async (req, res, next) => {
         res.status(200).json({ 
             success: true,
             data: pizza
-        });
-    } catch (error) {
-        next(error);
-    }    
-};
+        });  
+});
 
 //@desc     Add new pizza
 //@route    POST /api/v1/menu
 //@access   Private
-exports.addPizza = async (req, res, next) => {
-    try {
+exports.addPizza = asyncHandler(async (req, res, next) => {
         const pizza = await Menu.create(req.body);
         
         res.status(201).json({ 
             success: true, 
             data: pizza 
         });  
-    } catch (error) {
-        next(error);
-    }
-};
+});
 
 //@desc     Update single pizza
 //@route    PUT /api/v1/menu/:id
 //@access   Private
-exports.updatePizza = async (req, res, next) => {
-    try {
+exports.updatePizza = asyncHandler(async (req, res, next) => {
         const pizza = await Menu.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true,
@@ -76,16 +64,12 @@ exports.updatePizza = async (req, res, next) => {
             success: true, 
             data: pizza 
         });
-    } catch (error) {
-        next(error);
-    }
-};
+});
 
 //@desc     Delete single pizza
 //@route    DELETE /api/v1/menu/:id
 //@access   Private
-exports.deletePizza = async (req, res, next) => {
-    try {
+exports.deletePizza = asyncHandler(async (req, res, next) => {
         const pizza = await Menu.findByIdAndDelete(req.params.id,);
 
         if (!pizza) {
@@ -98,7 +82,4 @@ exports.deletePizza = async (req, res, next) => {
             success: true, 
             data: {}
         });
-    } catch (error) {
-        next(error);
-    }
-};
+});
