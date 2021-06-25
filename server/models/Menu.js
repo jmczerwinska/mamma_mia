@@ -21,14 +21,17 @@ const MenuSchema = mongoose.Schema({
     price: {
         s: {
             type: Number,
+            requaried: [true, 'Please add price for small pizza'],
             min: [1, 'Price can not be smaller than 1']
         },
         m: {
             type: Number,
+            requaried: [true, 'Please add price for medium pizza'],
             min: [1, 'Price can not be smaller than 1']
         },
         l: {
             type: Number,
+            requaried: [true, 'Please add price for large pizza'],
             min: [1, 'Price must be at least 1']
         },
     }
