@@ -9,7 +9,7 @@ const errorHandler = (err, req, res, next) => {
 
     //Mongoose bad ObcjectId
     if (err.name === 'CastError') {
-        const message = `Pizza not find with id of ${err.value}`;
+        const message = `Incorrect id format`;
         error = new ErrorResponse(message, 404);
     };
 
