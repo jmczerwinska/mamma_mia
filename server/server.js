@@ -8,7 +8,8 @@ const errorHandler = require('./middleware/error');
 const connectDB =require('./config/db');
 
 //Route files
-const menu = require("./routes/menu");
+const menu = require('./routes/menu');
+const ingredients = require('./routes/ingredients');
 
 //add env vars
 dotenv.config({ path: "./config/config.env" });
@@ -20,6 +21,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/v1/menu', menu);
+app.use('/api/v1/ingredients', ingredients);
 
 app.use(errorHandler);
 

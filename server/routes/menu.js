@@ -3,8 +3,7 @@ const router = express.Router();
 
 const { getMenu, getPizza, addPizza, updatePizza, deletePizza } = require('../controllers/menu');
 
-router
-    .route('/')
+router.route('/')
     .get(getMenu)
     .post(addPizza)
 
