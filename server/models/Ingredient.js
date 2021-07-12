@@ -4,11 +4,11 @@ const IngredientSchema = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
-        required: [true, 'Please adda ingredient name']
+        required: [true, 'Please add a ingredient name']
     },
     price: {
         type: Number,
-        required: [true, 'Please add ingredient price']
+        required: [true, 'Please add a ingredient price']
     }
 });
 
