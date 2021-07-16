@@ -22,8 +22,14 @@ const errorHandler = (err, req, res, next) => {
     //Mongoose valitaion error
     if (err.name === 'ValidationError') {
         const message = Object.values(err.errors).map(val => val.message);
-        error = new ErrorResponse(message, 400)
+        error = new ErrorResponse(message, 400);
     };
+
+    //JsonWebToken validation error
+    if (err.name === 'JsonWebTokenError') {
+        const message = 'Not authorize to access this route';
+        error = new ErrorResponse(message, 401);
+    }
 
     res.status(error.statusCode || 500).json({
         success: false,
