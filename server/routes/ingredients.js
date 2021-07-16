@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const { getIngredients, addIngredient, getIngredient, updateIngredient } = require('../controllers/ingredients');
+
+const router = express.Router();
 
 router.route('/')
     .get(getIngredients)

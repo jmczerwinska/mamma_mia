@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
-
 const { getMenu, getPizza, addPizza, updatePizza, deletePizza } = require('../controllers/menu');
+
+const router = express.Router();
 
 router.route('/')
     .get(getMenu)
