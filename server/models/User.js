@@ -1,4 +1,4 @@
-const mongoose = required('mongoose');
+const mongoose = require('mongoose');
 
 const User = mongoose.Schema({
      email: {
@@ -26,11 +26,11 @@ const User = mongoose.Schema({
         default: Date.now
     },
     name: {
-        type: string,
+        type: String,
         required: [true, 'Please add name'],
     },
     lastName: {
-        type: string,
+        type: String,
         required: [true, 'Please add name'],
     }
 });
