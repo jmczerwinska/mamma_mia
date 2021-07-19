@@ -27,7 +27,7 @@ const errorHandler = (err, req, res, next) => {
 
     //JsonWebToken validation error
     if (err.name === 'JsonWebTokenError') {
-        const message = 'Not authorize to access this route';
+        const message = 'Not authorized to access this route';
         error = new ErrorResponse(message, 401);
     }
 
