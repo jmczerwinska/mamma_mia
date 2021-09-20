@@ -75,7 +75,7 @@ exports.deleteIngredient = asyncHandler (async (req, res, next) => {
 
     if (!ingredient) {
         return next (
-            new ErrorRespnse(`Ingredient not found with id of ${req.params.id}`)
+            new ErrorRespnse(`Ingredient not found with id of ${req.params.id}`,404)
         )
     };
 
