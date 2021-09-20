@@ -12,6 +12,7 @@ const connectDB =require('./config/db');
 const menu = require('./routes/menu');
 const ingredients = require('./routes/ingredients');
 const authentication = require('./routes/authentication');
+const users = require('./routes/user');
 
 //add env vars
 dotenv.config({ path: "./config/config.env" });
@@ -29,6 +30,7 @@ app.use(cookieParser());
 app.use('/api/v1/menu', menu);
 app.use('/api/v1/ingredients', ingredients);
 app.use('/api/v1/auth', authentication);
+app.use('/api/v1/users', users);
 
 app.use(errorHandler);
 
