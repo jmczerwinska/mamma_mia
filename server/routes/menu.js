@@ -1,6 +1,13 @@
 const express = require('express');
-const { getMenu, getPizza, addPizza, updatePizza, deletePizza } = require('../controllers/menu');
 const { protect, authorize } = require('../middleware/auth');
+const { 
+    getMenu,
+    getPizza,
+    addPizza,
+    updatePizza,
+    deletePizza
+} = require('../controllers/menu');
+
 
 const router = express.Router();
 
