@@ -1,4 +1,5 @@
 const asyncHandler = require("../middleware/async");
+const sendEmail = require('../utils/sendEmail');
 const User = require('..//models/User');
 const ErrorResponse = require("../utils/errorResponse");
 
@@ -60,7 +61,66 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        data: user
+        data: user 
+    })
+});
+
+
+//@desc     Forgot password
+//@route    POST /api/v1/auth/forgotpassword
+//@access   Public
+exports.forgotPassword = asyncHandler(async (req, res, next) => {
+    const user = await User.findOne({ email: req.body.email });
+
+    if(!user) {
+        return next(new ErrorResponse('There is no user with that email', 404))
+    };
+
+    //Get reseet token
+    const resetToken = user.getResetPasswordToken();
+
+    await user.save({ validateBeforeSave: false });
+
+    // Create reset URL
+    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/auth/resetpassword/${resetToken}`;
+
+    const text = `You are reversing this email because you (or someone else) has requested the reset of the password. Please make a PUT request to: \n\n ${resetUrl}`;
+
+    try {
+            
+        await sendEmail({
+            email: user.email,
+            subject: 'Reset password request',
+            text
+        });
+
+        res.status(200).json({succes: true, data: 'Email send'});
+
+    } catch (error) {
+        console.log(error);
+
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+
+        await user.save({ validateBeforeSave: false });
+
+        res.status(500).json({succes: false, data: 'Email could not send'});     
+    }
+});
+
+
+//@desc     Get current logged in user
+//@route    PUT /api/v1/auth/resetpassword
+//@access   Public
+exports.resetPassword = asyncHandler(async (req, res, next) => {
+    const user = await User.findOne({});
+
+    //Get hashed token
+    
+
+    res.status(200).json({
+        success: true,
+        data: user 
     })
 });
 
