@@ -10,7 +10,6 @@ const ErrorResponse = require("../utils/errorResponse");
 //@access   Public
 exports.register = asyncHandler(async (req, res, next) => {
     const { email, password, name, lastName, role } = req.body;
-    console.log(req.body)
 
     const user = await User.create({
         email,
@@ -181,6 +180,7 @@ const sendTokenResponse = (user, statusCode, res) => {
         httpOnly: true,
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000)
     };
+    
     if (process.env.NODE_ENV === 'production') {
         options.secure = true;
     }

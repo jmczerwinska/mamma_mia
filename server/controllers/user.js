@@ -66,7 +66,7 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
 
     if (!user) {
         return next (
-            new ErrorRespnse(`User not found with id of ${req.params.id}`, 404)
+            new ErrorResponse(`User not found with id of ${req.params.id}`, 404)
         )
     };
 
@@ -85,7 +85,7 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 
     if (!user) {
         return next (
-            new ErrorRespnse(`User not found with id of ${req.params.id}`, 404)
+            new ErrorResponse(`User not found with id of ${req.params.id}`, 404)
         )
     };
 
