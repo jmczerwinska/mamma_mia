@@ -7,6 +7,7 @@ dotenv.config({ path: "./config/config.env" });
 
 const Menu = require('./models/Menu');
 const Ingredient = require('./models/Ingredient');
+const Review = require('./models/Review');
 
 const asyncHandler = require('./middleware/async');
 
@@ -18,13 +19,15 @@ mongoose.connect(process.env.MONGO_URI, {
         useUnifiedTopology: true
 });
 
-const menu = JSON.parse(fs.readFileSync(`${__dirname}/_data/menu.json`), 'utf-8');
-const ingredients = JSON.parse(fs.readFileSync(`${__dirname}/_data/ingredients.json`), 'utf-8');
+const menu = JSON.parse(fs.readFileSync(`${__dirname}/_data/menu.json`, 'utf-8'));
+const ingredients = JSON.parse(fs.readFileSync(`${__dirname}/_data/ingredients.json`, 'utf-8'));
+const reviews = JSON.parse(fs.readFileSync(`${__dirname}/_data/reviews.json`, 'utf-8'));
 
 //Import into DB
 const importData = asyncHandler( async(req, res, next) => {
         await Menu.create(menu);
         await Ingredient.create(ingredients);
+        await Review.create(reviews);
 
         console.log('Data imported...'.green.inverse);
         process.exit();
@@ -34,6 +37,7 @@ const importData = asyncHandler( async(req, res, next) => {
 const destroyData = asyncHandler( async (req, res, next) => {
         await Menu.deleteMany();
         await Ingredient.deleteMany();
+        await Review.deleteMany();
 
         console.log('Data destroyed...'.red.inverse);
         process.exit();
