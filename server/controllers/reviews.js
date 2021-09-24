@@ -19,7 +19,10 @@ exports.getReviews = asyncHandler(async (req, res, next) => {
 //@route    GET /api/v1/reviews/:id
 //@access   Public
 exports.getReview = asyncHandler(async (req, res, next) => {
-    const review = await Review.findById(req.params.id);
+    const review = await Review.findById(req.params.id).populate({
+        path: 'user',
+        select: 'name lastName'
+    });
 
     if(!review) {
         return next(new ErrorResponse(`Review not found with id of ${req.params.id}`, 404));
