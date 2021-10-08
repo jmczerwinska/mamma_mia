@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
+const mongoSanitize = require('express-mongo-sanitize');
 const colors = require('colors');
 
 //Midllewares
@@ -27,6 +28,9 @@ app.use(express.json());
 
 //Cookie parse
 app.use(cookieParser());
+
+//Sanitize data
+app.use(mongoSanitize());
 
 app.use('/api/v1/menu', menu);
 app.use('/api/v1/ingredients', ingredients);
