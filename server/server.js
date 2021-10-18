@@ -21,6 +21,7 @@ const ingredients = require('./routes/ingredients');
 const authentication = require('./routes/authentication');
 const users = require('./routes/user');
 const reviews = require('./routes/reviews');
+const orders = require('./routes/orders');
 
 //add env vars
 dotenv.config({ path: "./config/config.env" });
@@ -62,6 +63,7 @@ app.use('/api/v1/ingredients', ingredients);
 app.use('/api/v1/auth', authentication);
 app.use('/api/v1/users', users);
 app.use('/api/v1/reviews', reviews);
+app.use('/api/v1/orders', orders);
 
 app.use(errorHandler);
 
