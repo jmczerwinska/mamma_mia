@@ -27,10 +27,6 @@ const UserSchema = mongoose.Schema({
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
     name: {
         type: String,
         required: [true, 'Please add name'],
@@ -39,7 +35,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please add name'],
     }
-});
+}, {timestamps: true});
 
 //Encrypt password using bcrypt
 UserSchema.pre('save', async function(next) {
