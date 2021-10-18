@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const xss = require('xss-clean');
 const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
+const cors = require('cors');
 
 const colors = require('colors');
 
@@ -52,6 +53,9 @@ app.use(limiter);
 
 // Prevent http param pollution
 app.use(hpp());
+
+//Enable CORS
+app.use(cors());
 
 app.use('/api/v1/menu', menu);
 app.use('/api/v1/ingredients', ingredients);
