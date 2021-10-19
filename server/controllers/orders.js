@@ -40,8 +40,6 @@ exports.getOrder = asyncHandler(async (req, res, next) => {
 //@route    POST /api/v1/orders
 //@access   Public
 exports.addOrder = asyncHandler(async (req, res, next) => {
-    req.body.user = user.id;
-
     const order = await Order.create(req.body);
 
     res.status(201).json({
@@ -87,6 +85,6 @@ exports.deleteOrder = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        data: order
+        data: {}
     });
 });

@@ -3,15 +3,14 @@ const mongoose = require('mongoose');
 const OrderSchema = mongoose.Schema({
     orderNumber: {
         type: Number,
-        required: [true, 'Please add order number'],
-        defaul: Date.now
+        default: Date.now
     },
     status: {
         type: String,
         required: [true, 'Please add order status'],
         enum: ['accepted', 'in progress', 'completed', 'canceled']
     },
-    list: [String],
+    list: [],
     deliveryAdress: {
         name: String,
         street: String,
@@ -23,7 +22,6 @@ const OrderSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: true
     }
 }, {timestamps: true});
 
