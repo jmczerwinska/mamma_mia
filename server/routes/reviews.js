@@ -6,12 +6,17 @@ const {
     updateReview,
     deleteReview
 } = require('../controllers/reviews');
+const advancedResults = require('../middleware/advancedResults');
 const { protect, authorize } = require('../middleware/auth');
+const Review = require('../models/Review');
 
 const router = express.Router();
 
 router.route('/')
-    .get(getReviews)
+    .get(advancedResults(Review, {
+        path: 'user',
+        select: 'name lastName'
+    }), getReviews)
     .post(protect, authorize('user'), addReview);
 
 router.route('/:id')

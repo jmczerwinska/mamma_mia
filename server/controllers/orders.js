@@ -7,16 +7,7 @@ const ErrorResponse = require('../utils/errorResponse');
 //@route    GET /api/v1/orders
 //@access   Public
 exports.getOrders = asyncHandler(async (req, res, next) => {
-    const orders = await Order.find().populate({
-        path: 'user',
-        select: 'name lastName adress'
-    });
-
-    res.status(200).json({
-        success: true,
-        count: orders.length,
-        data: orders
-    });
+    res.status(200).json(res.advancedResults);
 });
 
 

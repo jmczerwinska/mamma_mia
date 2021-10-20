@@ -7,12 +7,14 @@ const {
     updatePizza,
     deletePizza
 } = require('../controllers/menu');
+const advancedResults = require('../middleware/advancedResults');
+const Menu = require('../models/Menu');
 
 
 const router = express.Router();
 
 router.route('/')
-    .get(getMenu)
+    .get(advancedResults(Menu), getMenu)
     .post(protect, authorize('admin', 'staff'), addPizza);
 
 router.route('/:id')

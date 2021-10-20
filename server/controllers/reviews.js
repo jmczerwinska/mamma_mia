@@ -6,16 +6,7 @@ const ErrorResponse = require('../utils/errorResponse');
 //@route    GET /api/v1/reviews
 //@access   Public
 exports.getReviews = asyncHandler(async (req, res, next) => {
-    const reviews = await Review.find().populate({
-        path: 'user',
-        select: 'name lastName'
-    });
-
-    res.status(200).json({
-        success: true,
-        count: reviews.length,
-        data: reviews
-    });
+    res.status(200).json(res.advancedResults);
 });
 
 

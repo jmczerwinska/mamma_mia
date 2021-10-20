@@ -1,5 +1,7 @@
 const express = require('express');
 const { authorize, protect } = require('../middleware/auth');
+const advancedResults = require('../middleware/advancedResults');
+const Order = require('../models/Order');
 const {
     getOrders,
     addOrder,
@@ -11,8 +13,13 @@ const {
 const router = express.Router();
 
 router.route('/')
-    .get(getOrders)
-    .post(addOrder);
+    .get(advancedResults(
+        Order, {
+            path: 'user',
+            select: 'name lastName'
+        }),
+        getOrders)
+    .post(addOrder); 
 
 router.route('/:id')
     .get(getOrder)

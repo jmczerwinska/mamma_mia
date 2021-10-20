@@ -8,6 +8,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
     let queryString = JSON.stringify(reqQuery);
     queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+    console.log(queryString);
 
     query = model.find(JSON.parse(queryString));
 
@@ -31,7 +32,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
     const total = await model.countDocuments();
     
     const pagination = {};
-    
+
     if(endIndex < total) {
         pagination.next = {
             page: page + 1,

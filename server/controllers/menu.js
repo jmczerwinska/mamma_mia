@@ -6,13 +6,7 @@ const asyncHandler = require('../middleware/async');
 //@route    GET /api/v1/menu
 //@access   Public
 exports.getMenu = asyncHandler(async (req, res, next) => {
-        const menu = await Menu.find();
-
-        res.status(200).json({ 
-            success: true,
-            count: menu.length,
-            data: menu
-        });
+    res.status(200).json(res.advancedResults);
 });
 
 //@desc     Get one pizza

@@ -1,20 +1,16 @@
 const Ingredient = require('../models/Ingredient');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
+const advancedResults = require('../middleware/advancedResults');
 
 
 //@desc     Get all ingredients
 //@route    GET api/v1/ingredients
 //@access   Public
 exports.getIngredients = asyncHandler( async(req,res,next) => {
-    const ingredients = await Ingredient.find();
-
-    res.status(200).json({ 
-        success: true,
-        count: ingredients.length,
-        data: ingredients
-    });
+    res.status(200).json(advancedResults);
 });
+
 
 //@desc     Get one ingredient
 //@route    GET api/v1/ingredients/:id

@@ -7,11 +7,13 @@ const {
     updateIngredient,
     deleteIngredient 
 } = require('../controllers/ingredients');
+const advancedResults = require('../middleware/advancedResults');
+const Ingredient = require('../models/Ingredient');
 
 const router = express.Router();
 
 router.route('/')
-    .get(getIngredients)
+    .get(advancedResults(Ingredient), getIngredients)
     .post(protect, authorize('admin', 'staff'), addIngredient);
 
 router.route('/:id')
