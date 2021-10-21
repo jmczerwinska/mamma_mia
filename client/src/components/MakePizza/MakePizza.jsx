@@ -4,7 +4,7 @@ import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';
 import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 
-import Ingredients from '../../data/ingredients';
+// import Ingredients from '../../data/ingredients';
 import ornament from '../PizzaList/ornament.png';
 import './MakePizza.scss';
 
@@ -14,14 +14,32 @@ function MakePizza() {
   const [ingredients, setIngredients] = useState([]);
   const [price, setPrice] = useState(0);
   const [base, setBase] = useState(800);
+
+  const fetchIngredients = async() => {
+    try {
+      const data = await fetch('http://localhost:5000/api/v1/ingredients?sort=price', {
+      method: 'GET',
+      });
+
+      const parseData = await data.json();
+
+      const list = parseData.data.map((ingredient) => {
+        ingredient.checked = ingredient.price === 0 ? true : false;
+        return ingredient;
+      });
+
+      setIngredients(list);
+      
+    } catch(err) {
+      console.log(err);
+    }
+  }
   
   useEffect(() => {
-    Ingredients.map((ingredient) => {
-      ingredient.checked = ingredient.price === 0 ? true : false;
-      return ingredient;
-    });
-    setIngredients(Ingredients);
+    fetchIngredients();
   }, [])
+
+ 
 
   useEffect(() => {
     setPrice(ingredients.reduce((sum, ingredient) => {
