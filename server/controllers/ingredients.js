@@ -8,7 +8,7 @@ const advancedResults = require('../middleware/advancedResults');
 //@route    GET api/v1/ingredients
 //@access   Public
 exports.getIngredients = asyncHandler( async(req,res,next) => {
-    res.status(200).json(advancedResults);
+    res.status(200).json(res.advancedResults);
 });
 
 

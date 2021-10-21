@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 //Sanitize data
-app.use(mongoSanitize());
+app.use(mongoSanitize({replaceWith: '_'}));
 
 //Set security headers
 app.use(helmet());
