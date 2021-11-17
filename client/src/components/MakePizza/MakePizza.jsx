@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { BasketContext } from '../../context/BasketContext';
 
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';
@@ -7,20 +8,20 @@ import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 // import Ingredients from '../../data/ingredients';
 import ornament from '../PizzaList/ornament.png';
 import './MakePizza.scss';
-import { BasketContext } from '../../context/BasketContext';
+
 
 function MakePizza() {
   useEffect(() => window.scrollTo(0, 0), []);
 
-  const {addToBasket} = useContext(BasketContext)
+  const { addToBasket } = useContext(BasketContext)
   const [ingredients, setIngredients] = useState([]);
   const [price, setPrice] = useState(0);
   const [base, setBase] = useState(800);
 
-  const fetchIngredients = async() => {
+  const fetchIngredients = async () => {
     try {
       const data = await fetch('http://localhost:5000/api/v1/ingredients?sort=price', {
-      method: 'GET',
+        method: 'GET',
       });
 
       const parseData = await data.json();
@@ -31,17 +32,15 @@ function MakePizza() {
       });
 
       setIngredients(list);
-      
-    } catch(err) {
+
+    } catch (err) {
       console.log(err);
     }
   }
-  
+
   useEffect(() => {
     fetchIngredients();
   }, [])
-
- 
 
   useEffect(() => {
     setPrice(ingredients.reduce((sum, ingredient) => {
@@ -104,7 +103,7 @@ function MakePizza() {
       <div className="add-to-basket">
         <h4 className="price">Cena: {(price / 100).toFixed(2)} zł</h4>
         <AddPizzaButton onSubmit={addPizza} />
-      </div>   
+      </div>
     </div>
   );
 }

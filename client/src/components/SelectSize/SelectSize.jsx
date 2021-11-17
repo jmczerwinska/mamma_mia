@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Size from './size.png';
 
 import './SelectSize.scss';

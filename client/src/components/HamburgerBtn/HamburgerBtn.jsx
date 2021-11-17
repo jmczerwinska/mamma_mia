@@ -5,7 +5,7 @@ import './HamburgerBtn.scss';
 function HamburgerBtn({ toggleMenu, active }) {
 
     return (
-        <button 
+        <button
             className={`hamburger${active ? ' hamburger--active' : ''}`}
             onClick={toggleMenu}>
             <span className="hamburger__box">

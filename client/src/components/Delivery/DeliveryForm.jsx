@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import {BasketContext} from '../../context/BasketContext';
+import { BasketContext } from '../../context/BasketContext';
 
 import './DeliveryForm.scss';
 
 function DeliveryForm({ history }) {
-    const {resetBasket} = useContext(BasketContext);
+    const { resetBasket } = useContext(BasketContext);
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
@@ -54,7 +54,7 @@ function DeliveryForm({ history }) {
 
             <fieldset className="delivery-form__group">
                 <label htmlFor="city" className="delivery-form__label">Miasto</label>
-                <input 
+                <input
                     name="city"
                     placeholder="Miasto*"
                     className="delivery-form__input"
@@ -64,7 +64,7 @@ function DeliveryForm({ history }) {
             <div className="wrapper">
                 <fieldset className="delivery-form__group delivery-form__group--single">
                     <label htmlFor="street" className="delivery-form__label">Ulica</label>
-                    <input 
+                    <input
                         name="street"
                         placeholder="Ulica*"
                         className="delivery-form__input"
@@ -82,14 +82,14 @@ function DeliveryForm({ history }) {
                     </fieldset>
                     <fieldset className="delivery-form__group delivery-form__group--number">
                         <label htmlFor="localNumber" className="delivery-form__label">Numer lokalu</label>
-                        <input 
+                        <input
                             name="localNumber"
-                            placeholder="Numer lokalu" 
+                            placeholder="Numer lokalu"
                             className="delivery-form__input"
                             {...register("localNumber")} />
                     </fieldset>
                 </div>
-                
+
             </div>
 
             <fieldset className="delivery-form__group">
@@ -110,7 +110,7 @@ function DeliveryForm({ history }) {
                 </button>
                 <input type="submit" value="Zamów" className="button button--next" />
             </div>
-            
+
         </form >
     )
 }

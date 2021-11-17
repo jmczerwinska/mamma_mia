@@ -1,6 +1,6 @@
 import React from 'react';
-
 import Timer from '../Timer/Timer';
+
 import './Summary.scss';
 
 function Summary() {

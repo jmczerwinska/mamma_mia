@@ -13,11 +13,11 @@ import Basket from './components/Basket/Basket';
 import DeliveryForm from './components/Delivery/DeliveryForm';
 import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
-import {BasketContextProvider} from './context/BasketContext';
+import { BasketContextProvider } from './context/BasketContext';
 
 
 function Routing() {
- 
+
     return (
         <BrowserRouter>
             <BasketContextProvider>

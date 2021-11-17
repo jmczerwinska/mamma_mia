@@ -1,10 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
 import './SelectIngredients.scss'
 
-
-function IngredientsList({ ingredients, ingredientsSender}) {
+function IngredientsList({ ingredients, ingredientsSender }) {
 
     const ingredientChange = (ingredient) => {
         const newIngredients = ingredients.map(el => {
@@ -21,7 +21,7 @@ function IngredientsList({ ingredients, ingredientsSender}) {
                 {ingredients.map(
                     (ingredient, i) => (
                         <div className="ingredient" key={i}>
-                            <div 
+                            <div
                                 className={`ingredient__checkbox${ingredient.checked ? ' active' : ''}`}
                                 onClick={() => ingredientChange(ingredient)}>
                                 <FontAwesomeIcon icon={faCheck} className="icon-checked" />

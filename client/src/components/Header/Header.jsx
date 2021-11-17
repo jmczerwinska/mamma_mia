@@ -1,6 +1,4 @@
 import React from 'react';
-
-// import Logo from './Logo.png';
 import Navbar from '../Navbar/Navbar';
 import './Header.scss';
 

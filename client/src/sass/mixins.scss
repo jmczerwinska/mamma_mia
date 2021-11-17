@@ -1,6 +1,6 @@
-@import './variable.scss';
+@import "./variable.scss";
 
-@mixin standard-btn ($color: $green, $borderColor: $lightgreen){
+@mixin standard-btn($color: $green, $borderColor: $lightgreen) {
     font-size: 13px;
     font-family: $mainFont;
     letter-spacing: 1.5px;
@@ -38,5 +38,5 @@
     text-indent: 8px;
     &:focus {
         border-color: $lightgreen;
-    }  
+    }
 }

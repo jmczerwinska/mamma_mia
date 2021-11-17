@@ -1,4 +1,4 @@
-@import '../../sass/variable.scss';
+@import "../../sass/variable.scss";
 
 .basket-btn {
     display: inline-block;
@@ -10,11 +10,10 @@
     position: relative;
     outline-color: $lightgreen;
     z-index: 11;
-    
+
     .basket-btn__icon {
         font-size: 36px;
         color: $green;
-       
     }
     .basket-btn__counter {
         background-color: $red;

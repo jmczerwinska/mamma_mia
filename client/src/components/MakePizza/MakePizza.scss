@@ -1,5 +1,5 @@
-@import '../../sass/variable.scss';
-@import '../../sass/mixins.scss';
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
 
 .container {
     width: 90%;
@@ -22,7 +22,7 @@
             flex-grow: 1;
         }
         .add-btn {
-            flex-grow: 4;  
+            flex-grow: 4;
         }
     }
 }
@@ -30,16 +30,13 @@
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 780px) {
-    .container{
+    .container {
         width: 95%;
     }
 }
 
 @media screen and (min-width: 1020px) {
     .container {
-        width: 70%;       
+        width: 70%;
     }
 }
-
-
-

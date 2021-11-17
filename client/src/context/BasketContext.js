@@ -5,7 +5,7 @@ const initialBasket = [];
 
 export const BasketContext = createContext(initialBasket);
 
-export function BasketContextProvider({children}) {
+export function BasketContextProvider({ children }) {
     const [basket, dispatch] = useReducer(BasketReducer, initialBasket);
 
     const addToBasket = (pizza) => {
@@ -22,7 +22,7 @@ export function BasketContextProvider({children}) {
         });
 
     }
-    
+
     const resetBasket = () => {
         dispatch({
             type: "RESET_BASKET"
@@ -32,7 +32,7 @@ export function BasketContextProvider({children}) {
 
     return (
         <BasketContext.Provider value={
-            {basket, addToBasket, removeFromBasket, resetBasket}
+            { basket, addToBasket, removeFromBasket, resetBasket }
         }>
             {children}
         </BasketContext.Provider>

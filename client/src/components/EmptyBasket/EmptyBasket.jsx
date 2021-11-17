@@ -13,7 +13,7 @@ function EmptyBasket({ history }) {
             <button
                 className="redirection__button"
                 onClick={() => history.push('/mamma_mia/menu')}>
-                    Zamów pizzę!
+                Zamów pizzę!
             </button>
         </div>
 

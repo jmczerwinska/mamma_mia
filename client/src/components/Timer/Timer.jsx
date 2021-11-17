@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { faStopwatch } from '@fortawesome/free-solid-svg-icons';
@@ -58,7 +57,7 @@ function Timer({ deliveryTime }) {
                 <h6 className="timer__title">Pozostało:</h6>
                 <p className="timer__show-time">
                     <FontAwesomeIcon icon={faStopwatch} className="timer__icon" />
-                &nbsp;{displayTimeLeft()}
+                    &nbsp;{displayTimeLeft()}
                 </p>
             </div>
 
@@ -66,4 +65,4 @@ function Timer({ deliveryTime }) {
     )
 }
 
-export default Timer;  
+export default Timer;
