@@ -1,20 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { ContextConsumer } from '../..';
+import { BasketContext } from '../../context/BasketContext';
 import EmptyBasket from '../EmptyBasket/EmptyBasket';
 import FullBasket from '../FullBasket/FullBasket';
 
 function Basket({ history }) {
+    const {basket} = useContext(BasketContext);
 
     return (
-            <ContextConsumer>
-                {
-                    context => context.basket.length <= 0
-                        ? <EmptyBasket />
-                        : <FullBasket />
-                }
-            </ContextConsumer>
+        basket.length <= 0
+            ? <EmptyBasket />
+            : <FullBasket />
     )
 }
 

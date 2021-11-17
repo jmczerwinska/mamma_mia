@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
+import { BasketContext } from '../../context/BasketContext';
 
-import { ContextConsumer } from '../../index.js';
 import './FullBasket.scss';
 
 
 function Basket({ history }) {
+    const {basket, removeFromBasket} = useContext(BasketContext);
 
-    const fullPrice = (context) => context.basket.reduce((sum, pizza) => sum + pizza.price, 0);
+    const fullPrice = basket.reduce((sum, pizza) => sum + pizza.price, 0);
 
     const showIngredients = (pizza) => {
         let nameArr = [];
@@ -16,18 +17,11 @@ function Basket({ history }) {
         return ingredientsList;
     }
 
-    const removePizza = (context, i) => {
-        const { basket, refresh } = context;
-        const updateBasket = basket.filter((pizza, index) => index !== i);
-        refresh(updateBasket);
-    }
-
     return (
-        <ContextConsumer>
-            {context => (
+    
                 <>
                     <ul className="basket">
-                        {context.basket.map((pizza, i) => (
+                        {basket.map((pizza, i) => (
                             <li key={i} className="basket__row">
                                 <section className="basket__info">
                                     <h4 className="basket__name">
@@ -37,7 +31,7 @@ function Basket({ history }) {
                                     <p className="basket__price">{(pizza.price / 100).toFixed(2)} zł</p>
                                     <button
                                         className="button button--delete"
-                                        onClick={() => removePizza(context, i)}>
+                                        onClick={() => removeFromBasket(i)}>
                                         &times;
                                     </button>
                                 </section>
@@ -50,7 +44,7 @@ function Basket({ history }) {
                         ))}
                     </ul>
 
-                    <h4 className="full-price">Do zapłaty: {(fullPrice(context) / 100).toFixed(2)} zł</h4>
+                    <h4 className="full-price">Do zapłaty: {(fullPrice / 100).toFixed(2)} zł</h4>
 
                     <div className="button-group">
                         <button
@@ -67,9 +61,7 @@ function Basket({ history }) {
 
 
                 </>
-            )}
-        </ContextConsumer>
     )
-}
+      }
 
 export default withRouter(Basket);

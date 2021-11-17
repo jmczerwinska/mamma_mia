@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -12,20 +12,15 @@ import Order from './components/Order/Order';
 import Basket from './components/Basket/Basket';
 import DeliveryForm from './components/Delivery/DeliveryForm';
 import Summary from './components/Summary/Summary';
-import Contact from './components/Contact/Contact'
+import Contact from './components/Contact/Contact';
+import {BasketContextProvider} from './context/BasketContext';
 
-const MyContext = createContext();
-export const ContextConsumer = MyContext.Consumer;
-const ContextProvider = MyContext.Provider;
 
 function Routing() {
-    const [basket, setBasket] = useState([]);
-    const refresh = data => setBasket(data);
-  
  
     return (
         <BrowserRouter>
-            <ContextProvider value={{ basket: basket, refresh: refresh }}>
+            <BasketContextProvider>
                 <Switch>
                     <Route exact path="/mamma_mia" component={LandingPage} />
                     <Route path='/mamma_mia'>
@@ -43,7 +38,7 @@ function Routing() {
                         </App>
                     </Route>
                 </Switch>
-            </ContextProvider>
+            </BasketContextProvider>
         </BrowserRouter>
     )
 }

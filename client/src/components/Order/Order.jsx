@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import ProgressBar from '../ProgressBar/ProgressBar';
-import { ContextConsumer } from '../..';
+
+import { BasketContext } from '../../context/BasketContext';
 
 function Order({ children }) {
+    const { basket } = useContext(BasketContext);
     useEffect(() => window.scrollTo(0, 0), []);
 
     return (
 
         <div className="container container--order">
-            <ContextConsumer>
-                {context => context.basket.length > 0 &&
-                    <ProgressBar />}
-            </ContextConsumer>
+            {basket.length > 0 &&
+                <ProgressBar />}
             {children}
         </div>
     )

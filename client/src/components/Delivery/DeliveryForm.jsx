@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import {BasketContext} from '../../context/BasketContext';
 
 import './DeliveryForm.scss';
 
 function DeliveryForm({ history }) {
+    const {resetBasket} = useContext(BasketContext);
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
 
-        //TODO skasować koszyk
+        resetBasket();
 
         history.push("/mamma_mia/order/summary");
     };

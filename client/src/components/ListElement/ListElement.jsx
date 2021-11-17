@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './ListElement.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
+import { BasketContext } from '../../context/BasketContext';
 
 
 
 function ListElement({ pizza }) {
+    const {basket, addToBasket} = useContext(BasketContext);
     const [selected, setSelected] = useState('średnia');
 
-    const addPizza = context => {
+    const addPizza = () => {
         const newPizza = {
             name: pizza.name,
             size: selected,
             price: findPrice()
         };
-        context.refresh([...context.basket, newPizza]);
+        
+        addToBasket(newPizza);
 
         setSelected('średnia');
     }

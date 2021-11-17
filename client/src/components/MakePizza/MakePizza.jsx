@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';
@@ -7,10 +7,12 @@ import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 // import Ingredients from '../../data/ingredients';
 import ornament from '../PizzaList/ornament.png';
 import './MakePizza.scss';
+import { BasketContext } from '../../context/BasketContext';
 
 function MakePizza() {
   useEffect(() => window.scrollTo(0, 0), []);
 
+  const {addToBasket} = useContext(BasketContext)
   const [ingredients, setIngredients] = useState([]);
   const [price, setPrice] = useState(0);
   const [base, setBase] = useState(800);
@@ -51,7 +53,7 @@ function MakePizza() {
 
   const getIngredients = ingredients => setIngredients(ingredients);
 
-  const addPizza = (context) => {
+  const addPizza = () => {
     const pizza = {
       name: 'Kompozycja własna',
       size: findSize(),
@@ -60,7 +62,8 @@ function MakePizza() {
     }
 
     ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el) });
-    context.refresh([...context.basket, pizza]);
+
+    addToBasket(pizza);
 
     resetPizza();
   }
