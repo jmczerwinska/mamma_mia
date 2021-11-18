@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { BasketContext } from '../../context/BasketContext';
@@ -8,12 +8,10 @@ import './DeliveryForm.scss';
 function DeliveryForm({ history }) {
     const { resetBasket } = useContext(BasketContext);
 
-    const { register, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
     const onSubmit = data => {
-        console.log(data);
-
         resetBasket();
-
         history.push("/mamma_mia/order/summary");
     };
 
@@ -23,12 +21,12 @@ function DeliveryForm({ history }) {
             <fieldset className="delivery-form__group">
                 <legend className="delivery-form__title">Dane do dostawy</legend>
 
-                <label htmlFor="name" className="delivery-form__label">Imię i Nazwisko</label>
+                <label htmlFor="name" className={`delivery-form__label ${ empty &&"delivery-form__label--empty"}`}>Imię i Nazwisko</label>
                 <input
                     name="name"
                     placeholder="Imię i Nazwisko*"
                     className="delivery-form__input"
-                    {...register("name")} />
+                    {...register("name", { required: true })} />
 
                 <div className="wrapper">
                     <fieldset className="delivery-form__group  delivery-form__group--single">
@@ -37,7 +35,10 @@ function DeliveryForm({ history }) {
                             name="email"
                             placeholder="E-mail*"
                             className="delivery-form__input"
-                            {...register("email")} />
+                            {...register("email", {
+                                required: true,
+                                pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                            })} />
                     </fieldset>
 
                     <fieldset className="delivery-form__group  delivery-form__group--single">
@@ -46,7 +47,7 @@ function DeliveryForm({ history }) {
                             name="phone"
                             placeholder="Telefon*"
                             className="delivery-form__input"
-                            {...register("phoneNumber")} />
+                            {...register("phoneNumber", { required: true, pattern: /^\d{9}$/ })} />
                     </fieldset>
                 </div>
 
@@ -58,7 +59,7 @@ function DeliveryForm({ history }) {
                     name="city"
                     placeholder="Miasto*"
                     className="delivery-form__input"
-                    {...register("city")} />
+                    {...register("city", { required: true })} />
             </fieldset>
 
             <div className="wrapper">
@@ -68,7 +69,7 @@ function DeliveryForm({ history }) {
                         name="street"
                         placeholder="Ulica*"
                         className="delivery-form__input"
-                        {...register("street")} />
+                        {...register("street", { required: true })} />
                 </fieldset>
 
                 <div className="wrapper wrapper--numbers">
@@ -78,7 +79,7 @@ function DeliveryForm({ history }) {
                             name="buildingNumber"
                             placeholder="Numer domu"
                             className="delivery-form__input"
-                            {...register("buildingNumber")} />
+                            {...register("buildingNumber", { required: true })} />
                     </fieldset>
                     <fieldset className="delivery-form__group delivery-form__group--number">
                         <label htmlFor="localNumber" className="delivery-form__label">Numer lokalu</label>
