@@ -16,7 +16,6 @@ const OrderSchema = mongoose.Schema({
         street: String,
         buildingNumber: Number,
         localNumber: Number,
-        postCode: String,
         city: String
     },
     user: {
