@@ -10,12 +10,8 @@
         &--number {
             width: 48%;
         }
-        .wrapper--numbers {
-            display: flex;
-            justify-content: space-between;
-        }
     }
-
+    
     &__input {
         @include input-shape;
         width: 99%;
@@ -34,6 +30,12 @@
         font-size: 12px;
         margin: 0 0.7rem;
     }
+}
+
+.wrapper {
+    &--numbers{
+    display: flex;
+    justify-content: space-between;}
 }
 
 @media screen and (min-width: 700px) {
