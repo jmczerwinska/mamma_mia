@@ -21,14 +21,13 @@ function Contact() {
                             00-222 Warszawa
                         </span>
                     </p>
-
-                    <p>
-                        <FontAwesomeIcon className="icon" icon={faPhoneAlt} />
-                        123-123-123
-                    </p>
                     <p>
                         <FontAwesomeIcon className="icon" icon={faEnvelopeOpenText} />
                         pizzeria@mammamia.pl
+                    </p>
+                    <p>
+                        <FontAwesomeIcon className="icon" icon={faPhoneAlt} />
+                        123-123-123
                     </p>
                 </div>
 
