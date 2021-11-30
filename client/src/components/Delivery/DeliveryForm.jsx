@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { BasketContext } from '../../context/BasketContext';
@@ -6,11 +6,42 @@ import { BasketContext } from '../../context/BasketContext';
 import './DeliveryForm.scss';
 
 function DeliveryForm({ history }) {
-    const { resetBasket } = useContext(BasketContext);
+    const { resetBasket, basket } = useContext(BasketContext);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = data => {
+    const sendOrder = async (order) => {
+        try {
+            await fetch('http://localhost:5000/api/v1/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(order)
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const onSubmit = async (data) => {
+        const newOrder = {
+            list: basket,
+            client: data.name,
+            email: data.email,
+            phone: data.phone,
+            deliveryAdress: {
+                street: data.street,
+                buildingNumber: data.buildingNumber,
+                localNumber: data.localNumber,
+                city: data.city
+            },
+            comment: data.comment
+        }
+
+        sendOrder(newOrder);
+
         resetBasket();
         history.push("/mamma_mia/order/summary");
     };
@@ -21,7 +52,7 @@ function DeliveryForm({ history }) {
             <fieldset className="delivery-form__group">
                 <legend className="delivery-form__title">Dane do dostawy</legend>
 
-                <label htmlFor="name" className={`delivery-form__label ${ empty &&"delivery-form__label--empty"}`}>Imię i Nazwisko</label>
+                <label htmlFor="name" className={`delivery-form__label`}>Imię i Nazwisko</label>
                 <input
                     name="name"
                     placeholder="Imię i Nazwisko*"
