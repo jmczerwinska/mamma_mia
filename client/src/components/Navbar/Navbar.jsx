@@ -13,7 +13,7 @@ function Navbar() {
     const links = [
         { name: 'Menu', path: '/mamma_mia/menu' },
         { name: 'Skomponuj', path: '/mamma_mia/compose' },
-        // { name: 'Opinie', path: '/mamma_mia/comments' },
+        { name: 'Opinie', path: '/mamma_mia/comments' },
         { name: 'Kontakt', path: '/mamma_mia/contact' }
     ]
 
