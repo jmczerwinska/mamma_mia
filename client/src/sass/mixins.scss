@@ -40,3 +40,8 @@
         border-color: $lightgreen;
     }
 }
+
+@mixin  form-label {
+    font-size: 12px;
+    margin: 0 0.7rem;  
+}

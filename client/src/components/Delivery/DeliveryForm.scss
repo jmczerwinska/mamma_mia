@@ -27,8 +27,7 @@
     }
 
     &__label {
-        font-size: 12px;
-        margin: 0 0.7rem;
+        @include form-label
     }
 }
 
