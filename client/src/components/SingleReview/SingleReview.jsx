@@ -6,7 +6,7 @@ function SingleReview({ review }) {
     return (
         <div>
             <h1>{title}</h1>
-            <h2>Ocena: {raiting}/5</h2>
+            <h2>Ocena: {rating}/5</h2>
             <p>{text}</p>
         </div>
     )
