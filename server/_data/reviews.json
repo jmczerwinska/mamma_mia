@@ -2,37 +2,37 @@
     {
         "title": "Great pizza",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia facilisis lacinia. Cras ex quam, tincidunt in pulvinar vel, ullamcorper eget lacus. Praesent est erat, gravida vitae dignissim a, ultrices at leo. ",
-        "raiting": 5,
+        "rating": 5,
         "user": "60f590f5ef165d8b557bdeb1"
     },
     {
         "title": "Nice local",
         "text": "Sed porta tortor non nunc ornare, iaculis porta arcu faucibus. Quisque pretium lectus ac neque tristique cursus. Nulla nulla mi, tincidunt nec auctor ut, venenatis ut massa. Pellentesque volutpat, odio sit amet semper molestie, leo justo egestas nisl, in ultricies orci metus in lacus. Integer sit amet vestibulum justo.",
-        "raiting": 4,
+        "rating": 4,
         "user": "60f590f5ef165d8b557bdeb1"
     },
     {
         "title": "It was ok",
         "text": "Nam vel leo sed augue accumsan tristique non vitae lacus. Duis accumsan est et est posuere pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-        "raiting": 3,
+        "rating": 3,
         "user": "60f590f5ef165d8b557bdeb1"
     },
     {
         "title": "Like in Italy",
         "text": "Ut venenatis, mi ac laoreet porta, mi metus tincidunt odio, pellentesque venenatis urna arcu quis nibh. Curabitur nec lorem sed enim cursus eleifend. Ut non orci non ante pharetra pretium. Nunc malesuada sed purus in varius. Nunc in ipsum ac lacus placerat.",
-        "raiting": 5,
+        "rating": 5,
         "user": "60f1a65feba675e1210c8165"
     },
     {
         "title": "Recommended",
         "text": "ed urna arcu, venenatis aliquet purus sed, sodales dapibus lacus. Proin commodo sem dolor, id aliquam mauris egestas et. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-        "raiting": 5,
+        "rating": 5,
         "user": "60f1a65feba675e1210c8165"
     },
     {
         "title": "Excellent pizza",
         "text": "Sed porta tortor non nunc ornare, iaculis porta arcu faucibus. Quisque pretium lectus ac neque tristique cursus.Integer sit amet vestibulum justo. Nunc aliquam interdum mi, auctor ornare nibh lacinia in. Curabitur diam diam, ultrices sit amet venenatis a, tristique non nisl.",
-        "raiting": 5,
+        "rating": 5,
         "user": "60f1a65feba675e1210c8165"
     }
 ]

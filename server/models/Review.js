@@ -6,7 +6,7 @@ const ReviewSchema = mongoose.Schema({
         maxlength:[30, 'Title can not be longer than 30 characters.'],
         trim: true
     },
-    raiting: {
+    rating: {
         type: Number,
         min: 1,
         max: 10,
