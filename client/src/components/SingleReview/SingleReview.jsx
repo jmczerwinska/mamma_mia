@@ -1,8 +1,8 @@
 import React from 'react';
 
-function SingleComment({ comment }) {
-    const { title, raiting, text } = comment
-    
+function SingleReview({ review }) {
+    const { title, rating, text } = review;
+
     return (
         <div>
             <h1>{title}</h1>
@@ -12,4 +12,4 @@ function SingleComment({ comment }) {
     )
 }
 
-export default SingleComment;
+export default SingleReview;
