@@ -13,7 +13,7 @@ import Basket from './components/Basket/Basket';
 import DeliveryForm from './components/Delivery/DeliveryForm';
 import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
-import Comments from './components/Comments/Comments';
+import Reviews from './components/Reviews/Reviews';
 
 import { BasketContextProvider } from './context/BasketContext';
 
@@ -37,7 +37,7 @@ function Routing() {
                                 </Order>
                             </Route>
                             <Route path="/mamma_mia/contact" component={Contact} />
-                            <Route path="/mamma_mia/comments" component={Comments} />
+                            <Route path="/mamma_mia/comments" component={Reviews} />
                         </App>
                     </Route>
                 </Switch>
