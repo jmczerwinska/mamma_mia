@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SingleReview from '../SingleReview/SingleReview';
+import StarRating from '../StarRating/StarRating';
 
 function Reviews() {
     const [reviews, setReviews] = useState([])
@@ -25,6 +26,7 @@ function Reviews() {
 
     return (
         <div className="container container--reviews">
+            <StarRating />
             {reviews.map((el, i) => <SingleReview key={i} review={el} />)}
         </div>
 
