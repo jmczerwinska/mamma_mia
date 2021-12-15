@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import SingleReview from '../SingleReview/SingleReview';
-import StarRating from '../StarRating/StarRating';
+
 
 function Reviews() {
     const [reviews, setReviews] = useState([])
@@ -26,7 +27,7 @@ function Reviews() {
 
     return (
         <div className="container container--reviews">
-            <StarRating />
+            <ReviewForm />
             {reviews.map((el, i) => <SingleReview key={i} review={el} />)}
         </div>
 
