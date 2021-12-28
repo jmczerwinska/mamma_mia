@@ -29,7 +29,7 @@ function ReviewForm() {
                         return (
                             <StarRating
                                 key={i}
-                                register={{ ...register("rating") }}
+                                register={register}
                                 ratingValue={ratingValue}
                                 watchRating={watchRating}
                                 setHover={setHover}

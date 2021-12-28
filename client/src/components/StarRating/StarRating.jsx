@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,7 +13,7 @@ function StarRating({ register, ratingValue, watchRating, setHover, hover }) {
                 name="rating"
                 className="rating__radio"
                 value={ratingValue}
-                register />
+                {...register("rating", {required: true})} />
             <FontAwesomeIcon
                 className="rating__star"
                 icon={faStar}
