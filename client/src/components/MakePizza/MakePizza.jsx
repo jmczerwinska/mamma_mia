@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { toast } from "react-toastify";
 import { BasketContext } from '../../context/BasketContext';
 
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
@@ -63,7 +64,7 @@ function MakePizza() {
     ingredients.forEach((el) => { if (el.checked) pizza.ingredients.push(el) });
 
     addToBasket(pizza);
-
+    toast.success('Dodano do koszyka!');
     resetPizza();
   }
 
