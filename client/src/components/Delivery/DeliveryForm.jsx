@@ -21,7 +21,7 @@ function DeliveryForm({ history }) {
             });
 
         } catch (err) {
-            console.log(err);
+            console.log();
         }
     }
 
@@ -78,7 +78,7 @@ function DeliveryForm({ history }) {
                             name="phone"
                             placeholder="Telefon*"
                             className="delivery-form__input"
-                            {...register("phoneNumber", { required: true, pattern: /^\d{9}$/ })} />
+                            {...register("phone", { required: true, pattern: /^\d{9}$/ })} />
                     </fieldset>
                 </div>
 
