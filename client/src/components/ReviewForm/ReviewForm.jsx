@@ -9,10 +9,31 @@ function ReviewForm() {
   const watchRating = watch("rating", null);
   const [hover, setHover] = useState(null);
 
+  const sendReview = async (data) => {
+    try {
+      const response = await fetch("http://localhost:5000/api/v1/reviews/", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const parseResponse = await response.json();
+
+      if (!parseResponse.success) {
+        throw new Error(`${response.status} - ${parseResponse.message}`);
+      }
+      console.log(parseResponse)
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <form
       className="review-form"
-      onSubmit={handleSubmit((data) => console.log(data))}
+      onSubmit={handleSubmit((data) => sendReview(data))}
     >
       <fieldset className="review-form__group review-form__group--rating">
         <legend className="review-form__legend">Ocena:</legend>
@@ -31,14 +52,14 @@ function ReviewForm() {
         })}
       </fieldset>
       <fieldset className=" review-form__group review-form__group--name">
-        <label htmlFor="name" className="review-form__label">
-          Imię
+        <label htmlFor="title" className="review-form__label">
+          Tytuł
         </label>
         <input
-          name="name"
-          placeholder="Imię i Nazwisko*"
+          title="tytuł"
+          placeholder="Tytuł"
           className="review-form__input"
-          {...register("name", { required: true })}
+          {...register("tytuł", { required: true })}
         />
       </fieldset>
 
