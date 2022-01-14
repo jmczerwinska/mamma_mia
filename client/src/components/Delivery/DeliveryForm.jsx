@@ -52,7 +52,7 @@ function DeliveryForm({ history }) {
             <fieldset className="delivery-form__group">
                 <legend className="delivery-form__title">Dane do dostawy</legend>
 
-                <label htmlFor="name" className={`delivery-form__label`}>Imię i Nazwisko</label>
+                <label htmlFor="name" className="delivery-form__label">Imię i Nazwisko</label>
                 <input
                     name="name"
                     placeholder="Imię i Nazwisko*"

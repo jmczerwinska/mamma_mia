@@ -2,54 +2,51 @@
 @import "../../sass/mixins.scss";
 
 .delivery-form {
-    margin-bottom: 1rem;
-    &__group {
-        border: none;
-        padding: 0;
-        margin: 0;
-        &--number {
-            width: 48%;
-        }
+  margin-bottom: 1rem;
+  &__group {
+    border: none;
+    padding: 0;
+    margin: 0;
+    &--number {
+      width: 48%;
     }
-    
-    &__input {
-        @include input-shape;
-        width: 99%;
-        &--text {
-            height: auto;
-        }
-    }
+  }
 
-    &__title {
-        font-weight: 600;
-        text-transform: uppercase;
-        padding: 1rem 0 0.5rem 0;
+  &__input {
+    @include input-shape;
+    width: 99%;
+    &--text {
+      height: auto;
     }
+  }
 
-    &__label {
-        @include form-label
-    }
-}
+  &__title {
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 1rem 0 0.5rem 0;
+  }
 
-.wrapper {
-    &--numbers{
-    display: flex;
-    justify-content: space-between;}
+  &__label {
+    @include form-label;
+  }
 }
 
 @media screen and (min-width: 700px) {
-    .delivery-form {
-        &__group {
-            &--single {
-                width: 49%;
-            }
-        }
+  .delivery-form {
+    &__group {
+      &--single {
+        width: 49%;
+      }
     }
-    .wrapper {
-        display: flex;
-        justify-content: space-between;
-        &--numbers {
-            width: 49%;
-        }
+  }
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--numbers {
+      display: flex;
+      justify-content: space-between;
+      width: 49%;
     }
+  }
 }

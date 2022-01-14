@@ -13,7 +13,7 @@ function ContactForm() {
         <form onSubmit={handleSubmit(onSubmit)}>
 
             <fieldset className="contact-form__group">
-                <label htmlFor="name" className={`contact-form__label`}>Imię i Nazwisko</label>
+                <label htmlFor="name" className="contact-form__label">Imię i Nazwisko</label>
                 <input
                     name="name"
                     placeholder="Imię i Nazwisko*"
@@ -34,7 +34,7 @@ function ContactForm() {
             </fieldset>
 
             <fieldset className="contact-form__group">
-                <label htmlFor="title" className={`contact-form__label`}>Tytuł</label>
+                <label htmlFor="title" className="contact-form__label">Tytuł</label>
                 <input
                     name="title"
                     placeholder="Tytuł*"
@@ -43,7 +43,7 @@ function ContactForm() {
             </fieldset>
 
             <fieldset className="contact-form__group">
-                <label htmlFor="message" className={`contact-form__label`}>Wiadomość</label>
+                <label htmlFor="message" className="contact-form__label">Wiadomość</label>
                 <textarea
                     className="contact-form__input contact-form__input--text"
                     rows="5"
