@@ -1,0 +1,41 @@
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
+
+.review-form {
+    margin-bottom: 1rem;
+    &__group {
+        border: none;
+        padding: 0;
+        margin: 0;
+        &--rating {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+    }
+    
+    &__input {
+        @include input-shape;
+        width: 99%;
+        &--text {
+            height: auto;
+        }
+    }
+
+    &__label {
+        @include form-label;
+    }
+
+    &__legend {
+      float: left;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600; 
+    }
+
+    .button {
+        display: block;
+        margin: 1rem auto;
+        padding: 0.5rem 1.5rem;
+    }
+}
