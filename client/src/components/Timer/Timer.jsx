@@ -1,68 +1,95 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
-import { faStopwatch } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { faStopwatch } from "@fortawesome/free-solid-svg-icons";
 
-import './Timer.scss';
+import "./Timer.scss";
 
-function Timer({ deliveryTime }) {
+function Timer() {
+  const [deliveryTime, setDeliveryTime] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(deliveryTime);
+  const [endTime, setEndTime] = useState(null);
 
-    const [timeLeft, setTimeLeft] = useState(deliveryTime);
-    const [endTime, setEndTime] = useState(null);
+  const getDeliveryTime = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/v1/orders?status=accepted",
+        {
+          method: "GET",
+        }
+      );
 
-    useEffect(() => {
-        const now = Date.now();
-        const then = now + deliveryTime * 1000;
-        setEndTime(then);
-    }, [deliveryTime]);
+      const parseResponse = await response.json();
 
-    useEffect(() => {
-        if (!timeLeft) return;
-        let countdown;
-        countdown = setTimeout(() => {
-            setTimeLeft(timeLeft - 1);
-        }, 1000);
-        return () => clearTimeout(countdown);
-    }, [timeLeft]);
+      const deliveryTime = (await parseResponse.count) * 15 * 60;
 
-    const displayTimeLeft = () => {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        const display = (interval) => interval < 10 ? `0${interval}` : interval;
-
-        return `${display(minutes)}min : ${display(seconds)}s`;
+      setDeliveryTime(deliveryTime);
+      setTimeLeft(deliveryTime);
+    } catch (error) {
+      //TODO toast
     }
+  };
 
-    const displayEndTime = () => {
-        const end = new Date(endTime);
-        const hours = end.getHours();
-        const minutes = end.getMinutes();
+  useEffect(() => {
+    getDeliveryTime();
+  }, []);
 
-        return `${hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
-    }
+  useEffect(() => {
+    const now = Date.now();
+    const then = now + deliveryTime * 1000;
+    setEndTime(then);
+  }, [deliveryTime]);
 
-    return (
-        <div className="timer">
-            <div>
-                <h6 className="timer__title">
-                    Przewidywany czas dostawy zamówienia:
-                </h6>
-                <p className="timer__show-time">
-                    <FontAwesomeIcon icon={faClock} className="timer__icon" />
-                    &nbsp;{displayEndTime()}
-                </p>
-            </div>
+  useEffect(() => {
+    if (!timeLeft) return;
+    let countdown;
+    countdown = setTimeout(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+    return () => clearTimeout(countdown);
+  }, [timeLeft]);
 
-            <div>
-                <h6 className="timer__title">Pozostało:</h6>
-                <p className="timer__show-time">
-                    <FontAwesomeIcon icon={faStopwatch} className="timer__icon" />
-                    &nbsp;{displayTimeLeft()}
-                </p>
-            </div>
+  const displayTimeLeft = () => {
+    const hours = Math.floor(timeLeft / 60 / 60);
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    const display = (interval) =>
+      interval < 10
+        ? `0${interval}`
+        : interval && interval >= 60
+        ? `00`
+        : `${interval}`;
 
-        </div>
-    )
+    return `${display(hours)}h : ${display(minutes)}min : ${display(seconds)}s`;
+  };
+
+  const displayEndTime = () => {
+    const end = new Date(endTime);
+    const hours = end.getHours();
+    const minutes = end.getMinutes();
+
+    return `${hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
+  };
+
+  return (
+    <div className="timer">
+      <div>
+        <h6 className="timer__title">Przewidywany czas dostawy zamówienia:</h6>
+        <p className="timer__show-time">
+          <FontAwesomeIcon icon={faClock} className="timer__icon" />
+          &nbsp;{displayEndTime()}
+        </p>
+      </div>
+
+      <div>
+        <h6 className="timer__title">Pozostało:</h6>
+        <p className="timer__show-time">
+          <FontAwesomeIcon icon={faStopwatch} className="timer__icon" />
+          &nbsp;{displayTimeLeft()}
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default Timer;
