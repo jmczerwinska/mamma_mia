@@ -14,6 +14,7 @@ import DeliveryForm from './components/Delivery/DeliveryForm';
 import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
 import Reviews from './components/Reviews/Reviews';
+import SingIn from './components/SignIn/SignIn';
 
 import { BasketContextProvider } from './context/BasketContext';
 
@@ -38,6 +39,8 @@ function Routing() {
                             </Route>
                             <Route path="/mamma_mia/contact" component={Contact} />
                             <Route path="/mamma_mia/comments" component={Reviews} />
+                            <Route path="/mamma_mia/signin" component={SingIn} />
+
                         </App>
                     </Route>
                 </Switch>

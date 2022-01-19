@@ -44,5 +44,6 @@
   "homepage": "https://jmczerwinska.github.io/mamma_mia",
   "devDependencies": {
     "sass": "^1.45.1"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
