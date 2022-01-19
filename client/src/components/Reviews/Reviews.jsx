@@ -30,7 +30,9 @@ function Reviews() {
 
   return (
     <div className="container container--reviews">
-      <button onClick={()=> setShowForm(prevState => !prevState)}>{showForm ? "Ukryj formularz" : "Dodaj opinie"}</button>
+      <button className="button" onClick={()=> setShowForm(prevState => !prevState)}>
+        {showForm ? "Ukryj formularz" : "Dodaj opinie"}
+      </button>
       {showForm ? <ReviewForm /> : null}
       {reviews.map((el, i) => (
         <SingleReview key={i} review={el} />

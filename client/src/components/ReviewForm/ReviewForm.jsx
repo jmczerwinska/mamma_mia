@@ -11,12 +11,13 @@ function ReviewForm() {
 
   const sendReview = async (data) => {
     try {
-      const response = await fetch("http://localhost:5000/api/v1/reviews/", {
+      const response = await fetch("/api/v1/reviews/", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        credentials: 'include',
+        body: JSON.stringify(data),
       });
 
       const parseResponse = await response.json();
@@ -24,11 +25,11 @@ function ReviewForm() {
       if (!parseResponse.success) {
         throw new Error(`${response.status} - ${parseResponse.message}`);
       }
-      console.log(parseResponse)
+      console.log(parseResponse);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <form
@@ -59,7 +60,7 @@ function ReviewForm() {
           title="tytuł"
           placeholder="Tytuł"
           className="review-form__input"
-          {...register("tytuł", { required: true })}
+          {...register("title", { required: true })}
         />
       </fieldset>
 
