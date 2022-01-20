@@ -15,6 +15,7 @@ import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
 import Reviews from './components/Reviews/Reviews';
 import SingIn from './components/SignIn/SignIn';
+import AccountBox from './components/AccountBox/AccountBox';
 
 import { BasketContextProvider } from './context/BasketContext';
 
@@ -39,7 +40,7 @@ function Routing() {
                             </Route>
                             <Route path="/mamma_mia/contact" component={Contact} />
                             <Route path="/mamma_mia/comments" component={Reviews} />
-                            <Route path="/mamma_mia/signin" component={SingIn} />
+                            <Route path="/mamma_mia/signin" component={AccountBox} />
 
                         </App>
                     </Route>

@@ -1,0 +1,63 @@
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
+
+.box {
+  width: 280px;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: 15px;
+  box-shadow: 0 0 6px $black;
+  position: relative;
+  overflow: hidden;
+
+  .top {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5em;
+    padding-bottom: 5em;
+
+    &__back-drop {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      border-radius: 40%;
+      transform: rotate(60deg);
+      top: -310px;
+      left: -70px;
+      background: $green;
+      background: linear-gradient(
+        75deg,
+        $green 40%,
+        $lightgreen 100%
+      );
+      width: 160%;
+      height: 550px;
+    }
+
+    &__header-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      text-align: center;
+    }
+    &__header {
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1.24;
+      color: $white;
+      z-index: 10;
+      margin: 0;
+    }
+    &__info {
+      font-size: 10px;
+      font-style: italic;
+      z-index:10;
+      color: $white;
+    }
+  }
+}
