@@ -3,8 +3,8 @@ import "./LogIn.scss";
 
 function LogIn() {
   return (
-    <div className="inner-box">
-      <form className="auth-form">
+    <>
+      <form className="auth-form auth-form--login">
         <input
           type="text"
           placeholder="E-mail"
@@ -19,16 +19,10 @@ function LogIn() {
         />
         <input type="submit" value="Zaloguj" className="button" />
       </form>
-      <a href="#" className="switch-link switch-link--muted">
+      <button className="switch switch--muted">
         Zapomniałeś hasła?
-      </a>
-      <p>
-        Nie masz jeszcze konta?
-        <a href="#" className="switch-link switch-link--bold">
-          Załóż je!
-        </a>
-      </p>
-    </div>
+      </button>
+    </>
   );
 }
 

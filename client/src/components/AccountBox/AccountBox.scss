@@ -30,13 +30,14 @@
       top: -310px;
       left: -70px;
       background: $green;
-      background: linear-gradient(
-        75deg,
-        $green 40%,
-        $lightgreen 100%
-      );
+      background: linear-gradient(75deg, $green 40%, $lightgreen 100%);
       width: 160%;
       height: 550px;
+      transition: transform 0.5s linear;
+      &--down {
+        transform:scale(2.5);
+        transition-timing-function: ease-out;
+      }
     }
 
     &__header-container {
@@ -57,8 +58,44 @@
     &__info {
       font-size: 10px;
       font-style: italic;
-      z-index:10;
+      z-index: 10;
       color: $white;
+    }
+  }
+
+  .inner-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    height: 250px;
+
+    .question {
+      display: inline-block;
+    }
+
+    .switch {
+      overflow: visible;
+      border: none;
+      cursor:pointer;
+      align-self: flex-end;
+      &--muted {
+        font-size: 0.75em;
+        color: rgb(0, 0, 0, 0.35);
+        &:hover {
+          color: black;
+        }
+      }
+      &--bold {
+        font-size: 1em;
+        color: $green;
+        font-weight: 600;
+        &:hover,
+        &:active {
+          color: $lightgreen;
+        }
+      }
     }
   }
 }

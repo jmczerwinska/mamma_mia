@@ -1,24 +1,46 @@
 import React from "react";
+import { useState } from "react";
 import LogIn from "../LogIn/LogIn.jsx";
-import './AccountBox.scss';
+import SignIn from "../SignIn/SignIn.jsx";
+import "./AccountBox.scss";
 
 function AccountBox() {
-  return(
+  const [haveAccount, setHaveAccount] = useState(false);
+  const [transform, setTransform] = useState(false);
+
+  const transformForm = () => {
+    setTransform(true);
+    setTimeout(() => {
+      setTransform(false);
+    }, 600);
+    setHaveAccount((prev) => !prev);
+  };
+
+  return (
     <div className="box">
       <div className="top">
-        <div className="top__back-drop"></div>
+        <div className={`top__back-drop${transform ? ' top__back-drop--down' : ''}`}></div>
         <div className="top__header-container">
-          <h3 className="top__header">
-            Witaj z powrotem!
-          </h3>
+          <h3 className="top__header">Witaj z powrotem!</h3>
           <p className="top__info">Zaloguj się, aby kontynuować</p>
-
         </div>
       </div>
-        <LogIn></LogIn>
-
+      <div className="inner-box">
+        {haveAccount ? <LogIn /> : <SignIn />}
+        <div>
+          <p className="question">
+          {haveAccount ? "Nie masz konta?" : "Masz już konto?"}
+        </p>
+        <button
+            onClick={transformForm}
+            className="switch switch--bold" >
+            {haveAccount ? "Załóż je!" : "Zaloguj się!"}
+          </button>
+        </div>
+        
+      </div>
     </div>
-  )
+  );
 }
 
 export default AccountBox;

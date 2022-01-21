@@ -1,46 +1,14 @@
 @import "../../sass/variable.scss";
 @import "../../sass/mixins.scss";
 
-.inner-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 90%;
-  height: 250px;
-
-  .switch-link {
-    font-size: 0.75em;
-    text-decoration: none;
-    align-self: flex-end;
-    &--muted {
-      font-size: 0.75em;
-      color: rgb(0, 0, 0, 0.35);
-      &:hover {
-        color: black;
-      }
-    }
-    &--bold {
-      font-size: 1em;
-      color: $green;
-      font-weight: 600;
-      margin: 0 10px;
-      &:hover,
-      &:active {
-        color: $lightgreen;
-      }
-    }
-  }
-}
-
 .auth-form {
   display: flex;
   flex-direction: column;
-  height: 50%;
+  min-height: 50%;
   justify-content: space-between;
   
   &__input {
     @include input-shape;
-    height: 35px;
+    margin-bottom: 5px;
   }
 }

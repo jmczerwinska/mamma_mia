@@ -41,28 +41,33 @@ function SignIn() {
   };
 
   return (
-    <>
-      <form>
-        <input type="text" placeholder="Imię" />
-        <input type="text" placeholder="Nazwisko" />
+      <form className="auth-form auth-form--signin">
+        <input className="auth-form__input" type="text" placeholder="Imię" />
         <input
+          className="auth-form__input"
+          type="text"
+          placeholder="Nazwisko"
+        />
+        <input
+          className="auth-form__input"
           type="text"
           value={email}
-          placeholder="email"
+          placeholder="E-mail"
           onChange={handleEmail}
         />
         <input
+          className="auth-form__input"
           type="password"
-          placeholder="password"
+          placeholder="Hasło"
           onChange={handlePassword}
         />
-        <input type="password" placeholder="Powtórz hasło" />
-        <button onClick={createUser}>Utwórz</button>
+        <input
+          className="auth-form__input"
+          type="password"
+          placeholder="Powtórz hasło"
+        />
+        <input className="button" type="submit" value="Utwórz" />
       </form>
-      <p>
-        Masz już konto? <a>Zaloguj się!</a>
-      </p>
-    </>
   );
 }
 
