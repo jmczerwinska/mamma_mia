@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
 import './index.scss';
 
 import App from './App';
@@ -14,8 +13,7 @@ import DeliveryForm from './components/Delivery/DeliveryForm';
 import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
 import Reviews from './components/Reviews/Reviews';
-import SingIn from './components/SignIn/SignIn';
-import AccountBox from './components/AccountBox/AccountBox';
+import AuthBox from './components/AuthBox/AuthBox';
 
 import { BasketContextProvider } from './context/BasketContext';
 
@@ -40,7 +38,7 @@ function Routing() {
                             </Route>
                             <Route path="/mamma_mia/contact" component={Contact} />
                             <Route path="/mamma_mia/comments" component={Reviews} />
-                            <Route path="/mamma_mia/signin" component={AccountBox} />
+                            <Route path="/mamma_mia/signin" component={AuthBox} />
 
                         </App>
                     </Route>
@@ -51,7 +49,3 @@ function Routing() {
 }
 
 ReactDOM.render(<Routing />, document.getElementById('root'));
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
