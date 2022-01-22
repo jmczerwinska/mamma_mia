@@ -10,19 +10,22 @@ function AccountBox() {
 
   const transformForm = () => {
     setTransform(true);
+    
+    setTimeout(() => {
+      setHaveAccount((prev) => !prev);
+    }, 300);
     setTimeout(() => {
       setTransform(false);
     }, 600);
-    setHaveAccount((prev) => !prev);
   };
 
   return (
     <div className="box">
       <div className="top">
         <div className={`top__back-drop${transform ? ' top__back-drop--down' : ''}`}></div>
-        <div className="top__header-container">
-          <h3 className="top__header">Witaj z powrotem!</h3>
-          <p className="top__info">Zaloguj się, aby kontynuować</p>
+        <div className={`top__header-container${transform ? ' top__header-container--down' : ''}`}>
+          <h3 className="top__header">{haveAccount ? "Witaj z powrotem!" : "Dołącz do nas!"}</h3>
+          <p className="top__info">{haveAccount ? "Zaloguj się, aby kontynuować" : "Stwórz konto i zamawiaj swoją ulubioną pizzę"}</p>
         </div>
       </div>
       <div className="inner-box">

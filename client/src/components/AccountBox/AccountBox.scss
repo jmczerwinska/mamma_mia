@@ -35,7 +35,7 @@
       height: 550px;
       transition: transform 0.5s linear;
       &--down {
-        transform:scale(2.5);
+        transform: scale(2.5);
         transition-timing-function: ease-out;
       }
     }
@@ -46,6 +46,11 @@
       flex-direction: column;
       align-content: center;
       text-align: center;
+      opacity: 1;
+      transition: opacity 0.25s linear;
+      &--down {
+        opacity: 0;
+      }
     }
     &__header {
       font-size: 27px;
@@ -78,7 +83,7 @@
     .switch {
       overflow: visible;
       border: none;
-      cursor:pointer;
+      cursor: pointer;
       align-self: flex-end;
       &--muted {
         font-size: 0.75em;
