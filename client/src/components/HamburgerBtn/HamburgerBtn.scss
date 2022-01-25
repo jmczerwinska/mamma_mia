@@ -1,68 +1,69 @@
 @import "../../sass/variable.scss";
 
 @mixin line {
-    width: 100%;
-    height: 5px;
-    border-radius: 25px;
-    background-color: $green;
-    position: absolute;
-    left: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 25px;
+  background-color: $green;
+  position: absolute;
+  left: 0;
 }
 
 .hamburger {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+  z-index: 11;
+  order: 2;
+  &:focus {
+    border-radius: 5px;
+    outline-color: $lightgreen;
+  }
+  .hamburger__box {
+    height: 28px;
+    width: 30px;
     display: inline-block;
-    cursor: pointer;
-    padding: 10px;
-    border: none;
-    margin: 0;
-    background-color: transparent;
-    z-index: 11;
-    &:focus {
-        border-radius: 5px;
-        outline-color: $lightgreen;
-    }
-    .hamburger__box {
-        height: 28px;
-        width: 30px;
-        display: inline-block;
-        position: relative;
-    }
+    position: relative;
+  }
 }
 
 .hamburger__line {
+  @include line;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.2s easy-in-out 0.2s;
+
+  &::after,
+  &::before {
     @include line;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color 0.2s easy-in-out 0.2s;
+    content: "";
+    transition: top 0.1s 0.25s ease-in, transform 0.22s ease-in-out;
+  }
 
-    &::after,
-    &::before {
-        @include line;
-        content: "";
-        transition: top 0.1s 0.25s ease-in, transform 0.22s ease-in-out;
-    }
-
-    &::before {
-        top: 12px;
-    }
-    &::after {
-        top: -12px;
-    }
+  &::before {
+    top: 12px;
+  }
+  &::after {
+    top: -12px;
+  }
 }
 
 .hamburger--active {
-    .hamburger__line {
-        background-color: transparent;
-        transform: rotate(225deg);
-        transition: transform 0.22s 0.12s ease-in-out;
-        &::before {
-            top: 0;
-            transition: top 0.1s ease-out;
-        }
-        &::after {
-            top: 0;
-            transform: rotate(-90deg);
-            transition: bottom 0.1s ease-out, transform 0.22s 0.12s ease-in-out;
-        }
+  .hamburger__line {
+    background-color: transparent;
+    transform: rotate(225deg);
+    transition: transform 0.22s 0.12s ease-in-out;
+    &::before {
+      top: 0;
+      transition: top 0.1s ease-out;
     }
+    &::after {
+      top: 0;
+      transform: rotate(-90deg);
+      transition: bottom 0.1s ease-out, transform 0.22s 0.12s ease-in-out;
+    }
+  }
 }
