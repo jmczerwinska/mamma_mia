@@ -1,13 +1,14 @@
-import React, { useState }from "react";
-import ReactDOM from 'react-dom';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import LogIn from "../LogIn/LogIn.jsx";
 import SignIn from "../SignIn/SignIn.jsx";
 
 import "./AuthBox.scss";
 
-function AuthBox() {
-  const [haveAccount, setHaveAccount] = useState(false);
+function AuthBox({ closeModal }) {
+  const [haveAccount, setHaveAccount] = useState(true);
   const [transform, setTransform] = useState(false);
 
   const transformForm = () => {
@@ -16,14 +17,18 @@ function AuthBox() {
     setTimeout(() => {
       setHaveAccount((prev) => !prev);
     }, 300);
+
     setTimeout(() => {
       setTransform(false);
     }, 600);
   };
 
-  return ReactDOM.createPortal (
+  return (
     <div className="box">
       <div className="top">
+        <button className="exit-btn" onClick={() => closeModal(false)}>
+          <FontAwesomeIcon icon={faTimes} className="exit-btn__icon" />
+        </button>
         <div
           className={`top__back-drop${
             transform ? " top__back-drop--down" : ""
@@ -40,7 +45,7 @@ function AuthBox() {
           <p className="top__info">
             {haveAccount
               ? "Zaloguj się, aby kontynuować"
-              : "Stwórz konto i zamawiaj swoją ulubioną pizzę"}
+              : "Stwórz konto i zamawiaj"}
           </p>
         </div>
       </div>
@@ -55,8 +60,7 @@ function AuthBox() {
           </button>
         </div>
       </div>
-    </div>,
-    document.getElementById('modal')
+    </div>
   );
 }
 

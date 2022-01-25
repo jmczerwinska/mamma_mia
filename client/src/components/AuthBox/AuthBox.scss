@@ -13,6 +13,27 @@
   position: relative;
   overflow: hidden;
 
+  .exit-btn {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    margin: 0;
+    background-color: transparent;
+    z-index: 11;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    &:focus {
+      border-radius: 5px;
+      outline-color: $lightgreen;
+    }
+    .exit-btn__icon {
+      font-size: 20px;
+      color: $white;
+    }
+  }
+
   .top {
     height: 150px;
     display: flex;

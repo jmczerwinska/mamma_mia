@@ -1,0 +1,19 @@
+@import "../../sass/variable.scss";
+
+.log-btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+  z-index: 11;
+  &:focus {
+    border-radius: 5px;
+    outline-color: $lightgreen;
+  }
+  &__icon {
+    font-size: 30px;
+    color: $green;
+  }
+}

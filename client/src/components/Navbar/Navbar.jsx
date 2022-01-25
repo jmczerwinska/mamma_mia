@@ -6,6 +6,7 @@ import HamburgerBtn from '../HamburgerBtn/HamburgerBtn';
 import BasketBtn from '../BasketBtn/BasketBtn';
 import Navigation from '../Navigation/Navigation';
 import Logo from './logo-mini.png';
+import LogButton from '../LogBtn/LogBtn';
 
 import './Navbar.scss';
 
@@ -48,6 +49,8 @@ function Navbar() {
 
                 <BasketBtn toggleMenu={() => setShowNavigation(false)} />
 
+                <LogButton/>
+
                 {!isMobile
                     ? (
                         <Navigation
@@ -69,8 +72,8 @@ function Navbar() {
                         </>
                     )
                 }
+                
             </div>
-
         </nav>
     )
 }

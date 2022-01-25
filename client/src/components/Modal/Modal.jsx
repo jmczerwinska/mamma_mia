@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
-function Modal({ children }) {
-  return( <div className="modal-wrapper">{children}hi</div>);
-}
+import "./Modal.scss";
 
-ReactDOM.createPortal(<Modal />, document.getElementById("modal"));
+function Modal({ children }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    }
+  }, []);
+
+  return ReactDOM.createPortal(
+    <div className="modal-wrapper modal-wrapper--active">{children}</div>,
+    document.getElementById("modal")
+  );
+}
 
 export default Modal;
