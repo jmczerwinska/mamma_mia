@@ -1,6 +1,11 @@
 @import "../../sass/variable.scss";
 @import "../../sass/mixins.scss";
 
+@keyframes fadeIn { 
+  0%   { opacity:0; }
+  100% { opacity:1; }
+}
+
 .box {
   width: 280px;
   min-height: 550px;
@@ -12,6 +17,7 @@
   box-shadow: 0 0 6px $black;
   position: relative;
   overflow: hidden;
+  animation: fadeIn 1s;
 
   .exit-btn {
     display: inline-block;
