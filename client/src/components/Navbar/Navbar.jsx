@@ -49,7 +49,7 @@ function Navbar() {
 
                 <BasketBtn toggleMenu={() => setShowNavigation(false)} />
 
-                <LogButton/>
+                <LogButton toggleMenu={() => setShowNavigation(false)} />
 
                 {!isMobile
                     ? (
