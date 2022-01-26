@@ -19,14 +19,11 @@ function LogButton({ toggleMenu }) {
           toggleMenu();
         }}
       >
-        <FontAwesomeIcon
-          icon={faSignInAlt}
-          className="log-btn__icon"
-        ></FontAwesomeIcon>
+        <FontAwesomeIcon icon={faSignInAlt} className="log-btn__icon" />
       </button>
       {showModal && (
-        <Modal>
-          <AuthBox closeModal={setShowModal} />
+        <Modal closeModal={() => setShowModal(false)}>
+          <AuthBox closeModal={() => setShowModal(false)} />
         </Modal>
       )}
     </>

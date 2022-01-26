@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import "./Modal.scss";
 
-function Modal({ children }) {
+function Modal({ children, closeModal }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -12,7 +12,7 @@ function Modal({ children }) {
   }, []);
 
   return ReactDOM.createPortal(
-    <div className="modal-wrapper modal-wrapper--active">{children}</div>,
+    <div onClick={closeModal} className="modal-wrapper modal-wrapper--active">{children}</div>,
     document.getElementById("modal")
   );
 }

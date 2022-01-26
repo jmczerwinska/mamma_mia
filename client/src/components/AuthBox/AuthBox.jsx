@@ -24,9 +24,9 @@ function AuthBox({ closeModal }) {
   };
 
   return (
-    <div className="box">
+    <div className="box" onClick={e => e.stopPropagation()}>
       <div className="top">
-        <button className="exit-btn" onClick={() => closeModal(false)}>
+        <button className="exit-btn" onClick={closeModal}>
           <FontAwesomeIcon icon={faTimes} className="exit-btn__icon" />
         </button>
         <div
