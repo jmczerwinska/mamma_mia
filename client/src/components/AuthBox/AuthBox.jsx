@@ -50,7 +50,7 @@ function AuthBox({ closeModal }) {
         </div>
       </div>
       <div className="inner-box">
-        {haveAccount ? <LogIn /> : <SignIn />}
+        {haveAccount ? <LogIn closeModal={closeModal} /> : <SignIn />}
         <div>
           <p className="question">
             {haveAccount ? "Nie masz konta?" : "Masz już konto?"}
