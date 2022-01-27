@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { toast } from "react-toastify";
-import { BasketContext } from '../../context/BasketContext';
+import { BasketContext } from '../../context/BasketContext/BasketContext';
 
 import SelectIngredients from '../SelectIngredients/SelectIngredients';
 import SelectSize from '../SelectSize/SelectSize';

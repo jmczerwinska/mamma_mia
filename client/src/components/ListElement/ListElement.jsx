@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { BasketContext } from "../../context/BasketContext";
+import { BasketContext } from "../../context/BasketContext/BasketContext";
 import AddPizzaButton from "../AddPizzaButton/AddPizzaButton";
 
 import "./ListElement.scss";

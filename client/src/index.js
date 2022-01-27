@@ -15,7 +15,7 @@ import Contact from './components/Contact/Contact';
 import Reviews from './components/Reviews/Reviews';
 import AuthBox from './components/AuthBox/AuthBox';
 
-import { BasketContextProvider } from './context/BasketContext';
+import { BasketContextProvider } from './context/BasketContext/BasketContext';
 
 
 function Routing() {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { BasketContext } from '../../context/BasketContext';
+import { BasketContext } from '../../context/BasketContext/BasketContext';
 
 import './DeliveryForm.scss';
 

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
-import { BasketContext } from '../../context/BasketContext';
+import { BasketContext } from '../../context/BasketContext/BasketContext';
 
 import './BasketBtn.scss';
 

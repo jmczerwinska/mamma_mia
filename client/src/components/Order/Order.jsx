@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import ProgressBar from '../ProgressBar/ProgressBar';
 
-import { BasketContext } from '../../context/BasketContext';
+import { BasketContext } from '../../context/BasketContext/BasketContext';
 
 function Order({ children }) {
     const { basket } = useContext(BasketContext);
