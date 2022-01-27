@@ -53,7 +53,7 @@ exports.login = asyncHandler(async (req, res, next) => {
             new ErrorResponse('Invalid credentials', 401)
         );
     }
-    
+
     sendTokenResponse(user, 201, res);
 }); 
 
@@ -204,6 +204,8 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 //Get token from model, create cookie and send response
 const sendTokenResponse = (user, statusCode, res) => {
     const token = user.getSignJwtToken();
+        
+    delete user._doc.password;
 
     const options = {
         httpOnly: true,
@@ -219,6 +221,7 @@ const sendTokenResponse = (user, statusCode, res) => {
         .cookie('token', token, options)
         .json({ 
             success: true,
+            data: user,
             token
         });  
 };
