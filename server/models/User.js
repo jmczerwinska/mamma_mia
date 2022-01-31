@@ -27,13 +27,13 @@ const UserSchema = mongoose.Schema({
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
-    name: {
+    firstName: {
         type: String,
-        required: [true, 'Please add name'],
+        required: [true, 'Please add first name'],
     },
     lastName: {
         type: String,
-        required: [true, 'Please add name'],
+        required: [true, 'Please add  last name'],
     }
 }, {timestamps: true});
 
