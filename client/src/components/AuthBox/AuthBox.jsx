@@ -23,8 +23,11 @@ function AuthBox({ closeModal }) {
     }, 600);
   };
 
+  const setInputClassName = (errorName) =>
+    `auth-form__input${errorName ? " auth-form__input--invalid" : ""}`;
+
   return (
-    <div className="box" onClick={e => e.stopPropagation()}>
+    <div className="box" onClick={(e) => e.stopPropagation()}>
       <div className="top">
         <button className="exit-btn" onClick={closeModal}>
           <FontAwesomeIcon icon={faTimes} className="exit-btn__icon" />
@@ -50,7 +53,11 @@ function AuthBox({ closeModal }) {
         </div>
       </div>
       <div className="inner-box">
-        {haveAccount ? <LogIn closeModal={closeModal} /> : <SignIn />}
+        {haveAccount ? (
+          <LogIn closeModal={closeModal} inputClass={setInputClassName} />
+        ) : (
+          <SignIn closeModal={closeModal} inputClass={setInputClassName} />
+        )}
         <div>
           <p className="question">
             {haveAccount ? "Nie masz konta?" : "Masz już konto?"}

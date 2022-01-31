@@ -1,12 +1,22 @@
 import React, { useContext } from "react";
+import { withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+
 import { UserContext } from "../../context/UserContext/UserContext";
 
 import "./LogIn.scss";
 
-function LogIn({ closeModal }) {
+function LogIn({ history, closeModal, inputClass }) {
   const { saveUser } = useContext(UserContext);
-  const { handleSubmit, register } = useForm();
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
 
   const logUser = async (data) => {
     console.log(data);
@@ -31,8 +41,14 @@ function LogIn({ closeModal }) {
 
       closeModal();
     } catch (err) {
+      toast.error(err.message);
       console.log(err);
     }
+  };
+
+  const remindPassword = () => {
+    history.push("mamma_mia/remindpassword");
+    closeModal();
   };
 
   return (
@@ -41,25 +57,33 @@ function LogIn({ closeModal }) {
         className="auth-form auth-form--login"
         onSubmit={handleSubmit(logUser)}
       >
+        {errors.email || errors.password ? (
+          <p className="error">
+            <FontAwesomeIcon icon={faExclamationTriangle} /> Uzupełnij puste
+            pola
+          </p>
+        ) : null}
         <input
           type="text"
           placeholder="E-mail"
           name="email"
-          className="auth-form__input"
-          {...register("email")}
+          className={inputClass(errors.email)}
+          {...register("email", { required: true })}
         />
         <input
           type="password"
           placeholder="Hasło"
           name="passwword"
-          className="auth-form__input"
-          {...register("password")}
+          className={inputClass(errors.email)}
+          {...register("password", { required: true })}
         />
         <input type="submit" value="Zaloguj" className="button" />
       </form>
-      <button className="switch switch--muted">Zapomniałeś hasła?</button>
+      <button className="switch switch--muted" onClick={remindPassword}>
+        Zapomniałeś hasła?
+      </button>
     </>
   );
 }
 
-export default LogIn;
+export default withRouter(LogIn);
