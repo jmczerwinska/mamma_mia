@@ -7,8 +7,6 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 import { UserContext } from "../../context/UserContext/UserContext";
 
-import "./LogIn.scss";
-
 function LogIn({ history, closeModal, inputClass }) {
   const { saveUser } = useContext(UserContext);
 
