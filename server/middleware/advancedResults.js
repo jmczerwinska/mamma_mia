@@ -9,8 +9,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
     let queryStr = JSON.stringify(reqQuery);
     queryStr = queryStr
-        .replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`)
-        .replace('_', `.`);
+        .replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
   
     query = model.find(JSON.parse(queryStr));
 
