@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,8 +18,7 @@ function LogIn({ history, closeModal, inputClass }) {
     formState: { errors },
   } = useForm();
 
-  const logUser = async (data) => {
-    console.log(data);
+  const loginUser = async (data) => {
     try {
       const response = await fetch("/api/v1/auth/login/", {
         method: "POST",
@@ -55,7 +54,7 @@ function LogIn({ history, closeModal, inputClass }) {
     <>
       <form
         className="auth-form auth-form--login"
-        onSubmit={handleSubmit(logUser)}
+        onSubmit={handleSubmit(loginUser)}
       >
         {errors.email || errors.password ? (
           <p className="error">
