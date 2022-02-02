@@ -58,7 +58,7 @@ function AuthBox({ closeModal }) {
         ) : (
           <SignIn closeModal={closeModal} inputClass={setInputClassName} />
         )}
-        <div>
+        <div className="question-wrapper">
           <p className="question">
             {haveAccount ? "Nie masz konta?" : "Masz już konto?"}
           </p>

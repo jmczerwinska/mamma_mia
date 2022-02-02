@@ -11,6 +11,7 @@
   min-height: 550px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   background-color: $white;
   border-radius: 15px;
@@ -41,7 +42,7 @@
   }
 
   .top {
-    height: 150px;
+    height: 130px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -54,7 +55,7 @@
       flex-direction: column;
       border-radius: 40%;
       transform: rotate(60deg);
-      top: -310px;
+      top: -330px;
       left: -70px;
       background: $green;
       background: linear-gradient(75deg, $green 40%, $lightgreen 100%);
@@ -98,10 +99,10 @@
   .inner-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
     width: 90%;
-    height: 250px;
+    height: 300px;
 
     .question {
       display: inline-block;
@@ -110,8 +111,6 @@
     .auth-form {
       display: flex;
       flex-direction: column;
-      min-height: 50%;
-      justify-content: space-between;
       
       &__input {
         @include input-shape;
@@ -141,6 +140,8 @@
       &--muted {
         font-size: 0.75em;
         color: rgb(0, 0, 0, 0.35);
+        margin-top: 15px;
+        margin-bottom: 60px;
         &:hover {
           color: black;
         }
