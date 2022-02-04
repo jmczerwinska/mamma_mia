@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import ReviewForm from "../ReviewForm/ReviewForm";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../context/UserContext/UserContext";
+import ReviewFormBtn from "../ReviewFormBtn/ReviewFormBtn";
 import SingleReview from "../SingleReview/SingleReview";
 
 function Reviews() {
-  const [reviews, setReviews] = useState([]);
-  const [showForm, setShowForm] = useState(false);
+  const [reviews, setReviews] = useState([]);  
+  const { user } = useContext(UserContext);
 
   const fetchReviews = async () => {
     try {
@@ -27,13 +28,12 @@ function Reviews() {
   useEffect(() => {
     fetchReviews();
   }, []);
-
+  
   return (
+  
     <div className="container container--reviews">
-      <button className="button" onClick={()=> setShowForm(prevState => !prevState)}>
-        {showForm ? "Ukryj formularz" : "Dodaj opinie"}
-      </button>
-      {showForm ? <ReviewForm /> : null}
+      {user && <ReviewFormBtn />}
+    
       {reviews.map((el, i) => (
         <SingleReview key={i} review={el} />
       ))}
