@@ -122,15 +122,11 @@
           }
         }
       }
+      &__label {
+        @include form-label;
+      }
     }  
     
-    .error {
-      font-size: 10px;
-      color: $red;
-      padding: 3px;
-      margin: 1px 2px 10px 2px;
-    }
-
     .switch {
       overflow: visible;
       border: none;

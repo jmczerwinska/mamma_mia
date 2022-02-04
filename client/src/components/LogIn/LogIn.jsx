@@ -2,10 +2,9 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 import { UserContext } from "../../context/UserContext/UserContext";
+import ValidationMessage from "../ValidationMessage/ValidationMessage";
 
 function LogIn({ history, closeModal, inputClass }) {
   const { saveUser } = useContext(UserContext);
@@ -47,6 +46,7 @@ function LogIn({ history, closeModal, inputClass }) {
     history.push("mamma_mia/remindpassword");
     closeModal();
   };
+  console.log(errors);
 
   return (
     <>
@@ -54,26 +54,33 @@ function LogIn({ history, closeModal, inputClass }) {
         className="auth-form auth-form--login"
         onSubmit={handleSubmit(loginUser)}
       >
-        {errors.email || errors.password ? (
-          <p className="error">
-            <FontAwesomeIcon icon={faExclamationTriangle} /> Uzupełnij puste
-            pola
-          </p>
-        ) : null}
+        {errors.email && <ValidationMessage message={errors.email.message} />}
+        <label className="auth-form__label" htmlFor="email">E-mail</label>
         <input
-          type="text"
+          type="email"
           placeholder="E-mail"
           name="email"
           className={inputClass(errors.email)}
-          {...register("email", { required: true })}
+          autoFocus
+          {...register("email", {
+            required: "Podaj email",
+            // pattern: {
+            //   value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+            //   message: "Nieprawidłowy adres e-mail",
+            // },
+          })}
         />
+
+        {errors.password && <ValidationMessage message={errors.password.message} />}
+        <label className="auth-form__label" htmlFor="password">Hasło</label>
         <input
           type="password"
           placeholder="Hasło"
           name="passwword"
-          className={inputClass(errors.email)}
-          {...register("password", { required: true })}
+          className={inputClass(errors.password)}
+          {...register("password", { required: "Podaj hasło" })}
         />
+        
         <input type="submit" value="Zaloguj" className="button" />
       </form>
       <button className="switch switch--muted" onClick={remindPassword}>
