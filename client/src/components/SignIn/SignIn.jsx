@@ -57,61 +57,96 @@ function SignIn({ closeModal, inputClass }) {
       {Object.entries(errors).some((err) => err[1].type === "required") && (
         <ValidationMessage message={"Uzupełnij puste pola"} />
       )}
-      {/* {errors.email && (
-        <p className="error">
-            <FontAwesomeIcon icon={faExclamationTriangle} />
-            {errors.email.message}
-          </p>
-        )} */}
-      <label className="auth-form__label" htmlFor="firstName">Imię*</label>
+
+      {errors.firstName && errors.firstName.type !== "required" && (
+        <ValidationMessage message={errors.firstName.message} />
+      )}
+      <label className="auth-form__label" htmlFor="firstName">
+        Imię*
+      </label>
       <input
-        className="auth-form__input"
+        className={inputClass(errors.firstName)}
         type="text"
         name="first-name"
         placeholder="Imię"
         autoFocus
-        {...register("firstName", { required: true })}
+        {...register("firstName", {
+          required: true,
+          pattern: {
+            value: /^[A-ząęóćĆłŁńŃśŚżŻźŹ]{2,}$/,
+            message: "Podane imię zawiera niedozwolone znaki",
+          },
+        })}
       />
 
-      <label className="auth-form__label" htmlFor="lastName">Nazwisko*</label>
+      {errors.lastName && errors.lastName.type !== "required" && (
+        <ValidationMessage message={errors.lastName.message} />
+      )}
+      <label className="auth-form__label" htmlFor="lastName">
+        Nazwisko*
+      </label>
       <input
-        className="auth-form__input"
+        className={inputClass(errors.lastName)}
         type="text"
         name="last-name"
         placeholder="Nazwisko"
-        {...register("lastName", { required: true })}
+        {...register("lastName", {
+          required: true,
+          pattern: {
+            value: /^[A-ząęóćĆłŁńŃśŚżŻźŹ\-']{2,}$/,
+            message: "Podane nazwisko zawiera niedozwolone znaki",
+          },
+        })}
       />
 
-      <label className="auth-form__label" htmlFor="email">E-mail*</label>
+      {errors.email && errors.email.type !== "required" && (
+        <ValidationMessage message={errors.email.message} />
+      )}
+      <label className="auth-form__label" htmlFor="email">
+        E-mail*
+      </label>
       <input
-        className="auth-form__input"
+        className={inputClass(errors.email)}
         type="text"
         name="email*"
         placeholder="E-mail"
         {...register("email", {
           required: true,
           pattern: {
-            value: /^[\włŁ]+/,
+            value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
             message: "Nieprawidłowy adres e-mail",
           },
         })}
       />
 
-      {errors.password1?.type === "validation" && (
+      {errors.password && errors.password.type !== "required" && (
+        <ValidationMessage message={errors.password.message} />
+      )}
+      {errors.password1?.type === "validate" && (
         <ValidationMessage message={errors.password1.message} />
       )}
-      <label className="auth-form__label" htmlFor="password">Hasło*</label>
+      <label className="auth-form__label" htmlFor="password">
+        Hasło*
+      </label>
       <input
-        className="auth-form__input"
+        className={inputClass(errors.password || errors.password1)}
         type="password"
         name="password"
         placeholder="Hasło"
-        {...register("password", { required: true })}
+        {...register("password", {
+          required: true,
+          minLength: {
+            value: 8,
+            message: "Hasło musi zawierać przynajmniej 8 znaków",
+          },
+        })}
       />
 
-      <label className="auth-form__label" htmlFor="password1">Powtórz hasło*</label>
+      <label className="auth-form__label" htmlFor="password1">
+        Powtórz hasło*
+      </label>
       <input
-        className="auth-form__input"
+        className={inputClass(errors.password1)}
         type="password"
         name="repead-password"
         placeholder="Powtórz hasło*"

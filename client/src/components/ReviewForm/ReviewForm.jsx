@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import StarRating from "../StarRating/StarRating";
+import ValidationMessage from "../ValidationMessage/ValidationMessage";
 
 import "./ReviewForm.scss";
 
 function ReviewForm() {
-  const { register, watch, handleSubmit } = useForm();
-  const watchRating = watch("rating", null);
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const [hover, setHover] = useState(null);
+  const watchRating = watch("rating", null);
 
   const sendReview = async (data) => {
     try {
@@ -16,7 +23,7 @@ function ReviewForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: 'include',
+        credentials: "include",
         body: JSON.stringify(data),
       });
 
@@ -36,6 +43,9 @@ function ReviewForm() {
       className="review-form"
       onSubmit={handleSubmit((data) => sendReview(data))}
     >
+      {Object.entries(errors).some((err) => err[1].type === "required") && (
+        <ValidationMessage message={"Uzupełnij brakujące pola"} />
+      )}
       <fieldset className="review-form__group review-form__group--rating">
         <legend className="review-form__legend">Ocena:</legend>
         {[...Array(5)].map((el, i) => {

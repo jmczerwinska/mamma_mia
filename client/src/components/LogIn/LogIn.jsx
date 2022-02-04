@@ -57,17 +57,17 @@ function LogIn({ history, closeModal, inputClass }) {
         {errors.email && <ValidationMessage message={errors.email.message} />}
         <label className="auth-form__label" htmlFor="email">E-mail</label>
         <input
-          type="email"
+          type="text"
           placeholder="E-mail"
           name="email"
           className={inputClass(errors.email)}
           autoFocus
           {...register("email", {
             required: "Podaj email",
-            // pattern: {
-            //   value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-            //   message: "Nieprawidłowy adres e-mail",
-            // },
+            pattern: {
+              value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+              message: "Nieprawidłowy adres e-mail",
+            },
           })}
         />
 
@@ -79,7 +79,7 @@ function LogIn({ history, closeModal, inputClass }) {
           name="passwword"
           className={inputClass(errors.password)}
           {...register("password", { required: "Podaj hasło" })}
-        />
+          />
         
         <input type="submit" value="Zaloguj" className="button" />
       </form>
