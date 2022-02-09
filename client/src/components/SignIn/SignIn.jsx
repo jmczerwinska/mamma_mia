@@ -46,8 +46,6 @@ function SignIn({ closeModal, inputClass }) {
       toast.error(err.message);
     }
   };
-  console.log(Object.entries(errors));
-  console.log(errors);
 
   return (
     <form
