@@ -13,12 +13,11 @@ import DeliveryForm from "./components/Delivery/DeliveryForm";
 import Summary from "./components/Summary/Summary";
 import Contact from "./components/Contact/Contact";
 import Reviews from "./components/Reviews/Reviews";
-import AuthBox from "./components/AuthBox/AuthBox";
 import RemindPassword from "./components/RemindPassword/RemindPassword";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 
 import { BasketContextProvider } from "./context/BasketContext/BasketContext";
 import { UserContextProvider } from "./context/UserContext/UserContext";
-import ResetPassword from "./components/ResetPassword/ResetPassword";
 
 function Routing() {
   return (
@@ -46,7 +45,6 @@ function Routing() {
                 </Route>
                 <Route path="/mamma_mia/contact" component={Contact} />
                 <Route path="/mamma_mia/comments" component={Reviews} />
-                {/* <Route path="/mamma_mia/log" component={AuthBox} /> */}
                 <Route
                   path="/mamma_mia/remindpassword"
                   component={RemindPassword}
