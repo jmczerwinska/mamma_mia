@@ -144,9 +144,10 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     // Create reset URL
-    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/auth/resetpassword/${resetToken}`;
+    // const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/auth/resetpassword/${resetToken}`;
+    const resetUrl = `${req.protocol}://localhost:3000/mamma_mia/resetpassword/${resetToken}`;
 
-    const text = `You are reversing this email because you (or someone else) has requested the reset of the password. Please make a PUT request to: \n\n ${resetUrl}`;
+    const text = `You are reversing this email because you (or someone else) has requested the reset of the password. Please visit \n\n ${resetUrl} \n\n to create new password.`;
 
     try {
             
@@ -156,8 +157,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
             text
         });
 
-        res.status(200).json({succes: true, data: 'Email send'});
-
+        res.status(200).json({success: true, data: 'Email send'});
     } catch (error) {
         console.log(error);
 
@@ -199,7 +199,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 
     await user.save({ validateModifiedOnly: true });
 
-    sendTokenResponse(user, 201, res);    
+    sendTokenResponse(user, 201, res);
 });
 
 
