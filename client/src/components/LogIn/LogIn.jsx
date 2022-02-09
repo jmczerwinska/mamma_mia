@@ -43,7 +43,7 @@ function LogIn({ history, closeModal, inputClass }) {
   };
 
   const remindPassword = () => {
-    history.push("mamma_mia/remindpassword");
+    history.push("/mamma_mia/remindpassword");
     closeModal();
   };
   console.log(errors);
