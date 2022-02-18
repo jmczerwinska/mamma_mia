@@ -18,6 +18,7 @@ import ResetPassword from "./components/ResetPassword/ResetPassword";
 
 import { BasketContextProvider } from "./context/BasketContext/BasketContext";
 import { UserContextProvider } from "./context/UserContext/UserContext";
+import UserDashboard from "./components/UserDashboard/UserDashboard";
 
 function Routing() {
   return (
@@ -52,6 +53,10 @@ function Routing() {
                 <Route
                   path="/mamma_mia/resetpassword/:token"
                   component={ResetPassword}
+                />
+                <Route
+                  path="/mamma_mia/useraccount"
+                  component={UserDashboard}
                 />
               </App>
             </Route>
