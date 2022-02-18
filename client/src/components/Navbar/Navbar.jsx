@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useScrollPosition, useWindowWidth } from "../../customHooks";
 
@@ -9,14 +9,21 @@ import Logo from "./logo-mini.png";
 import LogButton from "../LogBtn/LogBtn";
 
 import "./Navbar.scss";
+import { UserContext } from "../../context/UserContext/UserContext";
 
 function Navbar() {
+  const { user } = useContext(UserContext);
+  
   const links = [
     { name: "Menu", path: "/mamma_mia/menu" },
     { name: "Skomponuj", path: "/mamma_mia/compose" },
     { name: "Opinie", path: "/mamma_mia/comments" },
     { name: "Kontakt", path: "/mamma_mia/contact" },
   ];
+
+  if (user) {
+    links.push({ name: "Moje konto", path: "/mamma_mia/useraccount" });
+  }
 
   const headerHeight = window.innerHeight / 2 - 70;
   const isScrolled = useScrollPosition() > headerHeight;
