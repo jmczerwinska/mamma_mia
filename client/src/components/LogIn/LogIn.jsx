@@ -46,7 +46,6 @@ function LogIn({ history, closeModal, inputClass }) {
     history.push("/mamma_mia/remindpassword");
     closeModal();
   };
-  console.log(errors);
 
   return (
     <>
