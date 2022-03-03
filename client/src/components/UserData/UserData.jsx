@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext/UserContext";
 
 function UserData() {
-  const { user } = useContext(UserContext);
+  const { user, updateUser } = useContext(UserContext);
   const { firstName, lastName, email, phone } = user;
   const {
     register,
@@ -21,14 +21,15 @@ function UserData() {
   const [isEdited, setIsEdited] = useState(false);
 
   const updateUserData = async (data) => {
+    console.log(data);
     try {
       const response = await fetch("/api/v1/auth/updatedetails", {
         method: "PUT",
         headers: {
-          "Content-Type": "appliction/json",
-          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        credential: "include",
+        credentials: "include",
+        body: JSON.stringify(data),
       });
 
       const parseResponse = await response.json();
@@ -36,7 +37,8 @@ function UserData() {
       if (!parseResponse.success) {
         throw Error(`${response.status} - ${parseResponse.message}`);
       }
-
+      
+      updateUser(parseResponse.data);
       toast.success("Dane zostały zaktualizowane");
       setIsEdited(false);
     } catch (error) {
@@ -51,23 +53,23 @@ function UserData() {
       <form onSubmit={handleSubmit(updateUserData)}>
         <input
           type="text"
-          value={user.name}
+
           disabled={!isEdited}
           {...register("firstName", {})}
         />
         <input
           type="text"
-          value={user.lastName}
+       
           disabled={!isEdited}
           {...register("lastName", {})}
         />
         <input
           type="text"
-          {...register("email", { value: user.email, disabled: !isEdited })}
+          {...register("email", { disabled: !isEdited })}
         />
         <input
           type="text"
-          value={user.phone}
+      
           disabled={!isEdited}
           {...register("phone", {})}
         />
