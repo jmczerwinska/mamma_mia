@@ -20,14 +20,13 @@ function ChangePassword() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Accept: "apliction-json",
         },
         credentials: "include",
         body: JSON.stringify(data),
       });
 
-      const parseResponse = response.json();
-
+      const parseResponse = await response.json();
+      console.log(parseResponse);
       if (!parseResponse.success) {
         throw Error(`${response.status} - ${parseResponse.message}`);
       }
@@ -63,7 +62,7 @@ function ChangePassword() {
               message: "Hasło musi zawierać przynajmniej 8 znaków",
             },
           })}
-          />
+        />
         {errors.newPassword && (
           <ValidationMessage message={errors.newPassword.message} />
         )}
@@ -75,12 +74,12 @@ function ChangePassword() {
           {...register("newPassword1", {
             required: "Powtórz nowe hasło",
             validate: (value) =>
-            value === newPassword.current || "Podane hasła są różne",
+              value === newPassword.current || "Podane hasła są różne",
           })}
-          />
-          {errors.newPassword1 && (
-            <ValidationMessage message={errors.newPassword1.message} />
-            )}
+        />
+        {errors.newPassword1 && (
+          <ValidationMessage message={errors.newPassword1.message} />
+        )}
 
         <input type="submit" value="Zmień hasło" />
       </form>
