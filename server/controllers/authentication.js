@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const asyncHandler = require('../middleware/async');
 const sendEmail = require('../utils/sendEmail');
-const User = require('..//models/User');
+const User = require('../models/User');
 const ErrorResponse = require("../utils/errorResponse");
 
 
@@ -93,7 +93,7 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 //@desc     Update user details
 //@route    PUT /api/v1/auth/updatedetails
 //@access   Privat
-exports.updateDetails = asyncHandler(async (req, res, next) => {    
+exports.updateDetails = asyncHandler(async (req, res, next) => {   
     const user = await User.findByIdAndUpdate(req.user.id, req.body, {
         new: true,
         runValidators: true
