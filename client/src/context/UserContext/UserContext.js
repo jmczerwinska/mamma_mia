@@ -1,12 +1,16 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 import UserReducer from "./UserReucer";
 
-const logedUser = null;
+const logedUser = JSON.parse(window.localStorage.getItem("user")) || null;
 
 export const UserContext = createContext(logedUser);
 
 export function UserContextProvider({ children }) {
   const [user, dispatch] = useReducer(UserReducer, logedUser);
+
+  useEffect(() => {
+    window.localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
 
   const saveUser = (user) => {
     dispatch({
